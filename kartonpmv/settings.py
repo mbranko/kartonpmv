@@ -25,7 +25,7 @@ SECRET_KEY = 'x3o0qcp0w^nh04ulck1$#d4&1#7+q%^9e&hq9g42pm+u7foe*p'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['karton.pmv.org.rs',]
 
 
 # Application definition
