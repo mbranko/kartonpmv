@@ -23,6 +23,7 @@ from kartonpmv import settings, views
 urlpatterns = [
     url(r'^accounts/login/$', login),
     url(r'^accounts/logout/$', views.logout, name='logout'),
+    url(r'^forgotpass/$', views.forgotpass, name='forgotpass'),
     url(r'^grappelli/', include('grappelli.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^', include('osnovni.urls')),

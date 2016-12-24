@@ -132,17 +132,18 @@
 												Unesite svoj email da dobijete novu lozinku
 											</p>
 
-											<form>
+											<form method="post" id="forgotform" action="{% url 'forgotpass' %}">
+                                                {% csrf_token %}
 												<fieldset>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="email" class="form-control" placeholder="Email" />
+															<input type="email" class="form-control" placeholder="Email" name="email" id="id_email"/>
 															<i class="ace-icon fa fa-envelope"></i>
 														</span>
 													</label>
 
 													<div class="clearfix">
-														<button type="button" class="width-35 pull-right btn btn-sm btn-danger">
+														<button type="button" class="width-35 pull-right btn btn-sm btn-danger" id="forgotbutton">
 															<i class="ace-icon fa fa-lightbulb-o"></i>
 															<span class="bigger-110">Pošalji</span>
 														</button>
@@ -206,6 +207,11 @@
 			    if (e.keyCode == 13)
 			        loginButton.click();
              });
+
+			 var forgotForm = $("#forgotform");
+			 var forgotButton = $("#forgotbutton");
+			 var emailField = $("#id_email");
+
 
 			});
 		</script>
