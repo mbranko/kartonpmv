@@ -16,16 +16,21 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.contrib import admin
-from kartonpmv import settings
+from django.contrib.auth.views import login
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from kartonpmv import settings, views
 
 urlpatterns = [
+    url(r'^accounts/login/$', login),
+    url(r'^accounts/logout/$', views.logout, name='logout'),
     url(r'^grappelli/', include('grappelli.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^', include('osnovni.urls')),
 ]
 
 if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += staticfiles_urlpatterns()
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     import debug_toolbar
     urlpatterns += [
         url(r'^__debug__/', include(debug_toolbar.urls)),
