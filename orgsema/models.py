@@ -101,7 +101,7 @@ class OrgJed(models.Model):
 
     class Meta:
         verbose_name = u'organizaciona jedinica'
-        verbose_name_plural = u'oganizacione jedinice'
+        verbose_name_plural = u'organizacione jedinice'
 
 
 class Uloga(models.Model):
@@ -135,6 +135,9 @@ class Radnik(models.Model):
 
     def email(self):
         return self.user.email
+
+    def username(self):
+        return self.user.username
 
     def safe_avatar_url(self):
         if self.avatar.name:

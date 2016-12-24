@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'django_extensions',
     'widget_tweaks',
+    'django_tables2',
     'orgsema',
     'osnovni',
 ]

@@ -23,12 +23,14 @@ class ForgotPasswordForm(forms.Form):
 class NoviRadnikForm(forms.Form):
     ime = forms.CharField(label=u'ime', max_length=30)
     prezime = forms.CharField(label=u'prezime', max_length=30)
-    org_jed = forms.ModelChoiceField(label=u'organizaciona jedinica', queryset=OrgJed.objects.filter(aktivna=True))
-    uloga = forms.ModelChoiceField(label=u'uloga', queryset=Uloga.objects.all(), initial=3)
+    org_jed = forms.ModelChoiceField(label=u'organizaciona jedinica', queryset=OrgJed.objects.filter(aktivna=True), initial=1)
+    uloga = forms.ModelChoiceField(label=u'uloga', queryset=Uloga.objects.all(), initial=1)
     username = forms.CharField(label=u'korisničko ime', max_length=30)
     password1 = forms.CharField(label=u'lozinka', max_length=30, widget=forms.PasswordInput)
     password2 = forms.CharField(label=u'ponovljena lozinka', max_length=30, widget=forms.PasswordInput)
     email = forms.EmailField(label=u'email', max_length=100)
+    administracija = forms.BooleanField(label=u'administracija', initial=True)
+    izvestaji = forms.BooleanField(label=u'izveštaji', initial=True)
 
     def clean(self):
         test_username = self.cleaned_data['username']

@@ -2,12 +2,15 @@
 # -*- coding: utf-8 -*-
 
 import random
+from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import redirect, render_to_response
-from django.template import RequestContext
+from django.shortcuts import redirect, render
+from django_tables2 import RequestConfig
 from orgsema import emails
-from orgsema.forms import ForgotPasswordForm, PromenaLozinkeForm
+from orgsema.forms import ForgotPasswordForm, PromenaLozinkeForm, MojiPodaciForm, NoviRadnikForm
+from orgsema.models import Radnik
+from orgsema.tables import ListaRadnika
 
 
 def generate_password():
@@ -40,26 +43,100 @@ def changepassword(request):
     if request.method == 'POST':
         form = PromenaLozinkeForm(request.POST)
         if form.is_valid():
-            if request.user.check_password(form.cleaned_data['old_password']):
-                request.user.set_password(form.cleaned_data['new_password1'])
-                request.user.save()
-                return redirect('orgsema.views.changepassword2')
+            user = User.objects.get(username=form.cleaned_data['username'])
+            if user.check_password(form.cleaned_data['old_password']):
+                user.set_password(form.cleaned_data['new_password1'])
+                user.save()
+                update_session_auth_hash(request, user)
+                return redirect('changepass2')
     else:
         form = PromenaLozinkeForm(initial={'username': request.user.username})
-    return render_to_response('orgsema/changepassword.html',
-                              {'form': form,
-                               'breadcrumbs': [u'Promena lozinke'],
-                               'maintitle': u'Promena lozinke',
-                               'titleinfo': u'Morate znati tekuću lozinku da biste je promenili',
-                              })
+    return render(request, 'orgsema/changepassword.html', {'form': form, 'breadcrumbs': [u'Promena lozinke']})
 
 
 @login_required
 def changepassword2(request):
-    return render_to_response('orgsema/changepassword2.html',
-        {'breadcrumb1': u'Лозинка',
-         'naslov': u'Промена лозинке',
-        },
-        context_instance=RequestContext(request))
+    return render(request, 'orgsema/changepassword2.html', {'breadcrumbs': [u'Promena lozinke']})
 
 
+@login_required
+def myprofile(request):
+    if request.method == 'POST':
+        form = MojiPodaciForm(request.POST)
+        if form.is_valid():
+            request.user.first_name = form.cleaned_data['ime']
+            request.user.last_name = form.cleaned_data['prezime']
+            request.user.email = form.cleaned_data['email']
+            request.user.radnik.orgjed = form.cleaned_data['org_jed']
+            request.user.save()
+            return redirect('myprofile')
+    else:
+        current = {
+            'username': request.user.username,
+            'ime': request.user.first_name,
+            'prezime': request.user.last_name,
+            'email': request.user.email,
+            'org_jed': request.user.radnik.orgjed.pk
+        }
+        form = MojiPodaciForm(initial=current)
+    return render(request, 'orgsema/myprofile.html', {'form': form, 'breadcrumbs': [u'Moj profil']})
+
+
+@login_required
+def newemployee(request):
+    if request.method == 'POST':
+        form = NoviRadnikForm(request.POST)
+        if form.is_valid():
+            user = User()
+            user.first_name = form.cleaned_data['ime']
+            user.last_name = form.cleaned_data['prezime']
+            user.email = form.cleaned_data['email']
+            user.username = form.cleaned_data['username']
+            user.set_password(form.cleaned_data['password1'])
+            user.is_staff = (form.cleaned_data['uloga'].id == 1)
+            user.is_superuser = (form.cleaned_data['uloga'].id == 1)
+            user.save()
+            radnik = Radnik()
+            radnik.user = user
+            radnik.orgjed = form.cleaned_data['org_jed']
+            radnik.uloga = form.cleaned_data['uloga']
+            radnik.administracija = form.cleaned_data['administracija']
+            radnik.izvestaji = form.cleaned_data['izvestaji']
+            radnik.save()
+            return redirect('newemployee2', radnik.id)
+    else:
+        form = NoviRadnikForm()
+    return render(request, 'orgsema/newemployee.html', {'form': form, 'breadcrumbs': [u'Novi korisnik']})
+
+
+@login_required
+def newemployee2(request, radnik_id):
+    try:
+        radnik = Radnik.objects.get(id=radnik_id)
+        return render(request, 'orgsema/newemployee2.html', {'radnik': radnik})
+    except Exception as err:
+        print(err)
+        return redirect('/')
+
+
+@login_required
+def employeelist(request):
+    table = ListaRadnika(Radnik.objects.all())
+    RequestConfig(request, paginate={"per_page": 20}).configure(table)
+    return render(request, 'orgsema/employeelist.html', {'breadcrumbs': [u'Korisnici'], 'table': table})
+
+
+@login_required
+def upload_avatar(request):
+    radnik = request.user.radnik
+    for fajl in request.FILES.getlist('avatar'):
+        radnik.avatar.save(fajl.name, ContentFile(fajl.read()))
+    radnik.save()
+    oldimage = Image.open(radnik.avatar.file.name)
+    width, height = oldimage.size
+    minimum = min(width, height)
+    cropwidth = (width-minimum)//2
+    cropheight = (height-minimum)//2
+    newimage = oldimage.crop((cropwidth,cropheight,width-cropwidth,height-cropheight))
+    newimage.save(radnik.avatar.file.name)
+    return HttpResponse(simplejson.dumps({'url': radnik.avatar.url}),  mimetype="application/x-javascript")

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static  %}
+{% get_static_prefix as STATIC %}
+{% load url from future %}
+{% load widget_tweaks %}
+
+{% block maintitle %}Registracija novog korisnika{% endblock %}
+{% block titleinfo %}Uspešna{% endblock %}
+
+{% block content %}
+<div class="alert alert-block alert-success">
+  <p>
+    <i class="icon-ok"></i>
+    Korisnik <strong>{{ radnik.puno_ime }}</strong> je uspešno registrovan.
+  </p>
+  <p>
+    <button class="btn btn-sm btn-success" type="button" id="continue">Nastavi unos</button>
+  </p>
+</div>
+{% endblock %}
+
+{% block pagescript %}
+<script type="text/javascript">
+$(function(){
+  $("#continue").click(function() {
+    window.location = "{% url 'newemployee' %}";
+  });
+});
+</script>
+{% endblock %}

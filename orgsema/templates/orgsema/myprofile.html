@@ -1,0 +1,316 @@
+{% extends "base.html" %}
+{% load static  %}
+{% get_static_prefix as STATIC %}
+{% load widget_tweaks %}
+
+{% block maintitle %}Moj profil{% endblock %}
+{% block titleinfo %}Podaci o prijavljenom korisniku{% endblock %}
+
+
+{% block content %}
+<form action="" method="post">{% csrf_token %}</form>
+<div id="user-profile" class="user-profile row">
+  <div class="col-xs-12 col-sm-3 center">
+    <div class="space-12"></div>
+    <div>
+      <span class="profile-picture">
+        <img id="avatar" class="editable img-responsive" alt="{{ request.user.first_name }}" src="{{ request.user.radnik.safe_avatar_url }}" />
+      </span>
+
+      <div class="space-4"></div>
+
+      <div class="width-80 label label-info label-xlg arrowed-in arrowed-in-right">
+        <div class="inline position-relative">
+          <span class="white">{{ request.user.radnik.puno_ime }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-9">
+    <div class="profile-user-info profile-user-info-striped">
+      <div class="profile-info-row">
+        <div class="profile-info-name"> Korisničko ime </div>
+
+        <div class="profile-info-value">
+          <span class="editable" id="username">{{ request.user.username }}</span>
+        </div>
+      </div>
+
+      <div class="profile-info-row">
+        <div class="profile-info-name"> Email </div>
+
+        <div class="profile-info-value">
+          <span class="editable" id="email">{{ request.user.email }}</span>
+        </div>
+      </div>
+
+      <div class="profile-info-row">
+        <div class="profile-info-name"> Org. jedinica </div>
+
+        <div class="profile-info-value">
+          <span class="editable" id="orgjed">{{ request.user.radnik.orgjed.naziv }}</span>
+        </div>
+      </div>
+
+      <div class="profile-info-row">
+        <div class="profile-info-name"> Uloga </div>
+
+        <div class="profile-info-value">
+          <span class="editable" id="uloga">{{ request.user.radnik.uloga.naziv }}</span>
+        </div>
+      </div>
+
+      <div class="profile-info-row">
+        <div class="profile-info-name"> Poslednja poseta </div>
+
+        <div class="profile-info-value">
+          <span class="editable" id="login">{{ request.user.last_login|date:"d.m.Y. H:i" }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="space-20"></div>
+
+  </div>
+</div>
+{% endblock %}
+
+{% block pagescripts %}
+<script src="{{ STATIC }}assets/js/jquery.gritter.min.js"></script>
+<script src="{{ STATIC }}assets/js/x-editable/bootstrap-editable.min.js"></script>
+<script src="{{ STATIC }}assets/js/x-editable/ace-editable.min.js"></script>
+<script src="{{ STATIC }}assets/js/ace-elements.min.js"></script>
+<script src="{{ STATIC }}assets/js/ace.min.js"></script>
+<script type="text/javascript">
+$(function() {
+  $(".profile-info-name").css('width', '120px');
+{#  $.ajax({#}
+{#    type: "GET",#}
+{#    url: "{% url 'primedbe.views.statistika_radnika' request.user.radnik.id %}",#}
+{#    dataType: "json",#}
+{#    error: function(data) { },#}
+{#    success: function(data) {#}
+{#      $("#otvorenih").text(format(parseInt(data.otvorio)));#}
+{#      $("#odgovoran").text(format(parseInt(data.odgovoran)));#}
+{#      $("#upoznat").text(format(parseInt(data.upoznat)));#}
+{#      $("#zatvorenih").text(format(parseInt(data.zatvorio)));#}
+{#      $("#eskaliranih").text(format(parseInt(data.eskalirao)));#}
+{#      $("#reakcija").text(data.reakcija);#}
+{#    }#}
+{#  });#}
+
+  $.fn.editable.defaults.mode = 'inline';
+  $.fn.editableform.loading = "<div class='editableform-loading'><i class='light-blue icon-2x icon-spinner icon-spin'></i></div>";
+  $.fn.editableform.buttons = '<button type="submit" class="btn btn-info editable-submit"><i class="icon-ok icon-white"></i></button>'+
+                              '<button type="button" class="btn editable-cancel"><i class="icon-remove"></i></button>';
+
+  // *** editable avatar *** //
+  try {//ie8 throws some harmless exception, so let's catch it
+
+    //it seems that editable plugin calls appendChild, and as Image doesn't have it, it causes errors on IE at unpredicted points
+    //so let's have a fake appendChild for it!
+    if( /msie\s*(8|7|6)/.test(navigator.userAgent.toLowerCase()) ) Image.prototype.appendChild = function(el){}
+
+    var last_gritter;
+    $('#avatar').editable({
+      type: 'image',
+      name: 'avatar',
+      value: null,
+      image: {
+        //specify ace file input plugin's options here
+        btn_choose: 'Изаберите слику',
+        droppable: true,
+        /**
+        //this will override the default before_change that only accepts image files
+        before_change: function(files, dropped) {
+          return true;
+        },
+        */
+
+        //and a few extra ones here
+        name: 'avatar',//put the field name here as well, will be used inside the custom plugin
+        max_size: 110000,//~100Kb
+        on_error : function(code) {//on_error function will be called when the selected file has a problem
+          if(last_gritter) $.gritter.remove(last_gritter);
+          if(code == 1) {//file format error
+            last_gritter = $.gritter.add({
+              title: 'Фајл није слика!',
+              text: 'Изаберите jpg|gif|png слику!',
+              class_name: 'gritter-error gritter-center'
+            });
+          } else if(code == 2) {//file size rror
+            last_gritter = $.gritter.add({
+              title: 'Фајл је превелик!',
+              text: 'Величина фајла је највише 100 KB!',
+              class_name: 'gritter-error gritter-center'
+            });
+          }
+          else {//other error
+          }
+        },
+        on_success : function() {
+          $.gritter.removeAll();
+        }
+      },
+        url: function(params) {
+        // ***UPDATE AVATAR HERE*** //
+        //You can replace the contents of this function with examples/profile-avatar-update.js for actual upload
+
+        //please modify submit_url accordingly
+        var submit_url = "{% url 'orgsema.views.upload_avatar' %}"; //'examples/file-upload.php';
+        var deferred;
+
+
+        //if value is empty, means no valid files were selected
+        //but it may still be submitted by the plugin, because "" (empty string) is different from previous non-empty value whatever it was
+        //so we return just here to prevent problems
+        var value = $('#avatar').next().find('input[type=hidden]:eq(0)').val();
+        if(!value || value.length == 0) {
+          deferred = new $.Deferred
+          deferred.resolve();
+          return deferred.promise();
+        }
+
+        var $form = $('#avatar').next().find('.editableform:eq(0)')
+        var file_input = $form.find('input[type=file]:eq(0)');
+
+        //user iframe for older browsers that don't support file upload via FormData & Ajax
+        if( !("FormData" in window) ) {
+          deferred = new $.Deferred
+
+          var iframe_id = 'temporary-iframe-'+(new Date()).getTime()+'-'+(parseInt(Math.random()*1000));
+          $form.after('<iframe id="'+iframe_id+'" name="'+iframe_id+'" frameborder="0" width="0" height="0" src="about:blank" style="position:absolute;z-index:-1;"></iframe>');
+          $form.append('<input type="hidden" name="temporary-iframe-id" value="'+iframe_id+'" />');
+          $form.next().data('deferrer' , deferred);//save the deferred object to the iframe
+          $form.attr({'method' : 'POST', 'enctype' : 'multipart/form-data',
+                'target':iframe_id, 'action':submit_url});
+
+          $form.get(0).submit();
+
+          //if we don't receive the response after 60 seconds, declare it as failed!
+          setTimeout(function(){
+            var iframe = document.getElementById(iframe_id);
+            if(iframe != null) {
+              iframe.src = "about:blank";
+              $(iframe).remove();
+
+              deferred.reject({'status':'fail','message':'Timeout!'});
+            }
+          } , 60000);
+        }
+        else {
+          var fd = null;
+          try {
+            fd = new FormData($form.get(0));
+          } catch(e) {
+            //IE10 throws "SCRIPT5: Access is denied" exception,
+            //so we need to add the key/value pairs one by one
+            fd = new FormData();
+            $.each($form.serializeArray(), function(index, item) {
+              fd.append(item.name, item.value);
+            });
+            //and then add files because files are not included in serializeArray()'s result
+            $form.find('input[type=file]').each(function(){
+              if(this.files.length > 0) fd.append(this.getAttribute('name'), this.files[0]);
+            });
+          }
+          // ovo je za django CSRF check
+          fd.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+
+          //if file has been drag&dropped , append it to FormData
+          if(file_input.data('ace_input_method') == 'drop') {
+            var files = file_input.data('ace_input_files');
+            if(files && files.length > 0) {
+              fd.append(file_input.attr('name'), files[0]);
+            }
+          }
+
+          deferred = $.ajax({
+            url: submit_url,
+            type: 'POST',
+            processData: false,
+            contentType: false,
+            dataType: 'json',
+            data: fd,
+            xhr: function() {
+              var req = $.ajaxSettings.xhr();
+              if (req && req.upload) {
+                req.upload.addEventListener('progress', function(e) {
+                  if(e.lengthComputable) {
+                    var done = e.loaded || e.position, total = e.total || e.totalSize;
+                    var percent = parseInt((done/total)*100) + '%';
+                    //bar.css('width', percent).parent().attr('data-percent', percent);
+                  }
+                }, false);
+              }
+              return req;
+            },
+            beforeSend: function() {
+              //bar.css('width', '0%').parent().attr('data-percent', '0%');
+            },
+            success: function(data) {
+              //bar.css('width', '100%').parent().attr('data-percent', '100%');
+              $('#avatar').get(0).src = data.url;
+            },
+            error: function(data) {
+              alert('error');
+            }
+          })
+        }
+
+
+        /*
+        deferred.done(function(res){
+          if (res.status == 'OK')
+            $('#avatar').get(0).src = res.url;
+          else
+            alert(res.message);
+        }).fail(function(res){
+          alert("Failure: " + res.message);
+        });
+        */
+
+        return deferred.promise();
+{#        var deferred = new $.Deferred;#}
+{##}
+{#        //if value is empty, means no valid files were selected#}
+{#        //but it may still be submitted by the plugin, because "" (empty string) is different from previous non-empty value whatever it was#}
+{#        //so we return just here to prevent problems#}
+{#        var value = $('#avatar').next().find('input[type=hidden]:eq(0)').val();#}
+{#        if(!value || value.length == 0) {#}
+{#          deferred.resolve();#}
+{#          return deferred.promise();#}
+{#        }#}
+{##}
+{##}
+{#        //dummy upload#}
+{#        setTimeout(function(){#}
+{#          if("FileReader" in window) {#}
+{#            //for browsers that have a thumbnail of selected image#}
+{#            var thumb = $('#avatar').next().find('img').data('thumb');#}
+{#            if(thumb) $('#avatar').get(0).src = thumb;#}
+{#          }#}
+{##}
+{#          deferred.resolve({'status':'OK'});#}
+{##}
+{#          if(last_gritter) $.gritter.remove(last_gritter);#}
+{#          last_gritter = $.gritter.add({#}
+{#            title: 'Slika ažurirana!',#}
+{#            text: 'Vaša slika je promenjena.',#}
+{#            class_name: 'gritter-info gritter-center'#}
+{#          });#}
+{##}
+{#        }, parseInt(Math.random() * 800 + 800));#}
+{##}
+{#        return deferred.promise();#}
+      },
+
+      success: function(response, newValue) {
+      }
+    })
+  } catch(e) {
+  }
+});
+</script>
+{% endblock %}

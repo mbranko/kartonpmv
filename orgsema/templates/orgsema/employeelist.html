@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static  %}
+{% get_static_prefix as STATIC %}
+{% load widget_tweaks %}
+{% load render_table from django_tables2 %}
+
+{% block maintitle %}Registrovani korisnici{% endblock %}
+{% block titleinfo %}Lista svih korisnika{% endblock %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-md-12">
+      {% render_table table "orgsema/radnici_table.html" %}
+    </div>
+  </div>
+{% endblock %}

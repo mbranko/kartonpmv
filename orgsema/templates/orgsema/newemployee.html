@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% load static  %}
+{% get_static_prefix as STATIC %}
+{% load widget_tweaks %}
+
+{% block maintitle %}Registracija novog korisnika{% endblock %}
+{% block titleinfo %}Unesite podatke o novom korisniku{% endblock %}
+
+{% block content %}
+<form action="" method="post" id="new-employee-form">
+  {% csrf_token %}
+  {% if form.non_field_errors %}
+    <div class="alert alert-danger">
+      <button type="button" class="close" data-dismiss="alert">
+        <i class="icon-remove"></i>
+      </button>
+      <strong>
+        Greška!
+      </strong>
+      <br />
+      {{ form.non_field_errors }}
+    </div>
+  {% endif %}
+  <div class="form-group">
+    <label class="col-md-2 control-label no-padding-right" for="id_ime">Ime</label>
+    <div class="col-md-4">{{ form.ime|attr:"required:required"|attr:"class:col-md-12" }}</div>
+    <div class="clearfix"></div><div class="space-2"></div>
+
+    <label class="col-md-2 control-label no-padding-right" for="id_prezime">Prezime</label>
+    <div class="col-md-4">{{ form.prezime|attr:"required:required"|attr:"class:col-md-12" }}</div>
+    <div class="clearfix"></div><div class="space-2"></div>
+
+    <label class="col-md-2 control-label no-padding-right" for="id_email">Email</label>
+    <div class="col-md-4">{{ form.email|attr:"required:required"|attr:"class:col-md-12" }}</div>
+    <div class="clearfix"></div><div class="space-2"></div>
+
+    <label class="col-md-2 control-label no-padding-right" for="id_username">Korisničko ime</label>
+    <div class="col-md-4">{{ form.username|attr:"required:required"|attr:"class:col-md-12" }}</div>
+    <div class="clearfix"></div><div class="space-2"></div>
+
+    <label class="col-md-2 control-label no-padding-right" for="id_password1">Lozinka</label>
+    <div class="col-md-4">{{ form.password1|attr:"required:required"|attr:"class:col-md-12" }}</div>
+    <div class="clearfix"></div><div class="space-2"></div>
+
+    <label class="col-md-2 control-label no-padding-right" for="id_password2">Ponovite lozinku</label>
+    <div class="col-md-4">{{ form.password2|attr:"required:required"|attr:"class:col-md-12" }}</div>
+    <div class="clearfix"></div><div class="space-2"></div>
+
+    <label class="col-md-2 control-label no-padding-right" for="id_org_jed">Org. jedinica</label>
+    <div class="col-md-4">{{ form.org_jed|attr:"required:required"|attr:"class:col-md-12" }}</div>
+    <div class="clearfix"></div><div class="space-2"></div>
+
+    <label class="col-md-2 control-label no-padding-right" for="id_ime">Uloga</label>
+    <div class="col-md-4">{{ form.uloga|attr:"required:required"|attr:"class:col-md-12" }}</div>
+    <div class="clearfix"></div><div class="space-2"></div>
+
+    <label class="col-md-2 control-label no-padding-right" for="id_administracija"> Administracija</label>
+    <div class="col-md-4">{{ form.administracija|attr:"required:required"|attr:"class:col-md-12" }}</div>
+    <div class="clearfix"></div><div class="space-2"></div>
+
+    <label class="col-md-2 control-label no-padding-right" for="id_izvestaji"> Izveštaji</label>
+    <div class="col-md-4">{{ form.izvestaji|attr:"required:required"|attr:"class:col-md-12" }}</div>
+    <div class="clearfix"></div><div class="space-2"></div>
+
+    <div class="col-md-6">
+      <button class="btn btn-lg btn-success pull-right" id="id_save" type="button">
+        <i class="icon-save"></i>
+        Sačuvaj
+      </button>
+    </div>
+  </div>
+</form>
+{% endblock %}
+
+{% block pagescript %}
+<script type="text/javascript">
+$(function() {
+    $("#id_save").click(function () {
+        var form = $("#new-employee-form");
+        var pass1 = $("#id_password1").val();
+        var pass2 = $("#id_password2").val();
+        if (pass1 == pass2)
+            form.submit();
+        else
+            alert('Lozinke nisu jednake!');
+    });
+});
+</script>
+{% endblock %}
