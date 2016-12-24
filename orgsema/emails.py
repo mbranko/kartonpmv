@@ -10,6 +10,9 @@ Dragi korisniče,
 
 Neko je zatražio generisanje nove Vaše lozinke.
 
+Vaše korisničko ime glasi:
+%s
+
 Vaša stara lozinka je obrisana, a nova lozinka glasi:
 %s
 
@@ -26,6 +29,12 @@ FORGOT_PASSWORD_HTML = u"""
 
 <p>Neko je zatražio generisanje nove Vaše lozinke.</p>
 
+<p>Vaše korisničko ime glasi:<br/>
+<pre>
+%s
+</pre>
+</p>
+
 <p>Vaša stara lozinka je obrisana, a nova lozinka glasi:<br/>
 <pre>
 %s
@@ -41,10 +50,10 @@ Pozorišni muzej Vojvodine</p>
 """
 
 
-def send_password_mail(password, recipient):
+def send_password_mail(username, password, recipient):
     msg = EmailMultiAlternatives(
         subject=FORGOT_PASSWORD_TITLE,
-        body=FORGOT_PASSWORD_TEXT % password,
+        body=FORGOT_PASSWORD_TEXT % (username, password),
         to=[recipient])
-    msg.attach_alternative(FORGOT_PASSWORD_HTML % password, 'text/html')
+    msg.attach_alternative(FORGOT_PASSWORD_HTML % (username, password), 'text/html')
     msg.send()

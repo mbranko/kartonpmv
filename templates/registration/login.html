@@ -211,7 +211,13 @@
 			 var forgotForm = $("#forgotform");
 			 var forgotButton = $("#forgotbutton");
 			 var emailField = $("#id_email");
-
+			 forgotButton.click(function() {
+			     forgotForm.submit();
+             })
+             emailField.keyup(function(e) {
+                if (e.keyCode == 13)
+                    forgotButton.click();
+             });
 
 			});
 		</script>

@@ -1,0 +1,8349 @@
+- model: orgsema.OrgJed
+  pk: 1
+  fields:
+    sifra: '000'
+    naziv: Pozorišni muzej Vojvodine
+    nadjed:
+    mesto: 683
+    adresa: Kralja Aleksandra 25
+    email:
+
+
+- model: orgsema.Uloga
+  pk: 1
+  fields:
+    naziv: administrator
+- model: orgsema.Uloga
+  pk: 2
+  fields:
+    naziv: operater
+
+- model: auth.User
+  pk: 1
+  fields:
+    first_name: Branko
+    last_name: Milosavljević
+    username: branko.milosavljevic
+    password: "pbkdf2_sha256$10000$WQKWLyqfNzrM$Tibimt0VdAWRD9thUfDahcpJWpYkHWywAfL8GeU3//M="
+    email: branko.milosavljevic@gmail.com
+    is_staff: 1
+    is_active: 1
+    is_superuser: 1
+    groups: [1]
+- model: auth.User
+  pk: 2
+  fields:
+    first_name: Nenad
+    last_name: Bogdanović
+    username: nenad.bogdanovic
+    password: "pbkdf2_sha256$10000$WQKWLyqfNzrM$Tibimt0VdAWRD9thUfDahcpJWpYkHWywAfL8GeU3//M="
+    email: bness021@gmail.com
+    is_staff: 1
+    is_active: 1
+    is_superuser: 1
+    groups: [1]
+
+
+- model: orgsema.Radnik
+  pk: 1
+  fields:
+    user: 1
+    orgjed: 1
+    uloga: 1
+    administracija: True
+    izvestaji: True
+- model: orgsema.Radnik
+  pk: 2
+  fields:
+    user: 2
+    orgjed: 1
+    uloga: 1
+    administracija: True
+    izvestaji: True
+
+- model: orgsema.Valuta
+  pk: 1
+  fields:
+    sifra: RSD
+    naziv: dinar
+- model: orgsema.Valuta
+  pk: 2
+  fields:
+    sifra: EUR
+    naziv: evro
+- model: orgsema.Valuta
+  pk: 3
+  fields:
+    sifra: HRK
+    naziv: kuna
+- model: orgsema.Valuta
+  pk: 4
+  fields:
+    sifra: КМ
+    naziv: konvertibilna marka
+- model: orgsema.Drzava
+  pk: 1
+  fields:
+    sifra: RS
+    naziv: Srbija
+    valuta: 1
+- model: orgsema.Drzava
+  pk: 2
+  fields:
+    sifra: HR
+    naziv: Hrvatska
+    valuta: 3
+- model: orgsema.Drzava
+  pk: 3
+  fields:
+    sifra: BA
+    naziv: Bosna i Hercegovina
+    valuta: 4
+- model: orgsema.Drzava
+  pk: 4
+  fields:
+    sifra: SI
+    naziv: Slovenija
+    valuta: 2
+
+- model: orgsema.Region
+  pk: 1
+  fields:
+    naziv: Grad Beograd
+    drzava: 1
+- model: orgsema.Region
+  pk: 2
+  fields:
+    naziv: Vojvodina
+    drzava: 1
+- model: orgsema.Region
+  pk: 3
+  fields:
+    naziv: Centralna Srbija
+    drzava: 1
+- model: orgsema.Region
+  pk: 4
+  fields:
+    naziv: Kosovo i Metohija
+    drzava: 1
+- model: orgsema.Okrug
+  pk: 1
+  fields:
+    naziv: Grad Beograd
+    sifra: '00'
+    region: 1
+- model: orgsema.Okrug
+  pk: 2
+  fields:
+    naziv: Severnobački okrug
+    sifra: '01'
+    region: 2
+- model: orgsema.Okrug
+  pk: 3
+  fields:
+    naziv: Srednjobanatski okrug
+    sifra: '02'
+    region: 2
+- model: orgsema.Okrug
+  pk: 4
+  fields:
+    naziv: Severnobanatski okrug
+    sifra: '03'
+    region: 2
+- model: orgsema.Okrug
+  pk: 5
+  fields:
+    naziv: Južnobanatski okrug
+    sifra: '04'
+    region: 2
+- model: orgsema.Okrug
+  pk: 6
+  fields:
+    naziv: Zapadnobački okrug
+    sifra: '05'
+    region: 2
+- model: orgsema.Okrug
+  pk: 7
+  fields:
+    naziv: Južnobački okrug
+    sifra: '06'
+    region: 2
+- model: orgsema.Okrug
+  pk: 8
+  fields:
+    naziv: Sremski okrug
+    sifra: '07'
+    region: 2
+- model: orgsema.Okrug
+  pk: 9
+  fields:
+    naziv: Mačvanski okrug
+    sifra: '08'
+    region: 3
+- model: orgsema.Okrug
+  pk: 10
+  fields:
+    naziv: Kolubarski okrug
+    sifra: '09'
+    region: 3
+- model: orgsema.Okrug
+  pk: 11
+  fields:
+    naziv: Podunavski okrug
+    sifra: '10'
+    region: 3
+- model: orgsema.Okrug
+  pk: 12
+  fields:
+    naziv: Braničevski okrug
+    sifra: '11'
+    region: 3
+- model: orgsema.Okrug
+  pk: 13
+  fields:
+    naziv: Šumadijski okrug
+    sifra: '12'
+    region: 3
+- model: orgsema.Okrug
+  pk: 14
+  fields:
+    naziv: Pomoravski okrug
+    sifra: '13'
+    region: 3
+- model: orgsema.Okrug
+  pk: 15
+  fields:
+    naziv: Borski okrug
+    sifra: '14'
+    region: 3
+- model: orgsema.Okrug
+  pk: 16
+  fields:
+    naziv: Zaječarski okrug
+    sifra: '15'
+    region: 3
+- model: orgsema.Okrug
+  pk: 17
+  fields:
+    naziv: Zlatiborski okrug
+    sifra: '16'
+    region: 3
+- model: orgsema.Okrug
+  pk: 18
+  fields:
+    naziv: Moravički okrug
+    sifra: '17'
+    region: 3
+- model: orgsema.Okrug
+  pk: 19
+  fields:
+    naziv: Raški okrug
+    sifra: '18'
+    region: 3
+- model: orgsema.Okrug
+  pk: 20
+  fields:
+    naziv: Rasinski okrug
+    sifra: '19'
+    region: 3
+- model: orgsema.Okrug
+  pk: 21
+  fields:
+    naziv: Nišavski okrug
+    sifra: '20'
+    region: 3
+- model: orgsema.Okrug
+  pk: 22
+  fields:
+    naziv: Toplički okrug
+    sifra: '21'
+    region: 3
+- model: orgsema.Okrug
+  pk: 23
+  fields:
+    naziv: Pirotski okrug
+    sifra: '22'
+    region: 3
+- model: orgsema.Okrug
+  pk: 24
+  fields:
+    naziv: Jablanički okrug
+    sifra: '23'
+    region: 3
+- model: orgsema.Okrug
+  pk: 25
+  fields:
+    naziv: Pčinjski okrug
+    sifra: '24'
+    region: 3
+- model: orgsema.Okrug
+  pk: 26
+  fields:
+    naziv: Kosovski okrug
+    sifra: '25'
+    region: 4
+- model: orgsema.Okrug
+  pk: 27
+  fields:
+    naziv: Pećki okrug
+    sifra: '26'
+    region: 4
+- model: orgsema.Okrug
+  pk: 28
+  fields:
+    naziv: Prizrenski okrug
+    sifra: '27'
+    region: 4
+- model: orgsema.Okrug
+  pk: 29
+  fields:
+    naziv: Kosovskomitrovački okrug
+    sifra: '28'
+    region: 4
+- model: orgsema.Okrug
+  pk: 30
+  fields:
+    naziv: Kosovskopomoravski okrug
+    sifra: '29'
+    region: 4
+- model: orgsema.Opstina
+  pk: 1
+  fields:
+    naziv: Beograd
+    maticni_broj: 79014
+    okrug: 1
+- model: orgsema.Opstina
+  pk: 2
+  fields:
+    naziv: Barajevo
+    maticni_broj: 70092
+    okrug: 1
+- model: orgsema.Opstina
+  pk: 3
+  fields:
+    naziv: Voždovac
+    maticni_broj: 70106
+    okrug: 1
+- model: orgsema.Opstina
+  pk: 4
+  fields:
+    naziv: Vračar
+    maticni_broj: 70114
+    okrug: 1
+- model: orgsema.Opstina
+  pk: 5
+  fields:
+    naziv: Grocka
+    maticni_broj: 70122
+    okrug: 1
+- model: orgsema.Opstina
+  pk: 6
+  fields:
+    naziv: Zvezdara
+    maticni_broj: 70149
+    okrug: 1
+- model: orgsema.Opstina
+  pk: 7
+  fields:
+    naziv: Zemun
+    maticni_broj: 70157
+    okrug: 1
+- model: orgsema.Opstina
+  pk: 8
+  fields:
+    naziv: Lazarevac
+    maticni_broj: 70165
+    okrug: 1
+- model: orgsema.Opstina
+  pk: 9
+  fields:
+    naziv: Mladenovac
+    maticni_broj: 70173
+    okrug: 1
+- model: orgsema.Opstina
+  pk: 10
+  fields:
+    naziv: Novi Beograd
+    maticni_broj: 70181
+    okrug: 1
+- model: orgsema.Opstina
+  pk: 11
+  fields:
+    naziv: Obrenovac
+    maticni_broj: 70190
+    okrug: 1
+- model: orgsema.Opstina
+  pk: 12
+  fields:
+    naziv: Palilula
+    maticni_broj: 70203
+    okrug: 1
+- model: orgsema.Opstina
+  pk: 13
+  fields:
+    naziv: Rakovica
+    maticni_broj: 70211
+    okrug: 1
+- model: orgsema.Opstina
+  pk: 14
+  fields:
+    naziv: Savski venac
+    maticni_broj: 70220
+    okrug: 1
+- model: orgsema.Opstina
+  pk: 15
+  fields:
+    naziv: Sopot
+    maticni_broj: 70238
+    okrug: 1
+- model: orgsema.Opstina
+  pk: 16
+  fields:
+    naziv: Stari grad
+    maticni_broj: 70246
+    okrug: 1
+- model: orgsema.Opstina
+  pk: 17
+  fields:
+    naziv: Surčin
+    maticni_broj: 70293
+    okrug: 1
+- model: orgsema.Opstina
+  pk: 18
+  fields:
+    naziv: Čukarica
+    maticni_broj: 70254
+    okrug: 1
+- model: orgsema.Opstina
+  pk: 19
+  fields:
+    naziv: Subotica
+    maticni_broj: 80438
+    okrug: 2
+- model: orgsema.Opstina
+  pk: 20
+  fields:
+    naziv: Bačka Topola
+    maticni_broj: 80071
+    okrug: 2
+- model: orgsema.Opstina
+  pk: 21
+  fields:
+    naziv: Mali Iđoš
+    maticni_broj: 80241
+    okrug: 2
+- model: orgsema.Opstina
+  pk: 22
+  fields:
+    naziv: Zrenjanin
+    maticni_broj: 80152
+    okrug: 3
+- model: orgsema.Opstina
+  pk: 23
+  fields:
+    naziv: Žitište
+    maticni_broj: 80144
+    okrug: 3
+- model: orgsema.Opstina
+  pk: 24
+  fields:
+    naziv: Nova Crnja
+    maticni_broj: 80250
+    okrug: 3
+- model: orgsema.Opstina
+  pk: 25
+  fields:
+    naziv: Novi Bečej
+    maticni_broj: 80268
+    okrug: 3
+- model: orgsema.Opstina
+  pk: 26
+  fields:
+    naziv: Sečanj
+    maticni_broj: 80373
+    okrug: 3
+- model: orgsema.Opstina
+  pk: 27
+  fields:
+    naziv: Ada
+    maticni_broj: 80012
+    okrug: 4
+- model: orgsema.Opstina
+  pk: 28
+  fields:
+    naziv: Kanjiža
+    maticni_broj: 80195
+    okrug: 4
+- model: orgsema.Opstina
+  pk: 29
+  fields:
+    naziv: Kikinda
+    maticni_broj: 80209
+    okrug: 4
+- model: orgsema.Opstina
+  pk: 30
+  fields:
+    naziv: Novi Kneževac
+    maticni_broj: 80276
+    okrug: 4
+- model: orgsema.Opstina
+  pk: 31
+  fields:
+    naziv: Senta
+    maticni_broj: 80365
+    okrug: 4
+- model: orgsema.Opstina
+  pk: 32
+  fields:
+    naziv: Čoka
+    maticni_broj: 80489
+    okrug: 4
+- model: orgsema.Opstina
+  pk: 33
+  fields:
+    naziv: Pančevo
+    maticni_broj: 80314
+    okrug: 5
+- model: orgsema.Opstina
+  pk: 34
+  fields:
+    naziv: Alibunar
+    maticni_broj: 80039
+    okrug: 5
+- model: orgsema.Opstina
+  pk: 35
+  fields:
+    naziv: Bela Crkva
+    maticni_broj: 80098
+    okrug: 5
+- model: orgsema.Opstina
+  pk: 36
+  fields:
+    naziv: Vršac
+    maticni_broj: 80128
+    okrug: 5
+- model: orgsema.Opstina
+  pk: 37
+  fields:
+    naziv: Kovačica
+    maticni_broj: 80217
+    okrug: 5
+- model: orgsema.Opstina
+  pk: 38
+  fields:
+    naziv: Kovin
+    maticni_broj: 80225
+    okrug: 5
+- model: orgsema.Opstina
+  pk: 39
+  fields:
+    naziv: Opovo
+    maticni_broj: 80292
+    okrug: 5
+- model: orgsema.Opstina
+  pk: 40
+  fields:
+    naziv: Plandište
+    maticni_broj: 80349
+    okrug: 5
+- model: orgsema.Opstina
+  pk: 41
+  fields:
+    naziv: Sombor
+    maticni_broj: 80381
+    okrug: 6
+- model: orgsema.Opstina
+  pk: 42
+  fields:
+    naziv: Apatin
+    maticni_broj: 80047
+    okrug: 6
+- model: orgsema.Opstina
+  pk: 43
+  fields:
+    naziv: Kula
+    maticni_broj: 80233
+    okrug: 6
+- model: orgsema.Opstina
+  pk: 44
+  fields:
+    naziv: Odžaci
+    maticni_broj: 80306
+    okrug: 6
+- model: orgsema.Opstina
+  pk: 45
+  fields:
+    naziv: Novi Sad
+    maticni_broj: 89010
+    okrug: 7
+- model: orgsema.Opstina
+  pk: 46
+  fields:
+    naziv: Petrovaradin
+    maticni_broj: 80519
+    okrug: 7
+- model: orgsema.Opstina
+  pk: 47
+  fields:
+    naziv: Bač
+    maticni_broj: 80055
+    okrug: 7
+- model: orgsema.Opstina
+  pk: 48
+  fields:
+    naziv: Bačka Palanka
+    maticni_broj: 80063
+    okrug: 7
+- model: orgsema.Opstina
+  pk: 49
+  fields:
+    naziv: Bački Petrovac
+    maticni_broj: 80080
+    okrug: 7
+- model: orgsema.Opstina
+  pk: 50
+  fields:
+    naziv: Beočin
+    maticni_broj: 80101
+    okrug: 7
+- model: orgsema.Opstina
+  pk: 51
+  fields:
+    naziv: Bečej
+    maticni_broj: 80110
+    okrug: 7
+- model: orgsema.Opstina
+  pk: 52
+  fields:
+    naziv: Vrbas
+    maticni_broj: 80462
+    okrug: 7
+- model: orgsema.Opstina
+  pk: 53
+  fields:
+    naziv: Žabalj
+    maticni_broj: 80136
+    okrug: 7
+- model: orgsema.Opstina
+  pk: 54
+  fields:
+    naziv: Srbobran
+    maticni_broj: 80390
+    okrug: 7
+- model: orgsema.Opstina
+  pk: 55
+  fields:
+    naziv: Sremski Karlovci
+    maticni_broj: 80411
+    okrug: 7
+- model: orgsema.Opstina
+  pk: 56
+  fields:
+    naziv: Temerin
+    maticni_broj: 80446
+    okrug: 7
+- model: orgsema.Opstina
+  pk: 57
+  fields:
+    naziv: Titel
+    maticni_broj: 80454
+    okrug: 7
+- model: orgsema.Opstina
+  pk: 58
+  fields:
+    naziv: Sremska Mitrovica
+    maticni_broj: 80403
+    okrug: 8
+- model: orgsema.Opstina
+  pk: 59
+  fields:
+    naziv: Inđija
+    maticni_broj: 80179
+    okrug: 8
+- model: orgsema.Opstina
+  pk: 60
+  fields:
+    naziv: Irig
+    maticni_broj: 80187
+    okrug: 8
+- model: orgsema.Opstina
+  pk: 61
+  fields:
+    naziv: Pećinci
+    maticni_broj: 80322
+    okrug: 8
+- model: orgsema.Opstina
+  pk: 62
+  fields:
+    naziv: Ruma
+    maticni_broj: 80357
+    okrug: 8
+- model: orgsema.Opstina
+  pk: 63
+  fields:
+    naziv: Stara Pazova
+    maticni_broj: 80420
+    okrug: 8
+- model: orgsema.Opstina
+  pk: 64
+  fields:
+    naziv: Šid
+    maticni_broj: 80497
+    okrug: 8
+- model: orgsema.Opstina
+  pk: 65
+  fields:
+    naziv: Bogatić
+    maticni_broj: 70289
+    okrug:  9
+- model: orgsema.Opstina
+  pk: 66
+  fields:
+    naziv: Vladimirci
+    maticni_broj: 70408
+    okrug:  9
+- model: orgsema.Opstina
+  pk: 67
+  fields:
+    naziv: Koceljeva
+    maticni_broj: 70637
+    okrug:  9
+- model: orgsema.Opstina
+  pk: 68
+  fields:
+    naziv: Krupanj
+    maticni_broj: 70661
+    okrug:  9
+- model: orgsema.Opstina
+  pk: 69
+  fields:
+    naziv: Loznica
+    maticni_broj: 70734
+    okrug:  9
+- model: orgsema.Opstina
+  pk: 70
+  fields:
+    naziv: Ljubovija
+    maticni_broj: 70777
+    okrug:  9
+- model: orgsema.Opstina
+  pk: 71
+  fields:
+    naziv: Mali Zvornik
+    maticni_broj: 70793
+    okrug:  9
+- model: orgsema.Opstina
+  pk: 72
+  fields:
+    naziv: Šabac
+    maticni_broj: 71269
+    okrug:  9
+- model: orgsema.Opstina
+  pk: 73
+  fields:
+    naziv: Valjevo
+    maticni_broj: 70360
+    okrug: 10
+- model: orgsema.Opstina
+  pk: 74
+  fields:
+    naziv: Lajkovac
+    maticni_broj: 70700
+    okrug: 10
+- model: orgsema.Opstina
+  pk: 75
+  fields:
+    naziv: Ljig
+    maticni_broj: 70769
+    okrug: 10
+- model: orgsema.Opstina
+  pk: 76
+  fields:
+    naziv: Mionica
+    maticni_broj: 70831
+    okrug: 10
+- model: orgsema.Opstina
+  pk: 77
+  fields:
+    naziv: Osečina
+    maticni_broj: 70882
+    okrug: 10
+- model: orgsema.Opstina
+  pk: 78
+  fields:
+    naziv: Ub
+    maticni_broj: 71218
+    okrug: 10
+- model: orgsema.Opstina
+  pk: 79
+  fields:
+    naziv: Velika Plana
+    maticni_broj: 70386
+    okrug: 11
+- model: orgsema.Opstina
+  pk: 80
+  fields:
+    naziv: Smederevo
+    maticni_broj: 71099
+    okrug: 11
+- model: orgsema.Opstina
+  pk: 81
+  fields:
+    naziv: Smederevska Palanka
+    maticni_broj: 71102
+    okrug: 11
+- model: orgsema.Opstina
+  pk: 82
+  fields:
+    naziv: Požarevac
+    maticni_broj: 70947
+    okrug: 12
+- model: orgsema.Opstina
+  pk: 83
+  fields:
+    naziv: Kostolac
+    maticni_broj: 71340
+    okrug: 12
+- model: orgsema.Opstina
+  pk: 84
+  fields:
+    naziv: Veliko Gradište
+    maticni_broj: 70394
+    okrug: 12
+- model: orgsema.Opstina
+  pk: 85
+  fields:
+    naziv: Golubac
+    maticni_broj: 70475
+    okrug: 12
+- model: orgsema.Opstina
+  pk: 86
+  fields:
+    naziv: Žabari
+    maticni_broj: 70521
+    okrug: 12
+- model: orgsema.Opstina
+  pk: 87
+  fields:
+    naziv: Žagubica
+    maticni_broj: 70530
+    okrug: 12
+- model: orgsema.Opstina
+  pk: 88
+  fields:
+    naziv: Kučevo
+    maticni_broj: 70696
+    okrug: 12
+- model: orgsema.Opstina
+  pk: 89
+  fields:
+    naziv: Malo Crniće
+    maticni_broj: 70807
+    okrug: 12
+- model: orgsema.Opstina
+  pk: 90
+  fields:
+    naziv: Petrovac na Mlavi
+    maticni_broj: 70912
+    okrug: 12
+- model: orgsema.Opstina
+  pk: 91
+  fields:
+    naziv: Aranđelovac
+    maticni_broj: 70033
+    okrug: 13
+- model: orgsema.Opstina
+  pk: 92
+  fields:
+    naziv: Batočina
+    maticni_broj: 70076
+    okrug: 13
+- model: orgsema.Opstina
+  pk: 93
+  fields:
+    naziv: Knić
+    maticni_broj: 70599
+    okrug: 13
+- model: orgsema.Opstina
+  pk: 94
+  fields:
+    naziv: Kragujevac
+    maticni_broj: 70645
+    okrug: 13
+- model: orgsema.Opstina
+  pk: 95
+  fields:
+    naziv: Rača
+    maticni_broj: 71013
+    okrug: 13
+- model: orgsema.Opstina
+  pk: 96
+  fields:
+    naziv: Topola
+    maticni_broj: 71153
+    okrug: 13
+- model: orgsema.Opstina
+  pk: 97
+  fields:
+    naziv: Lapovo
+    maticni_broj: 71277
+    okrug: 13
+- model: orgsema.Opstina
+  pk: 98
+  fields:
+    naziv: Despotovac
+    maticni_broj: 70491
+    okrug: 14
+- model: orgsema.Opstina
+  pk: 99
+  fields:
+    naziv: Paraćin
+    maticni_broj: 70904
+    okrug: 14
+- model: orgsema.Opstina
+  pk: 100
+  fields:
+    naziv: Rekovac
+    maticni_broj: 71030
+    okrug: 14
+- model: orgsema.Opstina
+  pk: 101
+  fields:
+    naziv: Jagodina
+    maticni_broj: 71048
+    okrug: 14
+- model: orgsema.Opstina
+  pk: 102
+  fields:
+    naziv: Svilajnac
+    maticni_broj: 71056
+    okrug: 14
+- model: orgsema.Opstina
+  pk: 103
+  fields:
+    naziv: Ćuprija
+    maticni_broj: 71200
+    okrug: 14
+- model: orgsema.Opstina
+  pk: 104
+  fields:
+    naziv: Bor
+    maticni_broj: 70327
+    okrug: 15
+- model: orgsema.Opstina
+  pk: 105
+  fields:
+    naziv: Kladovo
+    maticni_broj: 70572
+    okrug: 15
+- model: orgsema.Opstina
+  pk: 106
+  fields:
+    naziv: Majdanpek
+    maticni_broj: 70785
+    okrug: 15
+- model: orgsema.Opstina
+  pk: 107
+  fields:
+    naziv: Negotin
+    maticni_broj: 70840
+    okrug: 15
+- model: orgsema.Opstina
+  pk: 108
+  fields:
+    naziv: Boljevac
+    maticni_broj: 70319
+    okrug: 16
+- model: orgsema.Opstina
+  pk: 109
+  fields:
+    naziv: Zaječar
+    maticni_broj: 70556
+    okrug: 16
+- model: orgsema.Opstina
+  pk: 110
+  fields:
+    naziv: Knjaževac
+    maticni_broj: 70602
+    okrug: 16
+- model: orgsema.Opstina
+  pk: 111
+  fields:
+    naziv: Sokobanja
+    maticni_broj: 71129
+    okrug: 16
+- model: orgsema.Opstina
+  pk: 112
+  fields:
+    naziv: Arilje
+    maticni_broj: 70041
+    okrug: 17
+- model: orgsema.Opstina
+  pk: 113
+  fields:
+    naziv: Bajina Bašta
+    maticni_broj: 70068
+    okrug: 17
+- model: orgsema.Opstina
+  pk: 114
+  fields:
+    naziv: Kosjerić
+    maticni_broj: 70629
+    okrug: 17
+- model: orgsema.Opstina
+  pk: 115
+  fields:
+    naziv: Nova Varoš
+    maticni_broj: 70866
+    okrug: 17
+- model: orgsema.Opstina
+  pk: 116
+  fields:
+    naziv: Požega
+    maticni_broj: 70955
+    okrug: 17
+- model: orgsema.Opstina
+  pk: 117
+  fields:
+    naziv: Priboj
+    maticni_broj: 70971
+    okrug: 17
+- model: orgsema.Opstina
+  pk: 118
+  fields:
+    naziv: Prijepolje
+    maticni_broj: 70980
+    okrug: 17
+- model: orgsema.Opstina
+  pk: 119
+  fields:
+    naziv: Sjenica
+    maticni_broj: 71072
+    okrug: 17
+- model: orgsema.Opstina
+  pk: 120
+  fields:
+    naziv: Užice
+    maticni_broj: 71145
+    okrug: 17
+- model: orgsema.Opstina
+  pk: 121
+  fields:
+    naziv: Čajetina
+    maticni_broj: 71234
+    okrug: 17
+- model: orgsema.Opstina
+  pk: 122
+  fields:
+    naziv: Gornji Milanovac
+    maticni_broj: 70483
+    okrug: 18
+- model: orgsema.Opstina
+  pk: 123
+  fields:
+    naziv: Ivanjica
+    maticni_broj: 70564
+    okrug: 18
+- model: orgsema.Opstina
+  pk: 124
+  fields:
+    naziv: Lučani
+    maticni_broj: 70742
+    okrug: 18
+- model: orgsema.Opstina
+  pk: 125
+  fields:
+    naziv: Čačak
+    maticni_broj: 71242
+    okrug: 18
+- model: orgsema.Opstina
+  pk: 126
+  fields:
+    naziv: Vrnjačka Banja
+    maticni_broj: 70459
+    okrug: 19
+- model: orgsema.Opstina
+  pk: 127
+  fields:
+    naziv: Kraljevo
+    maticni_broj: 70653
+    okrug: 19
+- model: orgsema.Opstina
+  pk: 128
+  fields:
+    naziv: Novi Pazar
+    maticni_broj: 70874
+    okrug: 19
+- model: orgsema.Opstina
+  pk: 129
+  fields:
+    naziv: Raška
+    maticni_broj: 71021
+    okrug: 19
+- model: orgsema.Opstina
+  pk: 130
+  fields:
+    naziv: Tutin
+    maticni_broj: 71188
+    okrug: 19
+- model: orgsema.Opstina
+  pk: 131
+  fields:
+    naziv: Aleksandrovac
+    maticni_broj: 70017
+    okrug: 20
+- model: orgsema.Opstina
+  pk: 132
+  fields:
+    naziv: Brus
+    maticni_broj: 70343
+    okrug: 20
+- model: orgsema.Opstina
+  pk: 133
+  fields:
+    naziv: Varvarin
+    maticni_broj: 70378
+    okrug: 20
+- model: orgsema.Opstina
+  pk: 134
+  fields:
+    naziv: Kruševac
+    maticni_broj: 70670
+    okrug: 20
+- model: orgsema.Opstina
+  pk: 135
+  fields:
+    naziv: Trstenik
+    maticni_broj: 71170
+    okrug: 20
+- model: orgsema.Opstina
+  pk: 136
+  fields:
+    naziv: Ćićevac
+    maticni_broj: 71196
+    okrug: 20
+- model: orgsema.Opstina
+  pk: 137
+  fields:
+    naziv: Niš
+    maticni_broj: 79022
+    okrug: 21
+- model: orgsema.Opstina
+  pk: 142
+  fields:
+    naziv: Aleksinac
+    maticni_broj: 70025
+    okrug: 21
+- model: orgsema.Opstina
+  pk: 143
+  fields:
+    naziv: Gadžin Han
+    maticni_broj: 70467
+    okrug: 21
+- model: orgsema.Opstina
+  pk: 144
+  fields:
+    naziv: Doljevac
+    maticni_broj: 70513
+    okrug: 21
+- model: orgsema.Opstina
+  pk: 145
+  fields:
+    naziv: Merošina
+    maticni_broj: 70823
+    okrug: 21
+- model: orgsema.Opstina
+  pk: 146
+  fields:
+    naziv: Ražanj
+    maticni_broj: 71005
+    okrug: 21
+- model: orgsema.Opstina
+  pk: 147
+  fields:
+    naziv: Svrljig
+    maticni_broj: 71064
+    okrug: 21
+- model: orgsema.Opstina
+  pk: 148
+  fields:
+    naziv: Blace
+    maticni_broj: 70262
+    okrug: 22
+- model: orgsema.Opstina
+  pk: 149
+  fields:
+    naziv: Žitorađa
+    maticni_broj: 70548
+    okrug: 22
+- model: orgsema.Opstina
+  pk: 150
+  fields:
+    naziv: Kuršumlija
+    maticni_broj: 70688
+    okrug: 22
+- model: orgsema.Opstina
+  pk: 151
+  fields:
+    naziv: Prokuplje
+    maticni_broj: 70998
+    okrug: 22
+- model: orgsema.Opstina
+  pk: 152
+  fields:
+    naziv: Babušnica
+    maticni_broj: 70050
+    okrug: 23
+- model: orgsema.Opstina
+  pk: 153
+  fields:
+    naziv: Bela Palanka
+    maticni_broj: 70084
+    okrug: 23
+- model: orgsema.Opstina
+  pk: 154
+  fields:
+    naziv: Dimitrovgrad
+    maticni_broj: 70505
+    okrug: 23
+- model: orgsema.Opstina
+  pk: 155
+  fields:
+    naziv: Pirot
+    maticni_broj: 70939
+    okrug: 23
+- model: orgsema.Opstina
+  pk: 156
+  fields:
+    naziv: Bojnik
+    maticni_broj: 70297
+    okrug: 24
+- model: orgsema.Opstina
+  pk: 157
+  fields:
+    naziv: Vlasotince
+    maticni_broj: 70424
+    okrug: 24
+- model: orgsema.Opstina
+  pk: 158
+  fields:
+    naziv: Lebane
+    maticni_broj: 70718
+    okrug: 24
+- model: orgsema.Opstina
+  pk: 159
+  fields:
+    naziv: Leskovac
+    maticni_broj: 70726
+    okrug: 24
+- model: orgsema.Opstina
+  pk: 160
+  fields:
+    naziv: Medveđa
+    maticni_broj: 70815
+    okrug: 24
+- model: orgsema.Opstina
+  pk: 161
+  fields:
+    naziv: Crna Trava
+    maticni_broj: 71226
+    okrug: 24
+- model: orgsema.Opstina
+  pk: 162
+  fields:
+    naziv: Vranje
+    maticni_broj: 70432
+    okrug: 25
+- model: orgsema.Opstina
+  pk: 163
+  fields:
+    naziv: Vranjska Banja
+    maticni_broj: 71358
+    okrug: 25
+- model: orgsema.Opstina
+  pk: 164
+  fields:
+    naziv: Bosilegrad
+    maticni_broj: 70335
+    okrug: 25
+- model: orgsema.Opstina
+  pk: 165
+  fields:
+    naziv: Bujanovac
+    maticni_broj: 70351
+    okrug: 25
+- model: orgsema.Opstina
+  pk: 166
+  fields:
+    naziv: Vladičin Han
+    maticni_broj: 70416
+    okrug: 25
+- model: orgsema.Opstina
+  pk: 167
+  fields:
+    naziv: Preševo
+    maticni_broj: 70963
+    okrug: 25
+- model: orgsema.Opstina
+  pk: 168
+  fields:
+    naziv: Surdulica
+    maticni_broj: 71137
+    okrug: 25
+- model: orgsema.Opstina
+  pk: 169
+  fields:
+    naziv: Trgovište
+    maticni_broj: 71161
+    okrug: 25
+- model: orgsema.Opstina
+  pk: 170
+  fields:
+    naziv: Glogovac
+    maticni_broj: 90034
+    okrug: 26
+- model: orgsema.Opstina
+  pk: 171
+  fields:
+    naziv: Kačanik
+    maticni_broj: 90115
+    okrug: 26
+- model: orgsema.Opstina
+  pk: 172
+  fields:
+    naziv: Kosovo Polje
+    maticni_broj: 90131
+    okrug: 26
+- model: orgsema.Opstina
+  pk: 173
+  fields:
+    naziv: Lipljan
+    maticni_broj: 90166
+    okrug: 26
+- model: orgsema.Opstina
+  pk: 174
+  fields:
+    naziv: Obilić
+    maticni_broj: 90204
+    okrug: 26
+- model: orgsema.Opstina
+  pk: 175
+  fields:
+    naziv: Podujevo
+    maticni_broj: 90247
+    okrug: 26
+- model: orgsema.Opstina
+  pk: 176
+  fields:
+    naziv: Priština
+    maticni_broj: 90263
+    okrug: 26
+- model: orgsema.Opstina
+  pk: 177
+  fields:
+    naziv: Uroševac
+    maticni_broj: 90301
+    okrug: 26
+- model: orgsema.Opstina
+  pk: 178
+  fields:
+    naziv: Štimlje
+    maticni_broj: 90310
+    okrug: 26
+- model: orgsema.Opstina
+  pk: 179
+  fields:
+    naziv: Štrpce
+    maticni_broj: 90328
+    okrug: 26
+- model: orgsema.Opstina
+  pk: 180
+  fields:
+    naziv: Dečani
+    maticni_broj: 90069
+    okrug: 27
+- model: orgsema.Opstina
+  pk: 181
+  fields:
+    naziv: Đakovica
+    maticni_broj: 90085
+    okrug: 27
+- model: orgsema.Opstina
+  pk: 182
+  fields:
+    naziv: Istok
+    maticni_broj: 90107
+    okrug: 27
+- model: orgsema.Opstina
+  pk: 183
+  fields:
+    naziv: Klina
+    maticni_broj: 90123
+    okrug: 27
+- model: orgsema.Opstina
+  pk: 184
+  fields:
+    naziv: Peć
+    maticni_broj: 90239
+    okrug: 27
+- model: orgsema.Opstina
+  pk: 185
+  fields:
+    naziv: Orahovac
+    maticni_broj: 90212
+    okrug: 28
+- model: orgsema.Opstina
+  pk: 186
+  fields:
+    naziv: Prizren
+    maticni_broj: 90255
+    okrug: 28
+- model: orgsema.Opstina
+  pk: 187
+  fields:
+    naziv: Suva Reka
+    maticni_broj: 90280
+    okrug: 28
+- model: orgsema.Opstina
+  pk: 188
+  fields:
+    naziv: Gora
+    maticni_broj: 90336
+    okrug: 28
+- model: orgsema.Opstina
+  pk: 189
+  fields:
+    naziv: Vučitrn
+    maticni_broj: 90026
+    okrug: 29
+- model: orgsema.Opstina
+  pk: 190
+  fields:
+    naziv: Zubin Potok
+    maticni_broj: 90093
+    okrug: 29
+- model: orgsema.Opstina
+  pk: 191
+  fields:
+    naziv: Leposavić
+    maticni_broj: 90158
+    okrug: 29
+- model: orgsema.Opstina
+  pk: 192
+  fields:
+    naziv: Srbica
+    maticni_broj: 90271
+    okrug: 29
+- model: orgsema.Opstina
+  pk: 193
+  fields:
+    naziv: Kosovska Mitrovica
+    maticni_broj: 90298
+    okrug: 29
+- model: orgsema.Opstina
+  pk: 194
+  fields:
+    naziv: Zvečan
+    maticni_broj: 90352
+    okrug: 29
+- model: orgsema.Opstina
+  pk: 195
+  fields:
+    naziv: Vitina
+    maticni_broj: 90018
+    okrug: 30
+- model: orgsema.Opstina
+  pk: 196
+  fields:
+    naziv: Gnjilane
+    maticni_broj: 90042
+    okrug: 30
+- model: orgsema.Opstina
+  pk: 197
+  fields:
+    naziv: Kosovska Kamenica
+    maticni_broj: 90140
+    okrug: 30
+- model: orgsema.Opstina
+  pk: 198
+  fields:
+    naziv: Novo Brdo
+    maticni_broj: 90182
+    okrug: 30
+- model: orgsema.NaseljenoMesto
+  pk: 1
+  fields:
+    naziv: Ada
+    zip_code: 24430
+    opstina: 27
+- model: orgsema.NaseljenoMesto
+  pk: 2
+  fields:
+    naziv: Adaševci
+    zip_code: 22244
+    opstina: 64
+- model: orgsema.NaseljenoMesto
+  pk: 3
+  fields:
+    naziv: Adorjan
+    zip_code: 24425
+    opstina: 28
+- model: orgsema.NaseljenoMesto
+  pk: 4
+  fields:
+    naziv: Adrani
+    zip_code: 36203
+    opstina: 127
+- model: orgsema.NaseljenoMesto
+  pk: 5
+  fields:
+    naziv: Aleksinački Rudnik
+    zip_code: 18226
+    opstina: 142
+- model: orgsema.NaseljenoMesto
+  pk: 6
+  fields:
+    naziv: Aleksa Šantić
+    zip_code: 25212
+    opstina: 41
+- model: orgsema.NaseljenoMesto
+  pk: 7
+  fields:
+    naziv: Aleksandrovac
+    zip_code: 37230
+    opstina: 131
+- model: orgsema.NaseljenoMesto
+  pk: 8
+  fields:
+    naziv: Aleksandrovac
+    zip_code: 12370
+    opstina: 82
+- model: orgsema.NaseljenoMesto
+  pk: 9
+  fields:
+    naziv: Aleksandrovo
+    zip_code: 23217
+    opstina: 145
+- model: orgsema.NaseljenoMesto
+  pk: 10
+  fields:
+    naziv: Aleksinac
+    zip_code: 18220
+    opstina: 142
+- model: orgsema.NaseljenoMesto
+  pk: 11
+  fields:
+    naziv: Alibunar
+    zip_code: 26310
+    opstina: 34
+- model: orgsema.NaseljenoMesto
+  pk: 12
+  fields:
+    naziv: Aljinovići
+    zip_code: 31307
+    opstina: 118
+- model: orgsema.NaseljenoMesto
+  pk: 13
+  fields:
+    naziv: Apatin
+    zip_code: 25260
+    opstina: 42
+- model: orgsema.NaseljenoMesto
+  pk: 14
+  fields:
+    naziv: Aradac
+    zip_code: 23207
+    opstina: 22
+- model: orgsema.NaseljenoMesto
+  pk: 15
+  fields:
+    naziv: Aranđelovac
+    zip_code: 34300
+    opstina: 91
+- model: orgsema.NaseljenoMesto
+  pk: 16
+  fields:
+    naziv: Arilje
+    zip_code: 31230
+    opstina: 112
+- model: orgsema.NaseljenoMesto
+  pk: 17
+  fields:
+    naziv: Ašanja
+    zip_code: 22418
+    opstina: 61
+- model: orgsema.NaseljenoMesto
+  pk: 18
+  fields:
+    naziv: Azanja
+    zip_code: 11423
+    opstina: 81
+- model: orgsema.NaseljenoMesto
+  pk: 19
+  fields:
+    naziv: Babin Kal
+    zip_code: 18315
+    opstina: 153
+- model: orgsema.NaseljenoMesto
+  pk: 20
+  fields:
+    naziv: Babušnica
+    zip_code: 18330
+    opstina: 152
+- model: orgsema.NaseljenoMesto
+  pk: 21
+  fields:
+    naziv: Bač
+    zip_code: 21420
+    opstina: 47
+- model: orgsema.NaseljenoMesto
+  pk: 22
+  fields:
+    naziv: Bačevci
+    zip_code: 31258
+    opstina: 113
+- model: orgsema.NaseljenoMesto
+  pk: 23
+  fields:
+    naziv: Bačina
+    zip_code: 37265
+    opstina: 133
+- model: orgsema.NaseljenoMesto
+  pk: 24
+  fields:
+    naziv: Bačinci
+    zip_code: 22225
+    opstina: 64
+- model: orgsema.NaseljenoMesto
+  pk: 25
+  fields:
+    naziv: Bačka Palanka
+    zip_code: 21400
+    opstina: 48
+- model: orgsema.NaseljenoMesto
+  pk: 26
+  fields:
+    naziv: Bačka Topola
+    zip_code: 24300
+    opstina: 20
+- model: orgsema.NaseljenoMesto
+  pk: 27
+  fields:
+    naziv: Bački Breg
+    zip_code: 25275
+    opstina: 41
+- model: orgsema.NaseljenoMesto
+  pk: 28
+  fields:
+    naziv: Bački Brestovac
+    zip_code: 25242
+    opstina: 44
+- model: orgsema.NaseljenoMesto
+  pk: 29
+  fields:
+    naziv: Bački Gračac
+    zip_code: 25252
+    opstina: 44
+- model: orgsema.NaseljenoMesto
+  pk: 30
+  fields:
+    naziv: Bački Jarak
+    zip_code: 21234
+    opstina: 56
+- model: orgsema.NaseljenoMesto
+  pk: 31
+  fields:
+    naziv: Bački Monoštor
+    zip_code: 25272
+    opstina: 41
+- model: orgsema.NaseljenoMesto
+  pk: 32
+  fields:
+    naziv: Bački Petrovac
+    zip_code: 21470
+    opstina: 49
+- model: orgsema.NaseljenoMesto
+  pk: 33
+  fields:
+    naziv: Bački Sokolac
+    zip_code: 24343
+    opstina: 20
+- model: orgsema.NaseljenoMesto
+  pk: 34
+  fields:
+    naziv: Bački Vinogradi
+    zip_code: 24415
+    opstina: 19
+- model: orgsema.NaseljenoMesto
+  pk: 35
+  fields:
+    naziv: Bačko Dobro Polje
+    zip_code: 21465
+    opstina: 52
+- model: orgsema.NaseljenoMesto
+  pk: 36
+  fields:
+    naziv: Bačko Gradište
+    zip_code: 21217
+    opstina: 51
+- model: orgsema.NaseljenoMesto
+  pk: 37
+  fields:
+    naziv: Bačko Novo Selo
+    zip_code: 21429
+    opstina: 47
+- model: orgsema.NaseljenoMesto
+  pk: 38
+  fields:
+    naziv: Bačko Petrovo Selo
+    zip_code: 21226
+    opstina: 51
+- model: orgsema.NaseljenoMesto
+  pk: 39
+  fields:
+    naziv: Badnjevac
+    zip_code: 34226
+    opstina: 149
+- model: orgsema.NaseljenoMesto
+  pk: 40
+  fields:
+    naziv: Badovinci
+    zip_code: 15358
+    opstina: 65
+- model: orgsema.NaseljenoMesto
+  pk: 41
+  fields:
+    naziv: Bagrdan
+    zip_code: 35204
+    opstina: 101
+- model: orgsema.NaseljenoMesto
+  pk: 42
+  fields:
+    naziv: Bajina Bašta
+    zip_code: 31250
+    opstina: 113
+- model: orgsema.NaseljenoMesto
+  pk: 43
+  fields:
+    naziv: Bajmok
+    zip_code: 24210
+    opstina: 19
+- model: orgsema.NaseljenoMesto
+  pk: 44
+  fields:
+    naziv: Bajša
+    zip_code: 24331
+    opstina: 20
+- model: orgsema.NaseljenoMesto
+  pk: 45
+  fields:
+    naziv: Balajnac
+    zip_code: 18257
+    opstina: 145
+- model: orgsema.NaseljenoMesto
+  pk: 46
+  fields:
+    naziv: Baljevac Na Ibru
+    zip_code: 36344
+    opstina: 129
+- model: orgsema.NaseljenoMesto
+  pk: 47
+  fields:
+    naziv: Banatska Palanka
+    zip_code: 26324
+    opstina: 35
+- model: orgsema.NaseljenoMesto
+  pk: 48
+  fields:
+    naziv: Banatsko Aranđelovo
+    zip_code: 23332
+    opstina: 30
+- model: orgsema.NaseljenoMesto
+  pk: 49
+  fields:
+    naziv: Banatski Brestovac
+    zip_code: 26234
+    opstina: 33
+- model: orgsema.NaseljenoMesto
+  pk: 50
+  fields:
+    naziv: Banatski Despotovac
+    zip_code: 23242
+    opstina: 22
+- model: orgsema.NaseljenoMesto
+  pk: 51
+  fields:
+    naziv: Banatsko Karađorđevo
+    zip_code: 23216
+    opstina: 23
+- model: orgsema.NaseljenoMesto
+  pk: 52
+  fields:
+    naziv: Banatsko Novo Selo
+    zip_code: 26314
+    opstina: 33
+- model: orgsema.NaseljenoMesto
+  pk: 53
+  fields:
+    naziv: Banatska Subotica
+    zip_code: 26327
+    opstina: 35
+- model: orgsema.NaseljenoMesto
+  pk: 54
+  fields:
+    naziv: Banatsko Višnjićevo
+    zip_code: 23237
+    opstina: 23
+- model: orgsema.NaseljenoMesto
+  pk: 55
+  fields:
+    naziv: Banatska Dubica
+    zip_code: 23251
+    opstina: 26
+- model: orgsema.NaseljenoMesto
+  pk: 56
+  fields:
+    naziv: Banatska Topola
+    zip_code: 23315
+    opstina: 29
+- model: orgsema.NaseljenoMesto
+  pk: 57
+  fields:
+    naziv: Banatski Dvor
+    zip_code: 23213
+    opstina: 23
+- model: orgsema.NaseljenoMesto
+  pk: 58
+  fields:
+    naziv: Banatski Karlovac
+    zip_code: 26320
+    opstina: 34
+- model: orgsema.NaseljenoMesto
+  pk: 59
+  fields:
+    naziv: Banatsko Veliko Selo
+    zip_code: 23312
+    opstina: 29
+- model: orgsema.NaseljenoMesto
+  pk: 60
+  fields:
+    naziv: Baničina
+    zip_code: 11424
+    opstina: 81
+- model: orgsema.NaseljenoMesto
+  pk: 61
+  fields:
+    naziv: Banja
+    zip_code: 34304
+    opstina: 192
+- model: orgsema.NaseljenoMesto
+  pk: 62
+  fields:
+    naziv: Banja kod Priboja
+    zip_code: 31337
+    opstina: 117
+- model: orgsema.NaseljenoMesto
+  pk: 63
+  fields:
+    naziv: Banja Koviljača
+    zip_code: 15316
+    opstina: 69
+- model: orgsema.NaseljenoMesto
+  pk: 64
+  fields:
+    naziv: Banjani
+    zip_code: 14214
+    opstina: 78
+- model: orgsema.NaseljenoMesto
+  pk: 65
+  fields:
+    naziv: Banjska
+    zip_code: 38216
+    opstina: 194
+- model: orgsema.NaseljenoMesto
+  pk: 66
+  fields:
+    naziv: Banoštor
+    zip_code: 21312
+    opstina: 50
+- model: orgsema.NaseljenoMesto
+  pk: 67
+  fields:
+    naziv: Banovci Dunav
+    zip_code: 22303
+    opstina: 63
+- model: orgsema.NaseljenoMesto
+  pk: 68
+  fields:
+    naziv: Banovo Polje
+    zip_code: 15362
+    opstina: 65
+- model: orgsema.NaseljenoMesto
+  pk: 69
+  fields:
+    naziv: Barajevo
+    zip_code: 11460
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 70
+  fields:
+    naziv: Baranda
+    zip_code: 26205
+    opstina: 39
+- model: orgsema.NaseljenoMesto
+  pk: 71
+  fields:
+    naziv: Barbatovac
+    zip_code: 18426
+    opstina: 148
+- model: orgsema.NaseljenoMesto
+  pk: 72
+  fields:
+    naziv: Bare
+    zip_code: 34205
+    opstina: 191
+- model: orgsema.NaseljenoMesto
+  pk: 73
+  fields:
+    naziv: Barič
+    zip_code: 11504
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 74
+  fields:
+    naziv: Barice
+    zip_code: 26367
+    opstina: 40
+- model: orgsema.NaseljenoMesto
+  pk: 75
+  fields:
+    naziv: Barlovo
+    zip_code: 18432
+    opstina: 150
+- model: orgsema.NaseljenoMesto
+  pk: 76
+  fields:
+    naziv: Baroševac
+    zip_code: 11565
+    opstina: 8
+- model: orgsema.NaseljenoMesto
+  pk: 77
+  fields:
+    naziv: Bašaid
+    zip_code: 23316
+    opstina: 29
+- model: orgsema.NaseljenoMesto
+  pk: 78
+  fields:
+    naziv: Batočina
+    zip_code: 34227
+    opstina: 92
+- model: orgsema.NaseljenoMesto
+  pk: 79
+  fields:
+    naziv: Batrovci
+    zip_code: 22251
+    opstina: 64
+- model: orgsema.NaseljenoMesto
+  pk: 80
+  fields:
+    naziv: Bavanište
+    zip_code: 26222
+    opstina: 38
+- model: orgsema.NaseljenoMesto
+  pk: 81
+  fields:
+    naziv: Bečej
+    zip_code: 21220
+    opstina: 51
+- model: orgsema.NaseljenoMesto
+  pk: 82
+  fields:
+    naziv: Bečmen
+    zip_code: 11279
+    opstina: 17
+- model: orgsema.NaseljenoMesto
+  pk: 83
+  fields:
+    naziv: Begaljica
+    zip_code: 11308
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 84
+  fields:
+    naziv: Begeč
+    zip_code: 21411
+    opstina: 45
+- model: orgsema.NaseljenoMesto
+  pk: 85
+  fields:
+    naziv: Begejci
+    zip_code: 23232
+    opstina: 23
+- model: orgsema.NaseljenoMesto
+  pk: 86
+  fields:
+    naziv: Bela Crkva
+    zip_code: 26340
+    opstina: 185
+- model: orgsema.NaseljenoMesto
+  pk: 87
+  fields:
+    naziv: Bela Crkva (kod Krupnja)
+    zip_code: 15313
+    opstina: 68
+- model: orgsema.NaseljenoMesto
+  pk: 88
+  fields:
+    naziv: Bela Palanka
+    zip_code: 18310
+    opstina: 153
+- model: orgsema.NaseljenoMesto
+  pk: 89
+  fields:
+    naziv: Bela Voda
+    zip_code: 37253
+    opstina: 151
+- model: orgsema.NaseljenoMesto
+  pk: 90
+  fields:
+    naziv: Bela Zemlja
+    zip_code: 31311
+    opstina: 120
+- model: orgsema.NaseljenoMesto
+  pk: 91
+  fields:
+    naziv: Belanovica
+    zip_code: 14246
+    opstina: 75
+- model: orgsema.NaseljenoMesto
+  pk: 92
+  fields:
+    naziv: Bele Vode
+    zip_code: 32259
+    opstina: 128
+- model: orgsema.NaseljenoMesto
+  pk: 93
+  fields:
+    naziv: Belegiš
+    zip_code: 22306
+    opstina: 63
+- model: orgsema.NaseljenoMesto
+  pk: 94
+  fields:
+    naziv: Beli Potok
+    zip_code: 11223
+    opstina: 159
+- model: orgsema.NaseljenoMesto
+  pk: 95
+  fields:
+    naziv: Beli Potok (kod Svrljiga)
+    zip_code: 19366
+    opstina: 147
+- model: orgsema.NaseljenoMesto
+  pk: 96
+  fields:
+    naziv: Beljina
+    zip_code: 11461
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 97
+  fields:
+    naziv: Belo Blato
+    zip_code: 23205
+    opstina: 22
+- model: orgsema.NaseljenoMesto
+  pk: 98
+  fields:
+    naziv: Beloljin
+    zip_code: 18424
+    opstina: 151
+- model: orgsema.NaseljenoMesto
+  pk: 99
+  fields:
+    naziv: Belosavci
+    zip_code: 34312
+    opstina: 96
+- model: orgsema.NaseljenoMesto
+  pk: 100
+  fields:
+    naziv: Belotinac
+    zip_code: 18411
+    opstina: 144
+- model: orgsema.NaseljenoMesto
+  pk: 101
+  fields:
+    naziv: Belušić
+    zip_code: 35263
+    opstina: 100
+- model: orgsema.NaseljenoMesto
+  pk: 102
+  fields:
+    naziv: Beočin
+    zip_code: 21300
+    opstina: 50
+- model: orgsema.NaseljenoMesto
+  pk: 103
+  fields:
+    naziv: Beograd
+    zip_code: 11000
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 104
+  fields:
+    naziv: Berkasovo
+    zip_code: 22242
+    opstina: 64
+- model: orgsema.NaseljenoMesto
+  pk: 105
+  fields:
+    naziv: Beršići
+    zip_code: 32305
+    opstina: 122
+- model: orgsema.NaseljenoMesto
+  pk: 106
+  fields:
+    naziv: Bešenovo
+    zip_code: 22212
+    opstina: 58
+- model: orgsema.NaseljenoMesto
+  pk: 107
+  fields:
+    naziv: Beška
+    zip_code: 22324
+    opstina: 59
+- model: orgsema.NaseljenoMesto
+  pk: 108
+  fields:
+    naziv: Bezdan
+    zip_code: 25270
+    opstina: 41
+- model: orgsema.NaseljenoMesto
+  pk: 109
+  fields:
+    naziv: Bigrenica
+    zip_code: 35238
+    opstina: 103
+- model: orgsema.NaseljenoMesto
+  pk: 110
+  fields:
+    naziv: Bikić Do
+    zip_code: 22254
+    opstina: 64
+- model: orgsema.NaseljenoMesto
+  pk: 111
+  fields:
+    naziv: Bikovo
+    zip_code: 24206
+    opstina: 19
+- model: orgsema.NaseljenoMesto
+  pk: 112
+  fields:
+    naziv: Biljača
+    zip_code: 17522
+    opstina: 165
+- model: orgsema.NaseljenoMesto
+  pk: 113
+  fields:
+    naziv: Bingula
+    zip_code: 22253
+    opstina: 64
+- model: orgsema.NaseljenoMesto
+  pk: 114
+  fields:
+    naziv: Bioska
+    zip_code: 31241
+    opstina: 120
+- model: orgsema.NaseljenoMesto
+  pk: 115
+  fields:
+    naziv: Bistar
+    zip_code: 17546
+    opstina: 164
+- model: orgsema.NaseljenoMesto
+  pk: 116
+  fields:
+    naziv: Bistrica
+    zip_code: 31325
+    opstina: 191
+- model: orgsema.NaseljenoMesto
+  pk: 117
+  fields:
+    naziv: Blace
+    zip_code: 18420
+    opstina: 148
+- model: orgsema.NaseljenoMesto
+  pk: 118
+  fields:
+    naziv: Blaževo
+    zip_code: 37226
+    opstina: 132
+- model: orgsema.NaseljenoMesto
+  pk: 119
+  fields:
+    naziv: Bobovo
+    zip_code: 35217
+    opstina: 102
+- model: orgsema.NaseljenoMesto
+  pk: 120
+  fields:
+    naziv: Bočar
+    zip_code: 23274
+    opstina: 25
+- model: orgsema.NaseljenoMesto
+  pk: 121
+  fields:
+    naziv: Bođani
+    zip_code: 21427
+    opstina: 47
+- model: orgsema.NaseljenoMesto
+  pk: 122
+  fields:
+    naziv: Bogaraš
+    zip_code: 24408
+    opstina: 31
+- model: orgsema.NaseljenoMesto
+  pk: 123
+  fields:
+    naziv: Bogatić
+    zip_code: 15350
+    opstina: 73
+- model: orgsema.NaseljenoMesto
+  pk: 124
+  fields:
+    naziv: Bogojevo
+    zip_code: 25245
+    opstina: 44
+- model: orgsema.NaseljenoMesto
+  pk: 125
+  fields:
+    naziv: Bogovađa
+    zip_code: 14225
+    opstina: 74
+- model: orgsema.NaseljenoMesto
+  pk: 126
+  fields:
+    naziv: Bogovina
+    zip_code: 19372
+    opstina: 108
+- model: orgsema.NaseljenoMesto
+  pk: 127
+  fields:
+    naziv: Bogutovac
+    zip_code: 36341
+    opstina: 127
+- model: orgsema.NaseljenoMesto
+  pk: 128
+  fields:
+    naziv: Bojnik
+    zip_code: 16205
+    opstina: 156
+- model: orgsema.NaseljenoMesto
+  pk: 129
+  fields:
+    naziv: Boka
+    zip_code: 23252
+    opstina: 26
+- model: orgsema.NaseljenoMesto
+  pk: 130
+  fields:
+    naziv: Boleč
+    zip_code: 11307
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 131
+  fields:
+    naziv: Boljevac
+    zip_code: 19370
+    opstina: 108
+- model: orgsema.NaseljenoMesto
+  pk: 132
+  fields:
+    naziv: Boljevci
+    zip_code: 11275
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 133
+  fields:
+    naziv: Boljkovci
+    zip_code: 32312
+    opstina: 122
+- model: orgsema.NaseljenoMesto
+  pk: 134
+  fields:
+    naziv: Bor
+    zip_code: 19210
+    opstina: 104
+- model: orgsema.NaseljenoMesto
+  pk: 135
+  fields:
+    naziv: Borča
+    zip_code: 11211
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 136
+  fields:
+    naziv: Borski Brestovac
+    zip_code: 19229
+    opstina: 104
+- model: orgsema.NaseljenoMesto
+  pk: 137
+  fields:
+    naziv: Borsko Bučje
+    zip_code: 19231
+    opstina: 104
+- model: orgsema.NaseljenoMesto
+  pk: 138
+  fields:
+    naziv: Bosilegrad
+    zip_code: 17540
+    opstina: 164
+- model: orgsema.NaseljenoMesto
+  pk: 139
+  fields:
+    naziv: Bošnjace
+    zip_code: 16232
+    opstina: 158
+- model: orgsema.NaseljenoMesto
+  pk: 140
+  fields:
+    naziv: Bošnjane
+    zip_code: 37262
+    opstina: 133
+- model: orgsema.NaseljenoMesto
+  pk: 141
+  fields:
+    naziv: Bosut
+    zip_code: 22217
+    opstina: 58
+- model: orgsema.NaseljenoMesto
+  pk: 142
+  fields:
+    naziv: Botoš
+    zip_code: 23243
+    opstina: 22
+- model: orgsema.NaseljenoMesto
+  pk: 143
+  fields:
+    naziv: Božetići
+    zip_code: 31322
+    opstina: 115
+- model: orgsema.NaseljenoMesto
+  pk: 144
+  fields:
+    naziv: Boževac
+    zip_code: 12313
+    opstina: 89
+- model: orgsema.NaseljenoMesto
+  pk: 145
+  fields:
+    naziv: Božica
+    zip_code: 17537
+    opstina: 168
+- model: orgsema.NaseljenoMesto
+  pk: 146
+  fields:
+    naziv: Braćevac
+    zip_code: 19315
+    opstina: 107
+- model: orgsema.NaseljenoMesto
+  pk: 147
+  fields:
+    naziv: Bradarac
+    zip_code: 12206
+    opstina: 142
+- model: orgsema.NaseljenoMesto
+  pk: 148
+  fields:
+    naziv: Braničevo
+    zip_code: 12222
+    opstina: 85
+- model: orgsema.NaseljenoMesto
+  pk: 149
+  fields:
+    naziv: Brankovina
+    zip_code: 14201
+    opstina: 73
+- model: orgsema.NaseljenoMesto
+  pk: 150
+  fields:
+    naziv: Bratinac
+    zip_code: 12225
+    opstina: 82
+- model: orgsema.NaseljenoMesto
+  pk: 151
+  fields:
+    naziv: Bratljevo
+    zip_code: 32256
+    opstina: 123
+- model: orgsema.NaseljenoMesto
+  pk: 152
+  fields:
+    naziv: Brđani
+    zip_code: 32303
+    opstina: 132
+- model: orgsema.NaseljenoMesto
+  pk: 153
+  fields:
+    naziv: Brekovo
+    zip_code: 31234
+    opstina: 112
+- model: orgsema.NaseljenoMesto
+  pk: 154
+  fields:
+    naziv: Bresnica
+    zip_code: 32213
+    opstina: 194
+- model: orgsema.NaseljenoMesto
+  pk: 155
+  fields:
+    naziv: Brestač
+    zip_code: 22415
+    opstina: 61
+- model: orgsema.NaseljenoMesto
+  pk: 156
+  fields:
+    naziv: Brestovačka Banja
+    zip_code: 19216
+    opstina: 104
+- model: orgsema.NaseljenoMesto
+  pk: 157
+  fields:
+    naziv: Brestovac
+    zip_code: 16253
+    opstina: 185
+- model: orgsema.NaseljenoMesto
+  pk: 158
+  fields:
+    naziv: Brezane
+    zip_code: 12205
+    opstina: 82
+- model: orgsema.NaseljenoMesto
+  pk: 159
+  fields:
+    naziv: Brezđe
+    zip_code: 14244
+    opstina: 76
+- model: orgsema.NaseljenoMesto
+  pk: 160
+  fields:
+    naziv: Brezjak
+    zip_code: 15309
+    opstina: 69
+- model: orgsema.NaseljenoMesto
+  pk: 161
+  fields:
+    naziv: Brezna
+    zip_code: 32307
+    opstina: 186
+- model: orgsema.NaseljenoMesto
+  pk: 162
+  fields:
+    naziv: Brezova
+    zip_code: 32253
+    opstina: 123
+- model: orgsema.NaseljenoMesto
+  pk: 163
+  fields:
+    naziv: Brezovica
+    zip_code: 38157
+    opstina: 179
+- model: orgsema.NaseljenoMesto
+  pk: 164
+  fields:
+    naziv: Brgule
+    zip_code: 14212
+    opstina: 78
+- model: orgsema.NaseljenoMesto
+  pk: 165
+  fields:
+    naziv: Brnjica
+    zip_code: 12230
+    opstina: 85
+- model: orgsema.NaseljenoMesto
+  pk: 166
+  fields:
+    naziv: Brodarevo
+    zip_code: 31305
+    opstina: 118
+- model: orgsema.NaseljenoMesto
+  pk: 167
+  fields:
+    naziv: Brus
+    zip_code: 37220
+    opstina: 173
+- model: orgsema.NaseljenoMesto
+  pk: 168
+  fields:
+    naziv: Brusnik
+    zip_code: 19313
+    opstina: 189
+- model: orgsema.NaseljenoMesto
+  pk: 169
+  fields:
+    naziv: Brvenik
+    zip_code: 36346
+    opstina: 129
+- model: orgsema.NaseljenoMesto
+  pk: 170
+  fields:
+    naziv: Brza Palanka
+    zip_code: 19323
+    opstina: 105
+- model: orgsema.NaseljenoMesto
+  pk: 171
+  fields:
+    naziv: Brzan
+    zip_code: 34228
+    opstina: 92
+- model: orgsema.NaseljenoMesto
+  pk: 172
+  fields:
+    naziv: Brzeće
+    zip_code: 37225
+    opstina: 132
+- model: orgsema.NaseljenoMesto
+  pk: 173
+  fields:
+    naziv: Bučje
+    zip_code: 19369
+    opstina: 110
+- model: orgsema.NaseljenoMesto
+  pk: 174
+  fields:
+    naziv: Buđanovci
+    zip_code: 22421
+    opstina: 62
+- model: orgsema.NaseljenoMesto
+  pk: 175
+  fields:
+    naziv: Budisava
+    zip_code: 21242
+    opstina: 45
+- model: orgsema.NaseljenoMesto
+  pk: 176
+  fields:
+    naziv: Bujanovac
+    zip_code: 17520
+    opstina: 165
+- model: orgsema.NaseljenoMesto
+  pk: 177
+  fields:
+    naziv: Bukovac
+    zip_code: 21209
+    opstina: 167
+- model: orgsema.NaseljenoMesto
+  pk: 178
+  fields:
+    naziv: Bukovica
+    zip_code: 32251
+    opstina: 173
+- model: orgsema.NaseljenoMesto
+  pk: 179
+  fields:
+    naziv: Bukovik
+    zip_code: 34301
+    opstina: 115
+- model: orgsema.NaseljenoMesto
+  pk: 180
+  fields:
+    naziv: Bukurovac
+    zip_code: 34217
+    opstina: 153
+- model: orgsema.NaseljenoMesto
+  pk: 181
+  fields:
+    naziv: Bumbarevo Brdo
+    zip_code: 34242
+    opstina: 93
+- model: orgsema.NaseljenoMesto
+  pk: 182
+  fields:
+    naziv: Bunar
+    zip_code: 35273
+    opstina: 101
+- model: orgsema.NaseljenoMesto
+  pk: 183
+  fields:
+    naziv: Burdimo
+    zip_code: 18368
+    opstina: 147
+- model: orgsema.NaseljenoMesto
+  pk: 184
+  fields:
+    naziv: Burovac
+    zip_code: 12307
+    opstina: 90
+- model: orgsema.NaseljenoMesto
+  pk: 185
+  fields:
+    naziv: Busilovac
+    zip_code: 35249
+    opstina: 99
+- model: orgsema.NaseljenoMesto
+  pk: 186
+  fields:
+    naziv: Cerovac
+    zip_code: 15224
+    opstina: 81
+- model: orgsema.NaseljenoMesto
+  pk: 187
+  fields:
+    naziv: Crepaja
+    zip_code: 26213
+    opstina: 37
+- model: orgsema.NaseljenoMesto
+  pk: 188
+  fields:
+    naziv: Crkvine
+    zip_code: 36321
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 189
+  fields:
+    naziv: Crna Bara
+    zip_code: 23328
+    opstina: 157
+- model: orgsema.NaseljenoMesto
+  pk: 190
+  fields:
+    naziv: Crna Bara
+    zip_code: 15355
+    opstina: 157
+- model: orgsema.NaseljenoMesto
+  pk: 191
+  fields:
+    naziv: Crna Trava
+    zip_code: 16215
+    opstina: 161
+- model: orgsema.NaseljenoMesto
+  pk: 192
+  fields:
+    naziv: Crnoklište
+    zip_code: 18304
+    opstina: 155
+- model: orgsema.NaseljenoMesto
+  pk: 193
+  fields:
+    naziv: Crvena Crkva
+    zip_code: 26323
+    opstina: 35
+- model: orgsema.NaseljenoMesto
+  pk: 194
+  fields:
+    naziv: Crvena Reka
+    zip_code: 18313
+    opstina: 153
+- model: orgsema.NaseljenoMesto
+  pk: 195
+  fields:
+    naziv: Crvenka
+    zip_code: 25220
+    opstina: 43
+- model: orgsema.NaseljenoMesto
+  pk: 196
+  fields:
+    naziv: Čačak
+    zip_code: 32000
+    opstina: 125
+- model: orgsema.NaseljenoMesto
+  pk: 197
+  fields:
+    naziv: Čajetina
+    zip_code: 31310
+    opstina: 121
+- model: orgsema.NaseljenoMesto
+  pk: 198
+  fields:
+    naziv: Čalma
+    zip_code: 22231
+    opstina: 58
+- model: orgsema.NaseljenoMesto
+  pk: 199
+  fields:
+    naziv: Čantavir
+    zip_code: 24220
+    opstina: 19
+- model: orgsema.NaseljenoMesto
+  pk: 200
+  fields:
+    naziv: Čečina
+    zip_code: 18417
+    opstina: 144
+- model: orgsema.NaseljenoMesto
+  pk: 201
+  fields:
+    naziv: Čelarevo
+    zip_code: 21413
+    opstina: 48
+- model: orgsema.NaseljenoMesto
+  pk: 202
+  fields:
+    naziv: Čenej
+    zip_code: 21233
+    opstina: 45
+- model: orgsema.NaseljenoMesto
+  pk: 203
+  fields:
+    naziv: Čenta
+    zip_code: 23266
+    opstina: 22
+- model: orgsema.NaseljenoMesto
+  pk: 204
+  fields:
+    naziv: Čerević
+    zip_code: 21311
+    opstina: 50
+- model: orgsema.NaseljenoMesto
+  pk: 205
+  fields:
+    naziv: Čestereg
+    zip_code: 23215
+    opstina: 23
+- model: orgsema.NaseljenoMesto
+  pk: 206
+  fields:
+    naziv: Čitluk (kod Kruševca)
+    zip_code: 37208
+    opstina: 134
+- model: orgsema.NaseljenoMesto
+  pk: 207
+  fields:
+    naziv: Čitluk (kod Soko Banje)
+    zip_code: 18232
+    opstina: 111
+- model: orgsema.NaseljenoMesto
+  pk: 208
+  fields:
+    naziv: Čoka
+    zip_code: 23320
+    opstina: 32
+- model: orgsema.NaseljenoMesto
+  pk: 209
+  fields:
+    naziv: Čonoplja
+    zip_code: 25210
+    opstina: 41
+- model: orgsema.NaseljenoMesto
+  pk: 210
+  fields:
+    naziv: Čortanovci
+    zip_code: 22326
+    opstina: 59
+- model: orgsema.NaseljenoMesto
+  pk: 211
+  fields:
+    naziv: Čurug
+    zip_code: 21238
+    opstina: 53
+- model: orgsema.NaseljenoMesto
+  pk: 212
+  fields:
+    naziv: Čukojevac
+    zip_code: 36220
+    opstina: 127
+- model: orgsema.NaseljenoMesto
+  pk: 213
+  fields:
+    naziv: Čumić
+    zip_code: 34322
+    opstina: 94
+- model: orgsema.NaseljenoMesto
+  pk: 214
+  fields:
+    naziv: Ćićevac
+    zip_code: 37210
+    opstina: 136
+- model: orgsema.NaseljenoMesto
+  pk: 215
+  fields:
+    naziv: Ćuprija
+    zip_code: 35230
+    opstina: 103
+- model: orgsema.NaseljenoMesto
+  pk: 216
+  fields:
+    naziv: Darosava
+    zip_code: 34305
+    opstina: 91
+- model: orgsema.NaseljenoMesto
+  pk: 217
+  fields:
+    naziv: Dasnica
+    zip_code: 37271
+    opstina: 131
+- model: orgsema.NaseljenoMesto
+  pk: 218
+  fields:
+    naziv: Debeljača
+    zip_code: 26214
+    opstina: 37
+- model: orgsema.NaseljenoMesto
+  pk: 219
+  fields:
+    naziv: Debrc
+    zip_code: 15214
+    opstina: 66
+- model: orgsema.NaseljenoMesto
+  pk: 220
+  fields:
+    naziv: Deč
+    zip_code: 22441
+    opstina: 61
+- model: orgsema.NaseljenoMesto
+  pk: 221
+  fields:
+    naziv: Deliblato
+    zip_code: 26225
+    opstina: 38
+- model: orgsema.NaseljenoMesto
+  pk: 222
+  fields:
+    naziv: Delimeđe
+    zip_code: 36307
+    opstina: 130
+- model: orgsema.NaseljenoMesto
+  pk: 223
+  fields:
+    naziv: Deronje
+    zip_code: 25254
+    opstina: 44
+- model: orgsema.NaseljenoMesto
+  pk: 224
+  fields:
+    naziv: Desimirovac
+    zip_code: 34321
+    opstina: 94
+- model: orgsema.NaseljenoMesto
+  pk: 225
+  fields:
+    naziv: Despotovac
+    zip_code: 35213
+    opstina: 98
+- model: orgsema.NaseljenoMesto
+  pk: 226
+  fields:
+    naziv: Despotovo
+    zip_code: 21468
+    opstina: 48
+- model: orgsema.NaseljenoMesto
+  pk: 227
+  fields:
+    naziv: Devojački Bunar
+    zip_code: 26316
+    opstina: 34
+- model: orgsema.NaseljenoMesto
+  pk: 228
+  fields:
+    naziv: Deževa
+    zip_code: 36305
+    opstina: 128
+- model: orgsema.NaseljenoMesto
+  pk: 229
+  fields:
+    naziv: Dimitrovgrad
+    zip_code: 18320
+    opstina: 154
+- model: orgsema.NaseljenoMesto
+  pk: 230
+  fields:
+    naziv: Divci
+    zip_code: 14222
+    opstina: 73
+- model: orgsema.NaseljenoMesto
+  pk: 231
+  fields:
+    naziv: Divčibare
+    zip_code: 14204
+    opstina: 73
+- model: orgsema.NaseljenoMesto
+  pk: 232
+  fields:
+    naziv: Divljaka
+    zip_code: 31236
+    opstina: 173
+- model: orgsema.NaseljenoMesto
+  pk: 233
+  fields:
+    naziv: Divoš
+    zip_code: 22232
+    opstina: 58
+- model: orgsema.NaseljenoMesto
+  pk: 234
+  fields:
+    naziv: Divostin
+    zip_code: 34204
+    opstina: 94
+- model: orgsema.NaseljenoMesto
+  pk: 235
+  fields:
+    naziv: Dobanovci
+    zip_code: 11272
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 236
+  fields:
+    naziv: Dobra
+    zip_code: 12224
+    opstina: 85
+- model: orgsema.NaseljenoMesto
+  pk: 237
+  fields:
+    naziv: Dobri Do
+    zip_code: 18408
+    opstina: 184
+- model: orgsema.NaseljenoMesto
+  pk: 238
+  fields:
+    naziv: Dobrić
+    zip_code: 15235
+    opstina: 181
+- model: orgsema.NaseljenoMesto
+  pk: 239
+  fields:
+    naziv: Dobrica
+    zip_code: 26354
+    opstina: 34
+- model: orgsema.NaseljenoMesto
+  pk: 240
+  fields:
+    naziv: Dobrinci
+    zip_code: 22412
+    opstina: 62
+- model: orgsema.NaseljenoMesto
+  pk: 241
+  fields:
+    naziv: Dolac
+    zip_code: 18314
+    opstina: 183
+- model: orgsema.NaseljenoMesto
+  pk: 242
+  fields:
+    naziv: Doljevac
+    zip_code: 18410
+    opstina: 144
+- model: orgsema.NaseljenoMesto
+  pk: 243
+  fields:
+    naziv: Dolovo
+    zip_code: 26227
+    opstina: 183
+- model: orgsema.NaseljenoMesto
+  pk: 244
+  fields:
+    naziv: Donja Bela Reka
+    zip_code: 19213
+    opstina: 104
+- model: orgsema.NaseljenoMesto
+  pk: 245
+  fields:
+    naziv: Donja Borina
+    zip_code: 15317
+    opstina: 71
+- model: orgsema.NaseljenoMesto
+  pk: 246
+  fields:
+    naziv: Donja Kamenica
+    zip_code: 19352
+    opstina: 110
+- model: orgsema.NaseljenoMesto
+  pk: 247
+  fields:
+    naziv: Donja Livadica
+    zip_code: 11326
+    opstina: 79
+- model: orgsema.NaseljenoMesto
+  pk: 248
+  fields:
+    naziv: Donja Ljubata
+    zip_code: 17544
+    opstina: 164
+- model: orgsema.NaseljenoMesto
+  pk: 249
+  fields:
+    naziv: Donja Mutnica
+    zip_code: 35255
+    opstina: 99
+- model: orgsema.NaseljenoMesto
+  pk: 250
+  fields:
+    naziv: Donja Oraovica
+    zip_code: 15323
+    opstina: 70
+- model: orgsema.NaseljenoMesto
+  pk: 251
+  fields:
+    naziv: Donja Rečica
+    zip_code: 18404
+    opstina: 151
+- model: orgsema.NaseljenoMesto
+  pk: 252
+  fields:
+    naziv: Donja Šatornja
+    zip_code: 34314
+    opstina: 96
+- model: orgsema.NaseljenoMesto
+  pk: 253
+  fields:
+    naziv: Donja Trnava
+    zip_code: 18421
+    opstina: 137
+- model: orgsema.NaseljenoMesto
+  pk: 254
+  fields:
+    naziv: Donje Vidovo
+    zip_code: 35258
+    opstina: 99
+- model: orgsema.NaseljenoMesto
+  pk: 255
+  fields:
+    naziv: Donje Crnatovo
+    zip_code: 18414
+    opstina: 149
+- model: orgsema.NaseljenoMesto
+  pk: 256
+  fields:
+    naziv: Donje Crniljevo
+    zip_code: 15227
+    opstina: 67
+- model: orgsema.NaseljenoMesto
+  pk: 257
+  fields:
+    naziv: Donje Međurovo
+    zip_code: 18254
+    opstina: 137
+- model: orgsema.NaseljenoMesto
+  pk: 258
+  fields:
+    naziv: Donje Tlamino
+    zip_code: 17547
+    opstina: 164
+- model: orgsema.NaseljenoMesto
+  pk: 259
+  fields:
+    naziv: Donje Zuniče
+    zip_code: 19345
+    opstina: 110
+- model: orgsema.NaseljenoMesto
+  pk: 260
+  fields:
+    naziv: Donji Dušnik
+    zip_code: 18242
+    opstina: 143
+- model: orgsema.NaseljenoMesto
+  pk: 261
+  fields:
+    naziv: Donji Krčin
+    zip_code: 37258
+    opstina: 133
+- model: orgsema.NaseljenoMesto
+  pk: 262
+  fields:
+    naziv: Donji Milanovac
+    zip_code: 19220
+    opstina: 106
+- model: orgsema.NaseljenoMesto
+  pk: 263
+  fields:
+    naziv: Donji Stajevac
+    zip_code: 17526
+    opstina: 169
+- model: orgsema.NaseljenoMesto
+  pk: 264
+  fields:
+    naziv: Doroslovo
+    zip_code: 25243
+    opstina: 41
+- model: orgsema.NaseljenoMesto
+  pk: 265
+  fields:
+    naziv: Dračić
+    zip_code: 14203
+    opstina: 73
+- model: orgsema.NaseljenoMesto
+  pk: 266
+  fields:
+    naziv: Draginac
+    zip_code: 15311
+    opstina: 152
+- model: orgsema.NaseljenoMesto
+  pk: 267
+  fields:
+    naziv: Draginje
+    zip_code: 15226
+    opstina: 67
+- model: orgsema.NaseljenoMesto
+  pk: 268
+  fields:
+    naziv: Draglica
+    zip_code: 31317
+    opstina: 115
+- model: orgsema.NaseljenoMesto
+  pk: 269
+  fields:
+    naziv: Dragobraća
+    zip_code: 34231
+    opstina: 94
+- model: orgsema.NaseljenoMesto
+  pk: 270
+  fields:
+    naziv: Dragocvet
+    zip_code: 35272
+    opstina: 101
+- model: orgsema.NaseljenoMesto
+  pk: 271
+  fields:
+    naziv: Dragoševac
+    zip_code: 35262
+    opstina: 101
+- model: orgsema.NaseljenoMesto
+  pk: 272
+  fields:
+    naziv: Dragovo
+    zip_code: 35265
+    opstina: 100
+- model: orgsema.NaseljenoMesto
+  pk: 273
+  fields:
+    naziv: Drajkovce
+    zip_code: 38239
+    opstina: 179
+- model: orgsema.NaseljenoMesto
+  pk: 274
+  fields:
+    naziv: Draževac (kod Obrenovca)
+    zip_code: 11506
+    opstina: 11
+- model: orgsema.NaseljenoMesto
+  pk: 275
+  fields:
+    naziv: Draževac (kod Aleksinca)
+    zip_code: 18223
+    opstina: 142
+- model: orgsema.NaseljenoMesto
+  pk: 276
+  fields:
+    naziv: Drenovac (kod Šapca)
+    zip_code: 15212
+    opstina: 72
+- model: orgsema.NaseljenoMesto
+  pk: 277
+  fields:
+    naziv: Drenovac (kod Paraćina)
+    zip_code: 35257
+    opstina: 99
+- model: orgsema.NaseljenoMesto
+  pk: 278
+  fields:
+    naziv: Drlače
+    zip_code: 15324
+    opstina: 70
+- model: orgsema.NaseljenoMesto
+  pk: 279
+  fields:
+    naziv: Drugovac
+    zip_code: 11432
+    opstina: 80
+- model: orgsema.NaseljenoMesto
+  pk: 280
+  fields:
+    naziv: Dublje
+    zip_code: 15359
+    opstina: 102
+- model: orgsema.NaseljenoMesto
+  pk: 281
+  fields:
+    naziv: Duboka
+    zip_code: 12255
+    opstina: 88
+- model: orgsema.NaseljenoMesto
+  pk: 282
+  fields:
+    naziv: Dubovac
+    zip_code: 26224
+    opstina: 189
+- model: orgsema.NaseljenoMesto
+  pk: 283
+  fields:
+    naziv: Dubovo
+    zip_code: 18406
+    opstina: 184
+- model: orgsema.NaseljenoMesto
+  pk: 284
+  fields:
+    naziv: Dubravica
+    zip_code: 12207
+    opstina: 82
+- model: orgsema.NaseljenoMesto
+  pk: 285
+  fields:
+    naziv: Dudovica
+    zip_code: 11561
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 286
+  fields:
+    naziv: Duga Poljana
+    zip_code: 36312
+    opstina: 143
+- model: orgsema.NaseljenoMesto
+  pk: 287
+  fields:
+    naziv: Dugo Polje
+    zip_code: 18237
+    opstina: 111
+- model: orgsema.NaseljenoMesto
+  pk: 288
+  fields:
+    naziv: Dušanovac
+    zip_code: 19335
+    opstina: 107
+- model: orgsema.NaseljenoMesto
+  pk: 289
+  fields:
+    naziv: Dupljaja
+    zip_code: 26328
+    opstina: 35
+- model: orgsema.NaseljenoMesto
+  pk: 290
+  fields:
+    naziv: Dvorane
+    zip_code: 37206
+    opstina: 187
+- model: orgsema.NaseljenoMesto
+  pk: 291
+  fields:
+    naziv: Džep
+    zip_code: 17514
+    opstina: 166
+- model: orgsema.NaseljenoMesto
+  pk: 292
+  fields:
+    naziv: Džigolj
+    zip_code: 18405
+    opstina: 151
+- model: orgsema.NaseljenoMesto
+  pk: 293
+  fields:
+    naziv: Đala
+    zip_code: 23335
+    opstina: 30
+- model: orgsema.NaseljenoMesto
+  pk: 294
+  fields:
+    naziv: Đeneral Janković
+    zip_code: 38238
+    opstina: 171
+- model: orgsema.NaseljenoMesto
+  pk: 295
+  fields:
+    naziv: Đunis
+    zip_code: 37202
+    opstina: 134
+- model: orgsema.NaseljenoMesto
+  pk: 296
+  fields:
+    naziv: Đurđevo
+    zip_code: 21239
+    opstina: 53
+- model: orgsema.NaseljenoMesto
+  pk: 297
+  fields:
+    naziv: Đurđevo (kod Kragujevca)
+    zip_code: 34215
+    opstina: 95
+- model: orgsema.NaseljenoMesto
+  pk: 298
+  fields:
+    naziv: Đurđin
+    zip_code: 24213
+    opstina: 19
+- model: orgsema.NaseljenoMesto
+  pk: 299
+  fields:
+    naziv: Ečka
+    zip_code: 23203
+    opstina: 22
+- model: orgsema.NaseljenoMesto
+  pk: 300
+  fields:
+    naziv: Elemir
+    zip_code: 23208
+    opstina: 22
+- model: orgsema.NaseljenoMesto
+  pk: 301
+  fields:
+    naziv: Erdeč
+    zip_code: 34207
+    opstina: 94
+- model: orgsema.NaseljenoMesto
+  pk: 302
+  fields:
+    naziv: Erdevik
+    zip_code: 22230
+    opstina: 64
+- model: orgsema.NaseljenoMesto
+  pk: 303
+  fields:
+    naziv: Farkaždin
+    zip_code: 23264
+    opstina: 22
+- model: orgsema.NaseljenoMesto
+  pk: 304
+  fields:
+    naziv: Feketić
+    zip_code: 24323
+    opstina: 21
+- model: orgsema.NaseljenoMesto
+  pk: 305
+  fields:
+    naziv: Futog
+    zip_code: 21410
+    opstina: 45
+- model: orgsema.NaseljenoMesto
+  pk: 306
+  fields:
+    naziv: Gadžin Han
+    zip_code: 18240
+    opstina: 143
+- model: orgsema.NaseljenoMesto
+  pk: 307
+  fields:
+    naziv: Gaj
+    zip_code: 26223
+    opstina: 38
+- model: orgsema.NaseljenoMesto
+  pk: 308
+  fields:
+    naziv: Gajdobra
+    zip_code: 21432
+    opstina: 48
+- model: orgsema.NaseljenoMesto
+  pk: 309
+  fields:
+    naziv: Gakovo
+    zip_code: 25282
+    opstina: 41
+- model: orgsema.NaseljenoMesto
+  pk: 310
+  fields:
+    naziv: Gamzigradska Banja
+    zip_code: 19228
+    opstina: 109
+- model: orgsema.NaseljenoMesto
+  pk: 311
+  fields:
+    naziv: Gardinovci
+    zip_code: 21247
+    opstina: 57
+- model: orgsema.NaseljenoMesto
+  pk: 312
+  fields:
+    naziv: Gibarac
+    zip_code: 22258
+    opstina: 64
+- model: orgsema.NaseljenoMesto
+  pk: 313
+  fields:
+    naziv: Glavinci
+    zip_code: 35261
+    opstina: 101
+- model: orgsema.NaseljenoMesto
+  pk: 314
+  fields:
+    naziv: Globoder
+    zip_code: 37251
+    opstina: 134
+- model: orgsema.NaseljenoMesto
+  pk: 315
+  fields:
+    naziv: Glogonj
+    zip_code: 26202
+    opstina: 33
+- model: orgsema.NaseljenoMesto
+  pk: 316
+  fields:
+    naziv: Glogovac
+    zip_code: 35222
+    opstina: 170
+- model: orgsema.NaseljenoMesto
+  pk: 317
+  fields:
+    naziv: Gložan
+    zip_code: 21412
+    opstina: 49
+- model: orgsema.NaseljenoMesto
+  pk: 318
+  fields:
+    naziv: Glušci
+    zip_code: 15356
+    opstina: 65
+- model: orgsema.NaseljenoMesto
+  pk: 319
+  fields:
+    naziv: Golobok
+    zip_code: 11316
+    opstina: 81
+- model: orgsema.NaseljenoMesto
+  pk: 320
+  fields:
+    naziv: Golubac
+    zip_code: 12223
+    opstina: 85
+- model: orgsema.NaseljenoMesto
+  pk: 321
+  fields:
+    naziv: Golubinci
+    zip_code: 22308
+    opstina: 63
+- model: orgsema.NaseljenoMesto
+  pk: 322
+  fields:
+    naziv: Goračići
+    zip_code: 32232
+    opstina: 124
+- model: orgsema.NaseljenoMesto
+  pk: 323
+  fields:
+    naziv: Goričani
+    zip_code: 32225
+    opstina: 125
+- model: orgsema.NaseljenoMesto
+  pk: 324
+  fields:
+    naziv: Gornja Dobrinja
+    zip_code: 31214
+    opstina: 116
+- model: orgsema.NaseljenoMesto
+  pk: 325
+  fields:
+    naziv: Gornja Draguša
+    zip_code: 18425
+    opstina: 148
+- model: orgsema.NaseljenoMesto
+  pk: 326
+  fields:
+    naziv: Gornja Lisina
+    zip_code: 17538
+    opstina: 164
+- model: orgsema.NaseljenoMesto
+  pk: 327
+  fields:
+    naziv: Gornja Sabanta
+    zip_code: 34206
+    opstina: 94
+- model: orgsema.NaseljenoMesto
+  pk: 328
+  fields:
+    naziv: Gornja Toplica
+    zip_code: 14243
+    opstina: 76
+- model: orgsema.NaseljenoMesto
+  pk: 329
+  fields:
+    naziv: Gornja Toponica
+    zip_code: 18202
+    opstina: 137
+- model: orgsema.NaseljenoMesto
+  pk: 330
+  fields:
+    naziv: Gornja Trepča
+    zip_code: 32215
+    opstina: 125
+- model: orgsema.NaseljenoMesto
+  pk: 331
+  fields:
+    naziv: Gornji Banjani
+    zip_code: 32306
+    opstina: 122
+- model: orgsema.NaseljenoMesto
+  pk: 332
+  fields:
+    naziv: Gornji Barbeš
+    zip_code: 18241
+    opstina: 143
+- model: orgsema.NaseljenoMesto
+  pk: 333
+  fields:
+    naziv: Gornji Breg
+    zip_code: 24406
+    opstina: 31
+- model: orgsema.NaseljenoMesto
+  pk: 334
+  fields:
+    naziv: Gornji Brestovac
+    zip_code: 16244
+    opstina: 156
+- model: orgsema.NaseljenoMesto
+  pk: 335
+  fields:
+    naziv: Gornji Milanovac
+    zip_code: 32300
+    opstina: 122
+- model: orgsema.NaseljenoMesto
+  pk: 336
+  fields:
+    naziv: Gornji Matejevac
+    zip_code: 18204
+    opstina: 137
+- model: orgsema.NaseljenoMesto
+  pk: 337
+  fields:
+    naziv: Gornji Stepoš
+    zip_code: 37221
+    opstina: 134
+- model: orgsema.NaseljenoMesto
+  pk: 338
+  fields:
+    naziv: Gornji Stupanj
+    zip_code: 37234
+    opstina: 131
+- model: orgsema.NaseljenoMesto
+  pk: 339
+  fields:
+    naziv: Gospođinci
+    zip_code: 21237
+    opstina: 53
+- model: orgsema.NaseljenoMesto
+  pk: 340
+  fields:
+    naziv: Gostilje
+    zip_code: 31313
+    opstina: 121
+- model: orgsema.NaseljenoMesto
+  pk: 341
+  fields:
+    naziv: Grabovac
+    zip_code: 11508
+    opstina: 194
+- model: orgsema.NaseljenoMesto
+  pk: 342
+  fields:
+    naziv: Grabovci
+    zip_code: 22423
+    opstina: 62
+- model: orgsema.NaseljenoMesto
+  pk: 343
+  fields:
+    naziv: Gračanica
+    zip_code: 38205
+    opstina: 176
+- model: orgsema.NaseljenoMesto
+  pk: 344
+  fields:
+    naziv: Gradina
+    zip_code: 18321
+    opstina: 154
+- model: orgsema.NaseljenoMesto
+  pk: 345
+  fields:
+    naziv: Gradskovo
+    zip_code: 19205
+    opstina: 109
+- model: orgsema.NaseljenoMesto
+  pk: 346
+  fields:
+    naziv: Graševci
+    zip_code: 37229
+    opstina: 132
+- model: orgsema.NaseljenoMesto
+  pk: 347
+  fields:
+    naziv: Grdelica
+    zip_code: 16220
+    opstina: 159
+- model: orgsema.NaseljenoMesto
+  pk: 348
+  fields:
+    naziv: Grebenac
+    zip_code: 26347
+    opstina: 35
+- model: orgsema.NaseljenoMesto
+  pk: 349
+  fields:
+    naziv: Gredetin
+    zip_code: 18213
+    opstina: 142
+- model: orgsema.NaseljenoMesto
+  pk: 350
+  fields:
+    naziv: Grejač
+    zip_code: 18219
+    opstina: 142
+- model: orgsema.NaseljenoMesto
+  pk: 351
+  fields:
+    naziv: Grgurevci
+    zip_code: 22213
+    opstina: 58
+- model: orgsema.NaseljenoMesto
+  pk: 352
+  fields:
+    naziv: Grlište
+    zip_code: 19342
+    opstina: 109
+- model: orgsema.NaseljenoMesto
+  pk: 353
+  fields:
+    naziv: Grljan
+    zip_code: 19341
+    opstina: 109
+- model: orgsema.NaseljenoMesto
+  pk: 354
+  fields:
+    naziv: Grocka
+    zip_code: 11306
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 355
+  fields:
+    naziv: Grošnica
+    zip_code: 34202
+    opstina: 94
+- model: orgsema.NaseljenoMesto
+  pk: 356
+  fields:
+    naziv: Gruža
+    zip_code: 34230
+    opstina: 93
+- model: orgsema.NaseljenoMesto
+  pk: 357
+  fields:
+    naziv: Guberevac
+    zip_code: 34232
+    opstina: 93
+- model: orgsema.NaseljenoMesto
+  pk: 358
+  fields:
+    naziv: Guča
+    zip_code: 32230
+    opstina: 124
+- model: orgsema.NaseljenoMesto
+  pk: 359
+  fields:
+    naziv: Gudurica
+    zip_code: 26335
+    opstina: 36
+- model: orgsema.NaseljenoMesto
+  pk: 360
+  fields:
+    naziv: Gunaroš
+    zip_code: 24312
+    opstina: 20
+- model: orgsema.NaseljenoMesto
+  pk: 361
+  fields:
+    naziv: Guševac
+    zip_code: 18208
+    opstina: 147
+- model: orgsema.NaseljenoMesto
+  pk: 362
+  fields:
+    naziv: Gušterica
+    zip_code: 38209
+    opstina: 173
+- model: orgsema.NaseljenoMesto
+  pk: 363
+  fields:
+    naziv: Hajdučica
+    zip_code: 26370
+    opstina: 40
+- model: orgsema.NaseljenoMesto
+  pk: 364
+  fields:
+    naziv: Hajdukovo
+    zip_code: 24414
+    opstina: 19
+- model: orgsema.NaseljenoMesto
+  pk: 365
+  fields:
+    naziv: Halovo
+    zip_code: 19236
+    opstina: 109
+- model: orgsema.NaseljenoMesto
+  pk: 366
+  fields:
+    naziv: Hetin
+    zip_code: 23235
+    opstina: 23
+- model: orgsema.NaseljenoMesto
+  pk: 367
+  fields:
+    naziv: Horgoš
+    zip_code: 24410
+    opstina: 28
+- model: orgsema.NaseljenoMesto
+  pk: 368
+  fields:
+    naziv: Horgoš granični prelaz
+    zip_code: 24411
+    opstina: 28
+- model: orgsema.NaseljenoMesto
+  pk: 369
+  fields:
+    naziv: Hrtkovci
+    zip_code: 22427
+    opstina: 62
+- model: orgsema.NaseljenoMesto
+  pk: 370
+  fields:
+    naziv: Iđoš
+    zip_code: 23323
+    opstina: 29
+- model: orgsema.NaseljenoMesto
+  pk: 371
+  fields:
+    naziv: Idvor
+    zip_code: 26207
+    opstina: 37
+- model: orgsema.NaseljenoMesto
+  pk: 372
+  fields:
+    naziv: Ilandža
+    zip_code: 26352
+    opstina: 34
+- model: orgsema.NaseljenoMesto
+  pk: 373
+  fields:
+    naziv: Ilićevo
+    zip_code: 34203
+    opstina: 94
+- model: orgsema.NaseljenoMesto
+  pk: 374
+  fields:
+    naziv: Ilinci
+    zip_code: 22250
+    opstina: 64
+- model: orgsema.NaseljenoMesto
+  pk: 375
+  fields:
+    naziv: Inđija
+    zip_code: 22320
+    opstina: 59
+- model: orgsema.NaseljenoMesto
+  pk: 376
+  fields:
+    naziv: Irig
+    zip_code: 22406
+    opstina: 60
+- model: orgsema.NaseljenoMesto
+  pk: 377
+  fields:
+    naziv: Iriški Venac
+    zip_code: 22407
+    opstina: 60
+- model: orgsema.NaseljenoMesto
+  pk: 378
+  fields:
+    naziv: Ivanjica
+    zip_code: 32250
+    opstina: 123
+- model: orgsema.NaseljenoMesto
+  pk: 379
+  fields:
+    naziv: Ivanovo
+    zip_code: 26233
+    opstina: 33
+- model: orgsema.NaseljenoMesto
+  pk: 380
+  fields:
+    naziv: Izbište
+    zip_code: 26343
+    opstina: 36
+- model: orgsema.NaseljenoMesto
+  pk: 381
+  fields:
+    naziv: Jablanica
+    zip_code: 31314
+    opstina: 186
+- model: orgsema.NaseljenoMesto
+  pk: 382
+  fields:
+    naziv: Jabučje
+    zip_code: 14226
+    opstina: 74
+- model: orgsema.NaseljenoMesto
+  pk: 383
+  fields:
+    naziv: Jabuka
+    zip_code: 31306
+    opstina: 33
+- model: orgsema.NaseljenoMesto
+  pk: 384
+  fields:
+    naziv: Jabukovac
+    zip_code: 19304
+    opstina: 107
+- model: orgsema.NaseljenoMesto
+  pk: 385
+  fields:
+    naziv: Jadranska Lešnica
+    zip_code: 15308
+    opstina: 69
+- model: orgsema.NaseljenoMesto
+  pk: 386
+  fields:
+    naziv: Jagnjilo
+    zip_code: 11412
+    opstina: 166
+- model: orgsema.NaseljenoMesto
+  pk: 387
+  fields:
+    naziv: Jagodina
+    zip_code: 35000
+    opstina: 101
+- model: orgsema.NaseljenoMesto
+  pk: 388
+  fields:
+    naziv: Jakovo
+    zip_code: 11276
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 389
+  fields:
+    naziv: Jamena
+    zip_code: 22248
+    opstina: 64
+- model: orgsema.NaseljenoMesto
+  pk: 390
+  fields:
+    naziv: Janošik
+    zip_code: 26362
+    opstina: 34
+- model: orgsema.NaseljenoMesto
+  pk: 391
+  fields:
+    naziv: Jarak
+    zip_code: 22426
+    opstina: 58
+- model: orgsema.NaseljenoMesto
+  pk: 392
+  fields:
+    naziv: Jarkovac
+    zip_code: 23250
+    opstina: 26
+- model: orgsema.NaseljenoMesto
+  pk: 393
+  fields:
+    naziv: Jarmenovci
+    zip_code: 34318
+    opstina: 96
+- model: orgsema.NaseljenoMesto
+  pk: 394
+  fields:
+    naziv: Jaša Tomić
+    zip_code: 23230
+    opstina: 26
+- model: orgsema.NaseljenoMesto
+  pk: 395
+  fields:
+    naziv: Jasenovo (kod Bele Crkve)
+    zip_code: 26346
+    opstina: 35
+- model: orgsema.NaseljenoMesto
+  pk: 396
+  fields:
+    naziv: Jasenovo (kod Nove Varoši)
+    zip_code: 31319
+    opstina: 115
+- model: orgsema.NaseljenoMesto
+  pk: 397
+  fields:
+    naziv: Jasenovo (kod Despotovca)
+    zip_code: 35241
+    opstina: 98
+- model: orgsema.NaseljenoMesto
+  pk: 398
+  fields:
+    naziv: Jasika
+    zip_code: 37252
+    opstina: 134
+- model: orgsema.NaseljenoMesto
+  pk: 399
+  fields:
+    naziv: Jazak
+    zip_code: 22409
+    opstina: 60
+- model: orgsema.NaseljenoMesto
+  pk: 400
+  fields:
+    naziv: Jazovo
+    zip_code: 23327
+    opstina: 32
+- model: orgsema.NaseljenoMesto
+  pk: 401
+  fields:
+    naziv: Jelašnica
+    zip_code: 18206
+    opstina: 137
+- model: orgsema.NaseljenoMesto
+  pk: 402
+  fields:
+    naziv: Jelašnica
+    zip_code: 17531
+    opstina: 168
+- model: orgsema.NaseljenoMesto
+  pk: 403
+  fields:
+    naziv: Jelen Do
+    zip_code: 31215
+    opstina: 116
+- model: orgsema.NaseljenoMesto
+  pk: 404
+  fields:
+    naziv: Jelovik
+    zip_code: 34309
+    opstina: 113
+- model: orgsema.NaseljenoMesto
+  pk: 405
+  fields:
+    naziv: Jermenovci
+    zip_code: 26363
+    opstina: 40
+- model: orgsema.NaseljenoMesto
+  pk: 406
+  fields:
+    naziv: Ježevica (Čačanska)
+    zip_code: 32222
+    opstina: 125
+- model: orgsema.NaseljenoMesto
+  pk: 407
+  fields:
+    naziv: Ježevica (Užička)
+    zip_code: 31213
+    opstina: 116
+- model: orgsema.NaseljenoMesto
+  pk: 408
+  fields:
+    naziv: Jošanica
+    zip_code: 18234
+    opstina: 184
+- model: orgsema.NaseljenoMesto
+  pk: 409
+  fields:
+    naziv: Jošanička Banja
+    zip_code: 36345
+    opstina: 129
+- model: orgsema.NaseljenoMesto
+  pk: 410
+  fields:
+    naziv: Jovac
+    zip_code: 35205
+    opstina: 166
+- model: orgsema.NaseljenoMesto
+  pk: 411
+  fields:
+    naziv: Jugbogdanovac
+    zip_code: 18253
+    opstina: 145
+- model: orgsema.NaseljenoMesto
+  pk: 412
+  fields:
+    naziv: Junkovac
+    zip_code: 11562
+    opstina: 96
+- model: orgsema.NaseljenoMesto
+  pk: 413
+  fields:
+    naziv: Kać
+    zip_code: 21241
+    opstina: 45
+- model: orgsema.NaseljenoMesto
+  pk: 414
+  fields:
+    naziv: Kačarevo
+    zip_code: 26212
+    opstina: 33
+- model: orgsema.NaseljenoMesto
+  pk: 415
+  fields:
+    naziv: Kajtasovo
+    zip_code: 26329
+    opstina: 35
+- model: orgsema.NaseljenoMesto
+  pk: 416
+  fields:
+    naziv: Kalna
+    zip_code: 19353
+    opstina: 161
+- model: orgsema.NaseljenoMesto
+  pk: 417
+  fields:
+    naziv: Kaluđerske Bare
+    zip_code: 31257
+    opstina: 113
+- model: orgsema.NaseljenoMesto
+  pk: 418
+  fields:
+    naziv: Kaluđerica
+    zip_code: 11130
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 419
+  fields:
+    naziv: Kamenica (kod Čačka)
+    zip_code: 32206
+    opstina: 122
+- model: orgsema.NaseljenoMesto
+  pk: 420
+  fields:
+    naziv: Kamenica (kod Dimitrovgrada)
+    zip_code: 18324
+    opstina: 154
+- model: orgsema.NaseljenoMesto
+  pk: 421
+  fields:
+    naziv: Kamenica (Valjevska)
+    zip_code: 14252
+    opstina: 73
+- model: orgsema.NaseljenoMesto
+  pk: 422
+  fields:
+    naziv: Kanjiža
+    zip_code: 24420
+    opstina: 28
+- model: orgsema.NaseljenoMesto
+  pk: 423
+  fields:
+    naziv: Kaona
+    zip_code: 32234
+    opstina: 66
+- model: orgsema.NaseljenoMesto
+  pk: 424
+  fields:
+    naziv: Kaonik
+    zip_code: 37256
+    opstina: 134
+- model: orgsema.NaseljenoMesto
+  pk: 425
+  fields:
+    naziv: Karađorđevo
+    zip_code: 21421
+    opstina: 48
+- model: orgsema.NaseljenoMesto
+  pk: 426
+  fields:
+    naziv: Karan
+    zip_code: 31204
+    opstina: 120
+- model: orgsema.NaseljenoMesto
+  pk: 427
+  fields:
+    naziv: Karavukovo
+    zip_code: 25255
+    opstina: 44
+- model: orgsema.NaseljenoMesto
+  pk: 428
+  fields:
+    naziv: Karlovčić
+    zip_code: 22443
+    opstina: 61
+- model: orgsema.NaseljenoMesto
+  pk: 429
+  fields:
+    naziv: Katun
+    zip_code: 18225
+    opstina: 162
+- model: orgsema.NaseljenoMesto
+  pk: 430
+  fields:
+    naziv: Kelebija
+    zip_code: 24104
+    opstina: 19
+- model: orgsema.NaseljenoMesto
+  pk: 431
+  fields:
+    naziv: Kelebija granični prelaz
+    zip_code: 24205
+    opstina: 19
+- model: orgsema.NaseljenoMesto
+  pk: 432
+  fields:
+    naziv: Kevi
+    zip_code: 24407
+    opstina: 31
+- model: orgsema.NaseljenoMesto
+  pk: 433
+  fields:
+    naziv: Kikinda
+    zip_code: 23300
+    opstina: 29
+- model: orgsema.NaseljenoMesto
+  pk: 434
+  fields:
+    naziv: Kisač
+    zip_code: 21211
+    opstina: 45
+- model: orgsema.NaseljenoMesto
+  pk: 435
+  fields:
+    naziv: Kladovo
+    zip_code: 19320
+    opstina: 105
+- model: orgsema.NaseljenoMesto
+  pk: 436
+  fields:
+    naziv: Klek
+    zip_code: 23211
+    opstina: 22
+- model: orgsema.NaseljenoMesto
+  pk: 437
+  fields:
+    naziv: Klenak
+    zip_code: 22424
+    opstina: 62
+- model: orgsema.NaseljenoMesto
+  pk: 438
+  fields:
+    naziv: Klenike
+    zip_code: 17524
+    opstina: 165
+- model: orgsema.NaseljenoMesto
+  pk: 439
+  fields:
+    naziv: Klenje (kod Bogatića)
+    zip_code: 15357
+    opstina: 65
+- model: orgsema.NaseljenoMesto
+  pk: 440
+  fields:
+    naziv: Klenje (kod Golubca)
+    zip_code: 12258
+    opstina: 85
+- model: orgsema.NaseljenoMesto
+  pk: 441
+  fields:
+    naziv: Kličevac
+    zip_code: 12209
+    opstina: 82
+- model: orgsema.NaseljenoMesto
+  pk: 442
+  fields:
+    naziv: Klisura
+    zip_code: 17535
+    opstina: 168
+- model: orgsema.NaseljenoMesto
+  pk: 443
+  fields:
+    naziv: Kljajićevo
+    zip_code: 25221
+    opstina: 41
+- model: orgsema.NaseljenoMesto
+  pk: 444
+  fields:
+    naziv: Klokočevac
+    zip_code: 19222
+    opstina: 106
+- model: orgsema.NaseljenoMesto
+  pk: 445
+  fields:
+    naziv: Knić
+    zip_code: 34240
+    opstina: 93
+- model: orgsema.NaseljenoMesto
+  pk: 446
+  fields:
+    naziv: Knićanin
+    zip_code: 23265
+    opstina: 22
+- model: orgsema.NaseljenoMesto
+  pk: 447
+  fields:
+    naziv: Knjaževac
+    zip_code: 19350
+    opstina: 110
+- model: orgsema.NaseljenoMesto
+  pk: 448
+  fields:
+    naziv: Kobišnica
+    zip_code: 19316
+    opstina: 107
+- model: orgsema.NaseljenoMesto
+  pk: 449
+  fields:
+    naziv: Koceljeva
+    zip_code: 15220
+    opstina: 67
+- model: orgsema.NaseljenoMesto
+  pk: 450
+  fields:
+    naziv: Kokin Brod
+    zip_code: 31318
+    opstina: 115
+- model: orgsema.NaseljenoMesto
+  pk: 451
+  fields:
+    naziv: Kolare
+    zip_code: 35242
+    opstina: 101
+- model: orgsema.NaseljenoMesto
+  pk: 452
+  fields:
+    naziv: Kolari
+    zip_code: 11431
+    opstina: 80
+- model: orgsema.NaseljenoMesto
+  pk: 453
+  fields:
+    naziv: Kolut
+    zip_code: 25274
+    opstina: 41
+- model: orgsema.NaseljenoMesto
+  pk: 454
+  fields:
+    naziv: Komirić
+    zip_code: 14254
+    opstina: 77
+- model: orgsema.NaseljenoMesto
+  pk: 455
+  fields:
+    naziv: Konak
+    zip_code: 23253
+    opstina: 26
+- model: orgsema.NaseljenoMesto
+  pk: 456
+  fields:
+    naziv: Konarevo
+    zip_code: 36340
+    opstina: 127
+- model: orgsema.NaseljenoMesto
+  pk: 457
+  fields:
+    naziv: Končarevo
+    zip_code: 35219
+    opstina: 101
+- model: orgsema.NaseljenoMesto
+  pk: 458
+  fields:
+    naziv: Konjuh
+    zip_code: 37254
+    opstina: 173
+- model: orgsema.NaseljenoMesto
+  pk: 459
+  fields:
+    naziv: Kopaonik
+    zip_code: 36354
+    opstina: 129
+- model: orgsema.NaseljenoMesto
+  pk: 460
+  fields:
+    naziv: Koprivnica
+    zip_code: 19223
+    opstina: 109
+- model: orgsema.NaseljenoMesto
+  pk: 461
+  fields:
+    naziv: Koračica
+    zip_code: 11415
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 462
+  fields:
+    naziv: Korbevac
+    zip_code: 17545
+    opstina: 162
+- model: orgsema.NaseljenoMesto
+  pk: 463
+  fields:
+    naziv: Korbovo
+    zip_code: 19329
+    opstina: 105
+- model: orgsema.NaseljenoMesto
+  pk: 464
+  fields:
+    naziv: Korenita
+    zip_code: 15302
+    opstina: 69
+- model: orgsema.NaseljenoMesto
+  pk: 465
+  fields:
+    naziv: Korman (Aleksinački)
+    zip_code: 18216
+    opstina: 142
+- model: orgsema.NaseljenoMesto
+  pk: 466
+  fields:
+    naziv: Korman (Kragujevački)
+    zip_code: 34224
+    opstina: 94
+- model: orgsema.NaseljenoMesto
+  pk: 467
+  fields:
+    naziv: Kosovska Mitrovica
+    zip_code: 38220
+    opstina: 193
+- model: orgsema.NaseljenoMesto
+  pk: 468
+  fields:
+    naziv: Kosančić
+    zip_code: 16206
+    opstina: 156
+- model: orgsema.NaseljenoMesto
+  pk: 469
+  fields:
+    naziv: Kosjerić
+    zip_code: 31260
+    opstina: 114
+- model: orgsema.NaseljenoMesto
+  pk: 470
+  fields:
+    naziv: Kosovo Polje
+    zip_code: 38210
+    opstina: 172
+- model: orgsema.NaseljenoMesto
+  pk: 471
+  fields:
+    naziv: Kostojevići
+    zip_code: 31254
+    opstina: 113
+- model: orgsema.NaseljenoMesto
+  pk: 472
+  fields:
+    naziv: Kostolac
+    zip_code: 12208
+    opstina: 82
+- model: orgsema.NaseljenoMesto
+  pk: 473
+  fields:
+    naziv: Kotraža
+    zip_code: 32235
+    opstina: 94
+- model: orgsema.NaseljenoMesto
+  pk: 474
+  fields:
+    naziv: Kovačevac
+    zip_code: 11409
+    opstina: 171
+- model: orgsema.NaseljenoMesto
+  pk: 475
+  fields:
+    naziv: Kovačica
+    zip_code: 26210
+    opstina: 37
+- model: orgsema.NaseljenoMesto
+  pk: 476
+  fields:
+    naziv: Kovilj
+    zip_code: 21243
+    opstina: 45
+- model: orgsema.NaseljenoMesto
+  pk: 477
+  fields:
+    naziv: Kovilje
+    zip_code: 32257
+    opstina: 123
+- model: orgsema.NaseljenoMesto
+  pk: 478
+  fields:
+    naziv: Kovin
+    zip_code: 26220
+    opstina: 38
+- model: orgsema.NaseljenoMesto
+  pk: 479
+  fields:
+    naziv: Kragujevac
+    zip_code: 34000
+    opstina: 94
+- model: orgsema.NaseljenoMesto
+  pk: 480
+  fields:
+    naziv: Krajišnik
+    zip_code: 23231
+    opstina: 26
+- model: orgsema.NaseljenoMesto
+  pk: 481
+  fields:
+    naziv: Kraljevci
+    zip_code: 22411
+    opstina: 62
+- model: orgsema.NaseljenoMesto
+  pk: 482
+  fields:
+    naziv: Kraljevo
+    zip_code: 36000
+    opstina: 142
+- model: orgsema.NaseljenoMesto
+  pk: 483
+  fields:
+    naziv: Krčedin
+    zip_code: 22325
+    opstina: 59
+- model: orgsema.NaseljenoMesto
+  pk: 484
+  fields:
+    naziv: Kremna
+    zip_code: 31242
+    opstina: 120
+- model: orgsema.NaseljenoMesto
+  pk: 485
+  fields:
+    naziv: Krepoljin
+    zip_code: 12316
+    opstina: 87
+- model: orgsema.NaseljenoMesto
+  pk: 486
+  fields:
+    naziv: Kriva Feja
+    zip_code: 17543
+    opstina: 162
+- model: orgsema.NaseljenoMesto
+  pk: 487
+  fields:
+    naziv: Kriva Reka
+    zip_code: 37282
+    opstina: 132
+- model: orgsema.NaseljenoMesto
+  pk: 488
+  fields:
+    naziv: Krivaja
+    zip_code: 24341
+    opstina: 148
+- model: orgsema.NaseljenoMesto
+  pk: 489
+  fields:
+    naziv: Krivelj
+    zip_code: 19219
+    opstina: 104
+- model: orgsema.NaseljenoMesto
+  pk: 490
+  fields:
+    naziv: Krivi Vir
+    zip_code: 19375
+    opstina: 108
+- model: orgsema.NaseljenoMesto
+  pk: 491
+  fields:
+    naziv: Krnješevci
+    zip_code: 22314
+    opstina: 63
+- model: orgsema.NaseljenoMesto
+  pk: 492
+  fields:
+    naziv: Krnjevo
+    zip_code: 11319
+    opstina: 79
+- model: orgsema.NaseljenoMesto
+  pk: 493
+  fields:
+    naziv: Krupac
+    zip_code: 18307
+    opstina: 155
+- model: orgsema.NaseljenoMesto
+  pk: 494
+  fields:
+    naziv: Krupanj
+    zip_code: 15314
+    opstina: 68
+- model: orgsema.NaseljenoMesto
+  pk: 495
+  fields:
+    naziv: Krušar
+    zip_code: 35227
+    opstina: 103
+- model: orgsema.NaseljenoMesto
+  pk: 496
+  fields:
+    naziv: Kruščić
+    zip_code: 25225
+    opstina: 43
+- model: orgsema.NaseljenoMesto
+  pk: 497
+  fields:
+    naziv: Kruščica
+    zip_code: 31233
+    opstina: 112
+- model: orgsema.NaseljenoMesto
+  pk: 498
+  fields:
+    naziv: Krušedol
+    zip_code: 22328
+    opstina: 60
+- model: orgsema.NaseljenoMesto
+  pk: 499
+  fields:
+    naziv: Kruševac
+    zip_code: 37000
+    opstina: 192
+- model: orgsema.NaseljenoMesto
+  pk: 500
+  fields:
+    naziv: Kruševica
+    zip_code: 18409
+    opstina: 175
+- model: orgsema.NaseljenoMesto
+  pk: 501
+  fields:
+    naziv: Kučevo
+    zip_code: 12240
+    opstina: 88
+- model: orgsema.NaseljenoMesto
+  pk: 502
+  fields:
+    naziv: Kucura
+    zip_code: 21466
+    opstina: 52
+- model: orgsema.NaseljenoMesto
+  pk: 503
+  fields:
+    naziv: Kukljin
+    zip_code: 37255
+    opstina: 134
+- model: orgsema.NaseljenoMesto
+  pk: 504
+  fields:
+    naziv: Kukujevci
+    zip_code: 22224
+    opstina: 64
+- model: orgsema.NaseljenoMesto
+  pk: 505
+  fields:
+    naziv: Kula
+    zip_code: 25230
+    opstina: 194
+- model: orgsema.NaseljenoMesto
+  pk: 506
+  fields:
+    naziv: Kulina
+    zip_code: 18214
+    opstina: 142
+- model: orgsema.NaseljenoMesto
+  pk: 507
+  fields:
+    naziv: Kulpin
+    zip_code: 21472
+    opstina: 49
+- model: orgsema.NaseljenoMesto
+  pk: 508
+  fields:
+    naziv: Kumane
+    zip_code: 23271
+    opstina: 84
+- model: orgsema.NaseljenoMesto
+  pk: 509
+  fields:
+    naziv: Kupci
+    zip_code: 37222
+    opstina: 134
+- model: orgsema.NaseljenoMesto
+  pk: 510
+  fields:
+    naziv: Kupinik
+    zip_code: 26368
+    opstina: 40
+- model: orgsema.NaseljenoMesto
+  pk: 511
+  fields:
+    naziv: Kupinovo
+    zip_code: 22419
+    opstina: 61
+- model: orgsema.NaseljenoMesto
+  pk: 512
+  fields:
+    naziv: Kupusina
+    zip_code: 25262
+    opstina: 79
+- model: orgsema.NaseljenoMesto
+  pk: 513
+  fields:
+    naziv: Kuršumlija
+    zip_code: 18430
+    opstina: 150
+- model: orgsema.NaseljenoMesto
+  pk: 514
+  fields:
+    naziv: Kuršumlijska Banja
+    zip_code: 18435
+    opstina: 150
+- model: orgsema.NaseljenoMesto
+  pk: 515
+  fields:
+    naziv: Kusadak
+    zip_code: 11425
+    opstina: 81
+- model: orgsema.NaseljenoMesto
+  pk: 516
+  fields:
+    naziv: Kusić
+    zip_code: 26349
+    opstina: 35
+- model: orgsema.NaseljenoMesto
+  pk: 517
+  fields:
+    naziv: Kušići
+    zip_code: 32258
+    opstina: 123
+- model: orgsema.NaseljenoMesto
+  pk: 518
+  fields:
+    naziv: Kušiljevo
+    zip_code: 35226
+    opstina: 102
+- model: orgsema.NaseljenoMesto
+  pk: 519
+  fields:
+    naziv: Kuštilj
+    zip_code: 26336
+    opstina: 36
+- model: orgsema.NaseljenoMesto
+  pk: 520
+  fields:
+    naziv: Kuzmin
+    zip_code: 22223
+    opstina: 172
+- model: orgsema.NaseljenoMesto
+  pk: 521
+  fields:
+    naziv: Laćarak
+    zip_code: 22221
+    opstina: 58
+- model: orgsema.NaseljenoMesto
+  pk: 522
+  fields:
+    naziv: Laćisled
+    zip_code: 37232
+    opstina: 131
+- model: orgsema.NaseljenoMesto
+  pk: 523
+  fields:
+    naziv: Lađevci
+    zip_code: 36204
+    opstina: 127
+- model: orgsema.NaseljenoMesto
+  pk: 524
+  fields:
+    naziv: Lajkovac
+    zip_code: 14224
+    opstina: 74
+- model: orgsema.NaseljenoMesto
+  pk: 525
+  fields:
+    naziv: Lalić
+    zip_code: 25234
+    opstina: 44
+- model: orgsema.NaseljenoMesto
+  pk: 526
+  fields:
+    naziv: Lalinac
+    zip_code: 18201
+    opstina: 147
+- model: orgsema.NaseljenoMesto
+  pk: 527
+  fields:
+    naziv: Lapovo
+    zip_code: 34220
+    opstina: 97
+- model: orgsema.NaseljenoMesto
+  pk: 528
+  fields:
+    naziv: Lapovo Selo
+    zip_code: 34223
+    opstina: 97
+- model: orgsema.NaseljenoMesto
+  pk: 529
+  fields:
+    naziv: Lazarevac
+    zip_code: 11550
+    opstina: 148
+- model: orgsema.NaseljenoMesto
+  pk: 530
+  fields:
+    naziv: Lazarevo
+    zip_code: 23241
+    opstina: 174
+- model: orgsema.NaseljenoMesto
+  pk: 531
+  fields:
+    naziv: Laznica
+    zip_code: 12321
+    opstina: 87
+- model: orgsema.NaseljenoMesto
+  pk: 532
+  fields:
+    naziv: Lebane
+    zip_code: 16230
+    opstina: 176
+- model: orgsema.NaseljenoMesto
+  pk: 533
+  fields:
+    naziv: Lece
+    zip_code: 16248
+    opstina: 160
+- model: orgsema.NaseljenoMesto
+  pk: 534
+  fields:
+    naziv: Ledinci
+    zip_code: 21207
+    opstina: 46
+- model: orgsema.NaseljenoMesto
+  pk: 535
+  fields:
+    naziv: Lelić
+    zip_code: 14205
+    opstina: 73
+- model: orgsema.NaseljenoMesto
+  pk: 536
+  fields:
+    naziv: Lenovac
+    zip_code: 19343
+    opstina: 109
+- model: orgsema.NaseljenoMesto
+  pk: 537
+  fields:
+    naziv: Lepenac
+    zip_code: 37224
+    opstina: 132
+- model: orgsema.NaseljenoMesto
+  pk: 538
+  fields:
+    naziv: Lepenica
+    zip_code: 17513
+    opstina: 166
+- model: orgsema.NaseljenoMesto
+  pk: 539
+  fields:
+    naziv: Leposavić
+    zip_code: 38218
+    opstina: 191
+- model: orgsema.NaseljenoMesto
+  pk: 540
+  fields:
+    naziv: Lesak
+    zip_code: 38219
+    opstina: 191
+- model: orgsema.NaseljenoMesto
+  pk: 541
+  fields:
+    naziv: Leskovac
+    zip_code: 16000
+    opstina: 159
+- model: orgsema.NaseljenoMesto
+  pk: 542
+  fields:
+    naziv: Lešnica
+    zip_code: 15307
+    opstina: 69
+- model: orgsema.NaseljenoMesto
+  pk: 543
+  fields:
+    naziv: Leštane
+    zip_code: 11309
+    opstina: 188
+- model: orgsema.NaseljenoMesto
+  pk: 544
+  fields:
+    naziv: Ležimir
+    zip_code: 22207
+    opstina: 58
+- model: orgsema.NaseljenoMesto
+  pk: 545
+  fields:
+    naziv: Lički Hanovi
+    zip_code: 18245
+    opstina: 143
+- model: orgsema.NaseljenoMesto
+  pk: 546
+  fields:
+    naziv: Lipar
+    zip_code: 25232
+    opstina: 43
+- model: orgsema.NaseljenoMesto
+  pk: 547
+  fields:
+    naziv: Lipe
+    zip_code: 11310
+    opstina: 80
+- model: orgsema.NaseljenoMesto
+  pk: 548
+  fields:
+    naziv: Lipolist
+    zip_code: 15305
+    opstina: 72
+- model: orgsema.NaseljenoMesto
+  pk: 549
+  fields:
+    naziv: Loćika
+    zip_code: 35274
+    opstina: 142
+- model: orgsema.NaseljenoMesto
+  pk: 550
+  fields:
+    naziv: Lok
+    zip_code: 21248
+    opstina: 57
+- model: orgsema.NaseljenoMesto
+  pk: 551
+  fields:
+    naziv: Lokve
+    zip_code: 26361
+    opstina: 34
+- model: orgsema.NaseljenoMesto
+  pk: 552
+  fields:
+    naziv: Lovćenac
+    zip_code: 24322
+    opstina: 21
+- model: orgsema.NaseljenoMesto
+  pk: 553
+  fields:
+    naziv: Loznica
+    zip_code: 15300
+    opstina: 69
+- model: orgsema.NaseljenoMesto
+  pk: 554
+  fields:
+    naziv: Lozovik
+    zip_code: 11317
+    opstina: 79
+- model: orgsema.NaseljenoMesto
+  pk: 555
+  fields:
+    naziv: Lubnica
+    zip_code: 19208
+    opstina: 109
+- model: orgsema.NaseljenoMesto
+  pk: 556
+  fields:
+    naziv: Lučani
+    zip_code: 32240
+    opstina: 124
+- model: orgsema.NaseljenoMesto
+  pk: 557
+  fields:
+    naziv: Lug
+    zip_code: 21315
+    opstina: 175
+- model: orgsema.NaseljenoMesto
+  pk: 558
+  fields:
+    naziv: Lugavčina
+    zip_code: 11321
+    opstina: 80
+- model: orgsema.NaseljenoMesto
+  pk: 559
+  fields:
+    naziv: Luka
+    zip_code: 19234
+    opstina: 104
+- model: orgsema.NaseljenoMesto
+  pk: 560
+  fields:
+    naziv: Lukare
+    zip_code: 36306
+    opstina: 176
+- model: orgsema.NaseljenoMesto
+  pk: 561
+  fields:
+    naziv: Lukićevo
+    zip_code: 23261
+    opstina: 22
+- model: orgsema.NaseljenoMesto
+  pk: 562
+  fields:
+    naziv: Lukino Selo
+    zip_code: 23224
+    opstina: 22
+- model: orgsema.NaseljenoMesto
+  pk: 563
+  fields:
+    naziv: Lukovo (kod Boljevca)
+    zip_code: 19371
+    opstina: 108
+- model: orgsema.NaseljenoMesto
+  pk: 564
+  fields:
+    naziv: Lukovo (kod Kuršumlije)
+    zip_code: 18437
+    opstina: 150
+- model: orgsema.NaseljenoMesto
+  pk: 565
+  fields:
+    naziv: Lunovo Selo
+    zip_code: 31203
+    opstina: 120
+- model: orgsema.NaseljenoMesto
+  pk: 566
+  fields:
+    naziv: Lužane
+    zip_code: 18228
+    opstina: 175
+- model: orgsema.NaseljenoMesto
+  pk: 567
+  fields:
+    naziv: Lužnice
+    zip_code: 34325
+    opstina: 94
+- model: orgsema.NaseljenoMesto
+  pk: 568
+  fields:
+    naziv: Ljig
+    zip_code: 14240
+    opstina: 75
+- model: orgsema.NaseljenoMesto
+  pk: 569
+  fields:
+    naziv: Ljuba
+    zip_code: 22255
+    opstina: 64
+- model: orgsema.NaseljenoMesto
+  pk: 570
+  fields:
+    naziv: Ljuberađa
+    zip_code: 18217
+    opstina: 152
+- model: orgsema.NaseljenoMesto
+  pk: 571
+  fields:
+    naziv: Ljubiš
+    zip_code: 31209
+    opstina: 121
+- model: orgsema.NaseljenoMesto
+  pk: 572
+  fields:
+    naziv: Ljubovija
+    zip_code: 15320
+    opstina: 70
+- model: orgsema.NaseljenoMesto
+  pk: 573
+  fields:
+    naziv: Ljukovo
+    zip_code: 22321
+    opstina: 59
+- model: orgsema.NaseljenoMesto
+  pk: 574
+  fields:
+    naziv: Ljutovo
+    zip_code: 24215
+    opstina: 19
+- model: orgsema.NaseljenoMesto
+  pk: 575
+  fields:
+    naziv: Mala Moštanica
+    zip_code: 11261
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 576
+  fields:
+    naziv: Mačkat
+    zip_code: 31312
+    opstina: 121
+- model: orgsema.NaseljenoMesto
+  pk: 577
+  fields:
+    naziv: Mačvanska Mitrovica
+    zip_code: 22202
+    opstina: 58
+- model: orgsema.NaseljenoMesto
+  pk: 578
+  fields:
+    naziv: Mačvanski Pričinović
+    zip_code: 15211
+    opstina: 72
+- model: orgsema.NaseljenoMesto
+  pk: 579
+  fields:
+    naziv: Maglić
+    zip_code: 21473
+    opstina: 49
+- model: orgsema.NaseljenoMesto
+  pk: 580
+  fields:
+    naziv: Majdan
+    zip_code: 23333
+    opstina: 122
+- model: orgsema.NaseljenoMesto
+  pk: 581
+  fields:
+    naziv: Majdanpek
+    zip_code: 19250
+    opstina: 106
+- model: orgsema.NaseljenoMesto
+  pk: 582
+  fields:
+    naziv: Majilovac
+    zip_code: 12221
+    opstina: 84
+- model: orgsema.NaseljenoMesto
+  pk: 583
+  fields:
+    naziv: Majur (kod Šapca)
+    zip_code: 15353
+    opstina: 72
+- model: orgsema.NaseljenoMesto
+  pk: 584
+  fields:
+    naziv: Majur (kod Jagodine)
+    zip_code: 35270
+    opstina: 101
+- model: orgsema.NaseljenoMesto
+  pk: 585
+  fields:
+    naziv: Mala Bosna
+    zip_code: 24217
+    opstina: 19
+- model: orgsema.NaseljenoMesto
+  pk: 586
+  fields:
+    naziv: Mala Krsna
+    zip_code: 11313
+    opstina: 80
+- model: orgsema.NaseljenoMesto
+  pk: 587
+  fields:
+    naziv: Mala Plana
+    zip_code: 18423
+    opstina: 81
+- model: orgsema.NaseljenoMesto
+  pk: 588
+  fields:
+    naziv: Malča
+    zip_code: 18207
+    opstina: 137
+- model: orgsema.NaseljenoMesto
+  pk: 589
+  fields:
+    naziv: Male Pčelice
+    zip_code: 34216
+    opstina: 94
+- model: orgsema.NaseljenoMesto
+  pk: 590
+  fields:
+    naziv: Male Pijace
+    zip_code: 24416
+    opstina: 28
+- model: orgsema.NaseljenoMesto
+  pk: 591
+  fields:
+    naziv: Mali Beograd
+    zip_code: 24309
+    opstina: 20
+- model: orgsema.NaseljenoMesto
+  pk: 592
+  fields:
+    naziv: Mali Iđoš
+    zip_code: 24321
+    opstina: 21
+- model: orgsema.NaseljenoMesto
+  pk: 593
+  fields:
+    naziv: Mali Izvor
+    zip_code: 19347
+    opstina: 109
+- model: orgsema.NaseljenoMesto
+  pk: 594
+  fields:
+    naziv: Mali Jasenovac
+    zip_code: 19209
+    opstina: 109
+- model: orgsema.NaseljenoMesto
+  pk: 595
+  fields:
+    naziv: Mali Požarevac
+    zip_code: 11235
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 596
+  fields:
+    naziv: Mali Zvornik
+    zip_code: 15318
+    opstina: 71
+- model: orgsema.NaseljenoMesto
+  pk: 597
+  fields:
+    naziv: Malo Crniće
+    zip_code: 12311
+    opstina: 89
+- model: orgsema.NaseljenoMesto
+  pk: 598
+  fields:
+    naziv: Malo Krčmare
+    zip_code: 34212
+    opstina: 95
+- model: orgsema.NaseljenoMesto
+  pk: 599
+  fields:
+    naziv: Malošište
+    zip_code: 18415
+    opstina: 144
+- model: orgsema.NaseljenoMesto
+  pk: 600
+  fields:
+    naziv: Manđelos
+    zip_code: 22208
+    opstina: 58
+- model: orgsema.NaseljenoMesto
+  pk: 601
+  fields:
+    naziv: Manojlovce
+    zip_code: 16201
+    opstina: 159
+- model: orgsema.NaseljenoMesto
+  pk: 602
+  fields:
+    naziv: Maradik
+    zip_code: 22327
+    opstina: 59
+- model: orgsema.NaseljenoMesto
+  pk: 603
+  fields:
+    naziv: Margita
+    zip_code: 26364
+    opstina: 40
+- model: orgsema.NaseljenoMesto
+  pk: 604
+  fields:
+    naziv: Markovac
+    zip_code: 11325
+    opstina: 79
+- model: orgsema.NaseljenoMesto
+  pk: 605
+  fields:
+    naziv: Markovica
+    zip_code: 32243
+    opstina: 124
+- model: orgsema.NaseljenoMesto
+  pk: 606
+  fields:
+    naziv: Maršić
+    zip_code: 34209
+    opstina: 94
+- model: orgsema.NaseljenoMesto
+  pk: 607
+  fields:
+    naziv: Martinci
+    zip_code: 22222
+    opstina: 58
+- model: orgsema.NaseljenoMesto
+  pk: 608
+  fields:
+    naziv: Martonoš
+    zip_code: 24417
+    opstina: 28
+- model: orgsema.NaseljenoMesto
+  pk: 609
+  fields:
+    naziv: Mataruška Banja
+    zip_code: 36201
+    opstina: 127
+- model: orgsema.NaseljenoMesto
+  pk: 610
+  fields:
+    naziv: Međa
+    zip_code: 23234
+    opstina: 23
+- model: orgsema.NaseljenoMesto
+  pk: 611
+  fields:
+    naziv: Medoševac
+    zip_code: 18209
+    opstina: 137
+- model: orgsema.NaseljenoMesto
+  pk: 612
+  fields:
+    naziv: Međurečje
+    zip_code: 32255
+    opstina: 123
+- model: orgsema.NaseljenoMesto
+  pk: 613
+  fields:
+    naziv: Medveđa
+    zip_code: 16240
+    opstina: 160
+- model: orgsema.NaseljenoMesto
+  pk: 614
+  fields:
+    naziv: Medveđa (kod Despotovca)
+    zip_code: 35224
+    opstina: 98
+- model: orgsema.NaseljenoMesto
+  pk: 615
+  fields:
+    naziv: Medveđa (kod Trstenika)
+    zip_code: 37244
+    opstina: 135
+- model: orgsema.NaseljenoMesto
+  pk: 616
+  fields:
+    naziv: Melenci
+    zip_code: 23270
+    opstina: 22
+- model: orgsema.NaseljenoMesto
+  pk: 617
+  fields:
+    naziv: Meljak
+    zip_code: 11426
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 618
+  fields:
+    naziv: Melnica
+    zip_code: 12305
+    opstina: 90
+- model: orgsema.NaseljenoMesto
+  pk: 619
+  fields:
+    naziv: Merćez
+    zip_code: 18436
+    opstina: 150
+- model: orgsema.NaseljenoMesto
+  pk: 620
+  fields:
+    naziv: Merdare
+    zip_code: 18445
+    opstina: 175
+- model: orgsema.NaseljenoMesto
+  pk: 621
+  fields:
+    naziv: Merošina
+    zip_code: 18252
+    opstina: 145
+- model: orgsema.NaseljenoMesto
+  pk: 622
+  fields:
+    naziv: Metlić
+    zip_code: 15233
+    opstina: 72
+- model: orgsema.NaseljenoMesto
+  pk: 623
+  fields:
+    naziv: Metovnica
+    zip_code: 19204
+    opstina: 104
+- model: orgsema.NaseljenoMesto
+  pk: 624
+  fields:
+    naziv: Mihajlovac (kod Smedereva)
+    zip_code: 11312
+    opstina: 80
+- model: orgsema.NaseljenoMesto
+  pk: 625
+  fields:
+    naziv: Mihajlovac (Krajinski)
+    zip_code: 19322
+    opstina: 107
+- model: orgsema.NaseljenoMesto
+  pk: 626
+  fields:
+    naziv: Mihajlovo
+    zip_code: 23202
+    opstina: 22
+- model: orgsema.NaseljenoMesto
+  pk: 627
+  fields:
+    naziv: Mijatovac
+    zip_code: 35236
+    opstina: 103
+- model: orgsema.NaseljenoMesto
+  pk: 628
+  fields:
+    naziv: Milentija
+    zip_code: 37227
+    opstina: 132
+- model: orgsema.NaseljenoMesto
+  pk: 629
+  fields:
+    naziv: Mileševo
+    zip_code: 21227
+    opstina: 51
+- model: orgsema.NaseljenoMesto
+  pk: 630
+  fields:
+    naziv: Miletićevo
+    zip_code: 26373
+    opstina: 40
+- model: orgsema.NaseljenoMesto
+  pk: 631
+  fields:
+    naziv: Miloševac
+    zip_code: 11318
+    opstina: 79
+- model: orgsema.NaseljenoMesto
+  pk: 632
+  fields:
+    naziv: Miloševo
+    zip_code: 35268
+    opstina: 174
+- model: orgsema.NaseljenoMesto
+  pk: 633
+  fields:
+    naziv: Milutovac
+    zip_code: 37246
+    opstina: 135
+- model: orgsema.NaseljenoMesto
+  pk: 634
+  fields:
+    naziv: Minićevo
+    zip_code: 19340
+    opstina: 110
+- model: orgsema.NaseljenoMesto
+  pk: 635
+  fields:
+    naziv: Mionica
+    zip_code: 14242
+    opstina: 114
+- model: orgsema.NaseljenoMesto
+  pk: 636
+  fields:
+    naziv: Mirosaljci
+    zip_code: 11567
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 637
+  fields:
+    naziv: Miroševce
+    zip_code: 16204
+    opstina: 159
+- model: orgsema.NaseljenoMesto
+  pk: 638
+  fields:
+    naziv: Mišićevo
+    zip_code: 24211
+    opstina: 19
+- model: orgsema.NaseljenoMesto
+  pk: 639
+  fields:
+    naziv: Mitrovac
+    zip_code: 31251
+    opstina: 113
+- model: orgsema.NaseljenoMesto
+  pk: 640
+  fields:
+    naziv: Mladenovac
+    zip_code: 11400
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 641
+  fields:
+    naziv: Mladenovo
+    zip_code: 21422
+    opstina: 48
+- model: orgsema.NaseljenoMesto
+  pk: 642
+  fields:
+    naziv: Mojsinje
+    zip_code: 32211
+    opstina: 136
+- model: orgsema.NaseljenoMesto
+  pk: 643
+  fields:
+    naziv: Mokra Gora
+    zip_code: 31243
+    opstina: 120
+- model: orgsema.NaseljenoMesto
+  pk: 644
+  fields:
+    naziv: Mokranja
+    zip_code: 19317
+    opstina: 107
+- model: orgsema.NaseljenoMesto
+  pk: 645
+  fields:
+    naziv: Mokrin
+    zip_code: 23305
+    opstina: 29
+- model: orgsema.NaseljenoMesto
+  pk: 646
+  fields:
+    naziv: Mol
+    zip_code: 24435
+    opstina: 27
+- model: orgsema.NaseljenoMesto
+  pk: 647
+  fields:
+    naziv: Molovin
+    zip_code: 22256
+    opstina: 64
+- model: orgsema.NaseljenoMesto
+  pk: 648
+  fields:
+    naziv: Morović
+    zip_code: 22245
+    opstina: 64
+- model: orgsema.NaseljenoMesto
+  pk: 649
+  fields:
+    naziv: Mošorin
+    zip_code: 21245
+    opstina: 57
+- model: orgsema.NaseljenoMesto
+  pk: 650
+  fields:
+    naziv: Mozgovo
+    zip_code: 18229
+    opstina: 142
+- model: orgsema.NaseljenoMesto
+  pk: 651
+  fields:
+    naziv: Mramor
+    zip_code: 18251
+    opstina: 176
+- model: orgsema.NaseljenoMesto
+  pk: 652
+  fields:
+    naziv: Mramorak
+    zip_code: 26226
+    opstina: 38
+- model: orgsema.NaseljenoMesto
+  pk: 653
+  fields:
+    naziv: Mrčajevci
+    zip_code: 32210
+    opstina: 125
+- model: orgsema.NaseljenoMesto
+  pk: 654
+  fields:
+    naziv: Muhovac
+    zip_code: 17529
+    opstina: 165
+- model: orgsema.NaseljenoMesto
+  pk: 655
+  fields:
+    naziv: Mužlja
+    zip_code: 23206
+    opstina: 22
+- model: orgsema.NaseljenoMesto
+  pk: 656
+  fields:
+    naziv: Nadalj
+    zip_code: 21216
+    opstina: 54
+- model: orgsema.NaseljenoMesto
+  pk: 657
+  fields:
+    naziv: Nakovo
+    zip_code: 23311
+    opstina: 29
+- model: orgsema.NaseljenoMesto
+  pk: 658
+  fields:
+    naziv: Natalinci
+    zip_code: 34313
+    opstina: 96
+- model: orgsema.NaseljenoMesto
+  pk: 659
+  fields:
+    naziv: Negotin
+    zip_code: 19300
+    opstina: 107
+- model: orgsema.NaseljenoMesto
+  pk: 660
+  fields:
+    naziv: Neresnica
+    zip_code: 12242
+    opstina: 88
+- model: orgsema.NaseljenoMesto
+  pk: 661
+  fields:
+    naziv: Neštin
+    zip_code: 21314
+    opstina: 48
+- model: orgsema.NaseljenoMesto
+  pk: 662
+  fields:
+    naziv: Neuzina
+    zip_code: 23245
+    opstina: 26
+- model: orgsema.NaseljenoMesto
+  pk: 663
+  fields:
+    naziv: Nikinci
+    zip_code: 22422
+    opstina: 62
+- model: orgsema.NaseljenoMesto
+  pk: 664
+  fields:
+    naziv: Nikolićevo
+    zip_code: 19311
+    opstina: 109
+- model: orgsema.NaseljenoMesto
+  pk: 665
+  fields:
+    naziv: Nikolinci
+    zip_code: 26322
+    opstina: 34
+- model: orgsema.NaseljenoMesto
+  pk: 666
+  fields:
+    naziv: Niš
+    zip_code: 18000
+    opstina: 137
+- model: orgsema.NaseljenoMesto
+  pk: 667
+  fields:
+    naziv: Niševac
+    zip_code: 18366
+    opstina: 147
+- model: orgsema.NaseljenoMesto
+  pk: 668
+  fields:
+    naziv: Niška Banja
+    zip_code: 18205
+    opstina: 137
+- model: orgsema.NaseljenoMesto
+  pk: 669
+  fields:
+    naziv: Noćaj
+    zip_code: 22203
+    opstina: 58
+- model: orgsema.NaseljenoMesto
+  pk: 670
+  fields:
+    naziv: Nova Crnja
+    zip_code: 23218
+    opstina: 24
+- model: orgsema.NaseljenoMesto
+  pk: 671
+  fields:
+    naziv: Nova Crvenka
+    zip_code: 25224
+    opstina: 43
+- model: orgsema.NaseljenoMesto
+  pk: 672
+  fields:
+    naziv: Nova Gajdobra
+    zip_code: 21431
+    opstina: 48
+- model: orgsema.NaseljenoMesto
+  pk: 673
+  fields:
+    naziv: Nova Pazova
+    zip_code: 22330
+    opstina: 63
+- model: orgsema.NaseljenoMesto
+  pk: 674
+  fields:
+    naziv: Nova Varoš
+    zip_code: 31320
+    opstina: 115
+- model: orgsema.NaseljenoMesto
+  pk: 675
+  fields:
+    naziv: Novi Banovci
+    zip_code: 22304
+    opstina: 63
+- model: orgsema.NaseljenoMesto
+  pk: 676
+  fields:
+    naziv: Novi Bečej
+    zip_code: 23272
+    opstina: 25
+- model: orgsema.NaseljenoMesto
+  pk: 677
+  fields:
+    naziv: Novi Itebej
+    zip_code: 23236
+    opstina: 23
+- model: orgsema.NaseljenoMesto
+  pk: 678
+  fields:
+    naziv: Novi Karlovci
+    zip_code: 22322
+    opstina: 59
+- model: orgsema.NaseljenoMesto
+  pk: 679
+  fields:
+    naziv: Novi Kneževac
+    zip_code: 23330
+    opstina: 30
+- model: orgsema.NaseljenoMesto
+  pk: 680
+  fields:
+    naziv: Novi Kozarci
+    zip_code: 23313
+    opstina: 29
+- model: orgsema.NaseljenoMesto
+  pk: 681
+  fields:
+    naziv: Novi Kozjak
+    zip_code: 26353
+    opstina: 34
+- model: orgsema.NaseljenoMesto
+  pk: 682
+  fields:
+    naziv: Novi Pazar
+    zip_code: 36300
+    opstina: 128
+- model: orgsema.NaseljenoMesto
+  pk: 683
+  fields:
+    naziv: Novi Sad
+    zip_code: 21000
+    opstina: 45
+- model: orgsema.NaseljenoMesto
+  pk: 684
+  fields:
+    naziv: Novi Slankamen
+    zip_code: 22323
+    opstina: 59
+- model: orgsema.NaseljenoMesto
+  pk: 685
+  fields:
+    naziv: Novi Žednik
+    zip_code: 24223
+    opstina: 19
+- model: orgsema.NaseljenoMesto
+  pk: 686
+  fields:
+    naziv: Novo Lanište
+    zip_code: 35271
+    opstina: 101
+- model: orgsema.NaseljenoMesto
+  pk: 687
+  fields:
+    naziv: Novo Miloševo
+    zip_code: 23273
+    opstina: 25
+- model: orgsema.NaseljenoMesto
+  pk: 688
+  fields:
+    naziv: Novo Orahovo
+    zip_code: 24351
+    opstina: 20
+- model: orgsema.NaseljenoMesto
+  pk: 689
+  fields:
+    naziv: Novo Selo
+    zip_code: 18250
+    opstina: 192
+- model: orgsema.NaseljenoMesto
+  pk: 690
+  fields:
+    naziv: Njegoševo
+    zip_code: 24311
+    opstina: 20
+- model: orgsema.NaseljenoMesto
+  pk: 691
+  fields:
+    naziv: Obrenovac
+    zip_code: 11500
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 692
+  fields:
+    naziv: Obrež (kod Varvarina)
+    zip_code: 37266
+    opstina: 133
+- model: orgsema.NaseljenoMesto
+  pk: 693
+  fields:
+    naziv: Obrež (Srem)
+    zip_code: 22417
+    opstina: 61
+- model: orgsema.NaseljenoMesto
+  pk: 694
+  fields:
+    naziv: Obrovac
+    zip_code: 21423
+    opstina: 48
+- model: orgsema.NaseljenoMesto
+  pk: 695
+  fields:
+    naziv: Odžaci
+    zip_code: 25250
+    opstina: 44
+- model: orgsema.NaseljenoMesto
+  pk: 696
+  fields:
+    naziv: Ogar
+    zip_code: 22416
+    opstina: 61
+- model: orgsema.NaseljenoMesto
+  pk: 697
+  fields:
+    naziv: Omoljica
+    zip_code: 26230
+    opstina: 33
+- model: orgsema.NaseljenoMesto
+  pk: 698
+  fields:
+    naziv: Oparić
+    zip_code: 35267
+    opstina: 100
+- model: orgsema.NaseljenoMesto
+  pk: 699
+  fields:
+    naziv: Opovo
+    zip_code: 26204
+    opstina: 39
+- model: orgsema.NaseljenoMesto
+  pk: 700
+  fields:
+    naziv: Orane
+    zip_code: 16233
+    opstina: 156
+- model: orgsema.NaseljenoMesto
+  pk: 701
+  fields:
+    naziv: Oraovica
+    zip_code: 17557
+    opstina: 194
+- model: orgsema.NaseljenoMesto
+  pk: 702
+  fields:
+    naziv: Orašac
+    zip_code: 34308
+    opstina: 91
+- model: orgsema.NaseljenoMesto
+  pk: 703
+  fields:
+    naziv: Tomislavci
+    zip_code: 24344
+    opstina: 20
+- model: orgsema.NaseljenoMesto
+  pk: 704
+  fields:
+    naziv: Oreškovica
+    zip_code: 12308
+    opstina: 90
+- model: orgsema.NaseljenoMesto
+  pk: 705
+  fields:
+    naziv: Orid
+    zip_code: 15213
+    opstina: 72
+- model: orgsema.NaseljenoMesto
+  pk: 706
+  fields:
+    naziv: Orlovat
+    zip_code: 23263
+    opstina: 22
+- model: orgsema.NaseljenoMesto
+  pk: 707
+  fields:
+    naziv: Orom
+    zip_code: 24207
+    opstina: 28
+- model: orgsema.NaseljenoMesto
+  pk: 708
+  fields:
+    naziv: Osaonica
+    zip_code: 12317
+    opstina: 87
+- model: orgsema.NaseljenoMesto
+  pk: 709
+  fields:
+    naziv: Osečina
+    zip_code: 14253
+    opstina: 77
+- model: orgsema.NaseljenoMesto
+  pk: 710
+  fields:
+    naziv: Osipaonica
+    zip_code: 11314
+    opstina: 80
+- model: orgsema.NaseljenoMesto
+  pk: 711
+  fields:
+    naziv: Osnić
+    zip_code: 19378
+    opstina: 108
+- model: orgsema.NaseljenoMesto
+  pk: 712
+  fields:
+    naziv: Ostojićevo
+    zip_code: 23326
+    opstina: 32
+- model: orgsema.NaseljenoMesto
+  pk: 713
+  fields:
+    naziv: Ostrovica
+    zip_code: 18312
+    opstina: 166
+- model: orgsema.NaseljenoMesto
+  pk: 714
+  fields:
+    naziv: Ostružnica
+    zip_code: 11251
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 715
+  fields:
+    naziv: Ovča
+    zip_code: 11212
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 716
+  fields:
+    naziv: Ovčar Banja
+    zip_code: 32242
+    opstina: 125
+- model: orgsema.NaseljenoMesto
+  pk: 717
+  fields:
+    naziv: Pačir
+    zip_code: 24342
+    opstina: 20
+- model: orgsema.NaseljenoMesto
+  pk: 718
+  fields:
+    naziv: Padinska Skela
+    zip_code: 11213
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 719
+  fields:
+    naziv: Padej
+    zip_code: 23325
+    opstina: 32
+- model: orgsema.NaseljenoMesto
+  pk: 720
+  fields:
+    naziv: Padež
+    zip_code: 37257
+    opstina: 134
+- model: orgsema.NaseljenoMesto
+  pk: 721
+  fields:
+    naziv: Padina
+    zip_code: 26215
+    opstina: 37
+- model: orgsema.NaseljenoMesto
+  pk: 722
+  fields:
+    naziv: Palić
+    zip_code: 24413
+    opstina: 19
+- model: orgsema.NaseljenoMesto
+  pk: 723
+  fields:
+    naziv: Palilula
+    zip_code: 18363
+    opstina: 147
+- model: orgsema.NaseljenoMesto
+  pk: 724
+  fields:
+    naziv: Pambukovica
+    zip_code: 14213
+    opstina: 78
+- model: orgsema.NaseljenoMesto
+  pk: 725
+  fields:
+    naziv: Pančevo
+    zip_code: 26000
+    opstina: 33
+- model: orgsema.NaseljenoMesto
+  pk: 726
+  fields:
+    naziv: Panonija
+    zip_code: 24330
+    opstina: 20
+- model: orgsema.NaseljenoMesto
+  pk: 727
+  fields:
+    naziv: Paraćin
+    zip_code: 35250
+    opstina: 99
+- model: orgsema.NaseljenoMesto
+  pk: 728
+  fields:
+    naziv: Parage
+    zip_code: 21434
+    opstina: 48
+- model: orgsema.NaseljenoMesto
+  pk: 729
+  fields:
+    naziv: Parunovac
+    zip_code: 37201
+    opstina: 134
+- model: orgsema.NaseljenoMesto
+  pk: 730
+  fields:
+    naziv: Pasjane
+    zip_code: 38266
+    opstina: 196
+- model: orgsema.NaseljenoMesto
+  pk: 731
+  fields:
+    naziv: Pavliš
+    zip_code: 26333
+    opstina: 36
+- model: orgsema.NaseljenoMesto
+  pk: 732
+  fields:
+    naziv: Pečanjevce
+    zip_code: 16251
+    opstina: 159
+- model: orgsema.NaseljenoMesto
+  pk: 733
+  fields:
+    naziv: Pećinci
+    zip_code: 22410
+    opstina: 61
+- model: orgsema.NaseljenoMesto
+  pk: 734
+  fields:
+    naziv: Pecka
+    zip_code: 14207
+    opstina: 77
+- model: orgsema.NaseljenoMesto
+  pk: 735
+  fields:
+    naziv: Pejkovac
+    zip_code: 18413
+    opstina: 149
+- model: orgsema.NaseljenoMesto
+  pk: 736
+  fields:
+    naziv: Pepeljevac
+    zip_code: 37231
+    opstina: 74
+- model: orgsema.NaseljenoMesto
+  pk: 737
+  fields:
+    naziv: Perlez
+    zip_code: 23260
+    opstina: 22
+- model: orgsema.NaseljenoMesto
+  pk: 738
+  fields:
+    naziv: Perućac
+    zip_code: 31256
+    opstina: 113
+- model: orgsema.NaseljenoMesto
+  pk: 739
+  fields:
+    naziv: Petlovača
+    zip_code: 15304
+    opstina: 72
+- model: orgsema.NaseljenoMesto
+  pk: 740
+  fields:
+    naziv: Petrovac Na Mlavi
+    zip_code: 12300
+    opstina: 90
+- model: orgsema.NaseljenoMesto
+  pk: 741
+  fields:
+    naziv: Petrovaradin
+    zip_code: 21131
+    opstina: 46
+- model: orgsema.NaseljenoMesto
+  pk: 742
+  fields:
+    naziv: Pinosava
+    zip_code: 11226
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 743
+  fields:
+    naziv: Pirot
+    zip_code: 18300
+    opstina: 155
+- model: orgsema.NaseljenoMesto
+  pk: 744
+  fields:
+    naziv: Pivnice
+    zip_code: 21469
+    opstina: 48
+- model: orgsema.NaseljenoMesto
+  pk: 745
+  fields:
+    naziv: Plana
+    zip_code: 35247
+    opstina: 99
+- model: orgsema.NaseljenoMesto
+  pk: 746
+  fields:
+    naziv: Plandište
+    zip_code: 26360
+    opstina: 40
+- model: orgsema.NaseljenoMesto
+  pk: 747
+  fields:
+    naziv: Planinica
+    zip_code: 19207
+    opstina: 155
+- model: orgsema.NaseljenoMesto
+  pk: 748
+  fields:
+    naziv: Platičevo
+    zip_code: 22420
+    opstina: 62
+- model: orgsema.NaseljenoMesto
+  pk: 749
+  fields:
+    naziv: Plavna
+    zip_code: 21428
+    opstina: 47
+- model: orgsema.NaseljenoMesto
+  pk: 750
+  fields:
+    naziv: Plažane
+    zip_code: 35212
+    opstina: 98
+- model: orgsema.NaseljenoMesto
+  pk: 751
+  fields:
+    naziv: Pleš
+    zip_code: 37238
+    opstina: 131
+- model: orgsema.NaseljenoMesto
+  pk: 752
+  fields:
+    naziv: Ploča
+    zip_code: 37237
+    opstina: 164
+- model: orgsema.NaseljenoMesto
+  pk: 753
+  fields:
+    naziv: Pločica
+    zip_code: 26229
+    opstina: 38
+- model: orgsema.NaseljenoMesto
+  pk: 754
+  fields:
+    naziv: Pobeda
+    zip_code: 24313
+    opstina: 20
+- model: orgsema.NaseljenoMesto
+  pk: 755
+  fields:
+    naziv: Počekovina
+    zip_code: 37243
+    opstina: 135
+- model: orgsema.NaseljenoMesto
+  pk: 756
+  fields:
+    naziv: Poćuta
+    zip_code: 14206
+    opstina: 73
+- model: orgsema.NaseljenoMesto
+  pk: 757
+  fields:
+    naziv: Podunavci
+    zip_code: 36215
+    opstina: 126
+- model: orgsema.NaseljenoMesto
+  pk: 758
+  fields:
+    naziv: Podvis
+    zip_code: 19362
+    opstina: 110
+- model: orgsema.NaseljenoMesto
+  pk: 759
+  fields:
+    naziv: Podvrška
+    zip_code: 19321
+    opstina: 105
+- model: orgsema.NaseljenoMesto
+  pk: 760
+  fields:
+    naziv: Poganovo
+    zip_code: 18326
+    opstina: 154
+- model: orgsema.NaseljenoMesto
+  pk: 761
+  fields:
+    naziv: Pojate
+    zip_code: 37214
+    opstina: 136
+- model: orgsema.NaseljenoMesto
+  pk: 762
+  fields:
+    naziv: Poljana
+    zip_code: 12372
+    opstina: 82
+- model: orgsema.NaseljenoMesto
+  pk: 763
+  fields:
+    naziv: Popinci
+    zip_code: 22428
+    opstina: 61
+- model: orgsema.NaseljenoMesto
+  pk: 764
+  fields:
+    naziv: Popovac (kod Niša)
+    zip_code: 18260
+    opstina: 137
+- model: orgsema.NaseljenoMesto
+  pk: 765
+  fields:
+    naziv: Popovac (kod Paraćina)
+    zip_code: 35254
+    opstina: 99
+- model: orgsema.NaseljenoMesto
+  pk: 766
+  fields:
+    naziv: Popučke
+    zip_code: 14221
+    opstina: 73
+- model: orgsema.NaseljenoMesto
+  pk: 767
+  fields:
+    naziv: Porodin
+    zip_code: 12375
+    opstina: 142
+- model: orgsema.NaseljenoMesto
+  pk: 768
+  fields:
+    naziv: Potočac
+    zip_code: 35207
+    opstina: 99
+- model: orgsema.NaseljenoMesto
+  pk: 769
+  fields:
+    naziv: Požarevac
+    zip_code: 12000
+    opstina: 82
+- model: orgsema.NaseljenoMesto
+  pk: 770
+  fields:
+    naziv: Požega
+    zip_code: 31210
+    opstina: 116
+- model: orgsema.NaseljenoMesto
+  pk: 771
+  fields:
+    naziv: Prahovo
+    zip_code: 19330
+    opstina: 107
+- model: orgsema.NaseljenoMesto
+  pk: 772
+  fields:
+    naziv: Pranjani
+    zip_code: 32308
+    opstina: 122
+- model: orgsema.NaseljenoMesto
+  pk: 773
+  fields:
+    naziv: Predejane
+    zip_code: 16222
+    opstina: 159
+- model: orgsema.NaseljenoMesto
+  pk: 774
+  fields:
+    naziv: Prekonoga
+    zip_code: 18365
+    opstina: 147
+- model: orgsema.NaseljenoMesto
+  pk: 775
+  fields:
+    naziv: Preljina
+    zip_code: 32212
+    opstina: 125
+- model: orgsema.NaseljenoMesto
+  pk: 776
+  fields:
+    naziv: Preševo
+    zip_code: 17523
+    opstina: 167
+- model: orgsema.NaseljenoMesto
+  pk: 777
+  fields:
+    naziv: Prevešt
+    zip_code: 35264
+    opstina: 100
+- model: orgsema.NaseljenoMesto
+  pk: 778
+  fields:
+    naziv: Prhovo
+    zip_code: 22442
+    opstina: 61
+- model: orgsema.NaseljenoMesto
+  pk: 779
+  fields:
+    naziv: Priboj
+    zip_code: 31330
+    opstina: 166
+- model: orgsema.NaseljenoMesto
+  pk: 780
+  fields:
+    naziv: Priboj Vranjski
+    zip_code: 17511
+    opstina: 166
+- model: orgsema.NaseljenoMesto
+  pk: 781
+  fields:
+    naziv: Pričević
+    zip_code: 14251
+    opstina: 73
+- model: orgsema.NaseljenoMesto
+  pk: 782
+  fields:
+    naziv: Prigrevica
+    zip_code: 25263
+    opstina: 42
+- model: orgsema.NaseljenoMesto
+  pk: 783
+  fields:
+    naziv: Prijepolje
+    zip_code: 31300
+    opstina: 118
+- model: orgsema.NaseljenoMesto
+  pk: 784
+  fields:
+    naziv: Prilički Kiseljak
+    zip_code: 32252
+    opstina: 123
+- model: orgsema.NaseljenoMesto
+  pk: 785
+  fields:
+    naziv: Prilužje
+    zip_code: 38213
+    opstina: 193
+- model: orgsema.NaseljenoMesto
+  pk: 786
+  fields:
+    naziv: Privina Glava
+    zip_code: 22257
+    opstina: 64
+- model: orgsema.NaseljenoMesto
+  pk: 787
+  fields:
+    naziv: Prnjavor Mačvanski
+    zip_code: 15306
+    opstina: 72
+- model: orgsema.NaseljenoMesto
+  pk: 788
+  fields:
+    naziv: Progar
+    zip_code: 11280
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 789
+  fields:
+    naziv: Prokuplje
+    zip_code: 18400
+    opstina: 151
+- model: orgsema.NaseljenoMesto
+  pk: 790
+  fields:
+    naziv: Prolom Banja
+    zip_code: 18433
+    opstina: 150
+- model: orgsema.NaseljenoMesto
+  pk: 791
+  fields:
+    naziv: Provo
+    zip_code: 15215
+    opstina: 66
+- model: orgsema.NaseljenoMesto
+  pk: 792
+  fields:
+    naziv: Pružatovac
+    zip_code: 11413
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 793
+  fields:
+    naziv: Pukovac
+    zip_code: 18255
+    opstina: 144
+- model: orgsema.NaseljenoMesto
+  pk: 794
+  fields:
+    naziv: Putinci
+    zip_code: 22404
+    opstina: 62
+- model: orgsema.NaseljenoMesto
+  pk: 795
+  fields:
+    naziv: Rabrovo
+    zip_code: 12254
+    opstina: 88
+- model: orgsema.NaseljenoMesto
+  pk: 796
+  fields:
+    naziv: Rača
+    zip_code: 18440
+    opstina: 181
+- model: orgsema.NaseljenoMesto
+  pk: 797
+  fields:
+    naziv: Rača Kragujevačka
+    zip_code: 34210
+    opstina: 95
+- model: orgsema.NaseljenoMesto
+  pk: 798
+  fields:
+    naziv: Radalj
+    zip_code: 15321
+    opstina: 71
+- model: orgsema.NaseljenoMesto
+  pk: 799
+  fields:
+    naziv: Radenković
+    zip_code: 22206
+    opstina: 58
+- model: orgsema.NaseljenoMesto
+  pk: 800
+  fields:
+    naziv: Radičević
+    zip_code: 21225
+    opstina: 51
+- model: orgsema.NaseljenoMesto
+  pk: 801
+  fields:
+    naziv: Radinac
+    zip_code: 11311
+    opstina: 80
+- model: orgsema.NaseljenoMesto
+  pk: 802
+  fields:
+    naziv: Radljevo
+    zip_code: 14211
+    opstina: 78
+- model: orgsema.NaseljenoMesto
+  pk: 803
+  fields:
+    naziv: Radojevo
+    zip_code: 23221
+    opstina: 24
+- model: orgsema.NaseljenoMesto
+  pk: 804
+  fields:
+    naziv: Radujevac
+    zip_code: 19334
+    opstina: 175
+- model: orgsema.NaseljenoMesto
+  pk: 805
+  fields:
+    naziv: Rajac
+    zip_code: 19314
+    opstina: 107
+- model: orgsema.NaseljenoMesto
+  pk: 806
+  fields:
+    naziv: Rajković
+    zip_code: 14202
+    opstina: 76
+- model: orgsema.NaseljenoMesto
+  pk: 807
+  fields:
+    naziv: Rakinac
+    zip_code: 11327
+    opstina: 79
+- model: orgsema.NaseljenoMesto
+  pk: 808
+  fields:
+    naziv: Rakovac
+    zip_code: 21299
+    opstina: 165
+- model: orgsema.NaseljenoMesto
+  pk: 809
+  fields:
+    naziv: Ralja
+    zip_code: 11233
+    opstina: 80
+- model: orgsema.NaseljenoMesto
+  pk: 810
+  fields:
+    naziv: Ranilović
+    zip_code: 34302
+    opstina: 91
+- model: orgsema.NaseljenoMesto
+  pk: 811
+  fields:
+    naziv: Ranilug
+    zip_code: 38267
+    opstina: 197
+- model: orgsema.NaseljenoMesto
+  pk: 812
+  fields:
+    naziv: Ranovac
+    zip_code: 12304
+    opstina: 90
+- model: orgsema.NaseljenoMesto
+  pk: 813
+  fields:
+    naziv: Rašanac
+    zip_code: 12315
+    opstina: 90
+- model: orgsema.NaseljenoMesto
+  pk: 814
+  fields:
+    naziv: Raševica
+    zip_code: 35206
+    opstina: 99
+- model: orgsema.NaseljenoMesto
+  pk: 815
+  fields:
+    naziv: Raška
+    zip_code: 36350
+    opstina: 129
+- model: orgsema.NaseljenoMesto
+  pk: 816
+  fields:
+    naziv: Rastina
+    zip_code: 25283
+    opstina: 41
+- model: orgsema.NaseljenoMesto
+  pk: 817
+  fields:
+    naziv: Rataje
+    zip_code: 37236
+    opstina: 162
+- model: orgsema.NaseljenoMesto
+  pk: 818
+  fields:
+    naziv: Ratari
+    zip_code: 11411
+    opstina: 81
+- model: orgsema.NaseljenoMesto
+  pk: 819
+  fields:
+    naziv: Ratina
+    zip_code: 36212
+    opstina: 127
+- model: orgsema.NaseljenoMesto
+  pk: 820
+  fields:
+    naziv: Ratkovo
+    zip_code: 25253
+    opstina: 44
+- model: orgsema.NaseljenoMesto
+  pk: 821
+  fields:
+    naziv: Ravna Dubrava
+    zip_code: 18246
+    opstina: 143
+- model: orgsema.NaseljenoMesto
+  pk: 822
+  fields:
+    naziv: Ravna Reka
+    zip_code: 35235
+    opstina: 166
+- model: orgsema.NaseljenoMesto
+  pk: 823
+  fields:
+    naziv: Ravni
+    zip_code: 31206
+    opstina: 120
+- model: orgsema.NaseljenoMesto
+  pk: 824
+  fields:
+    naziv: Ravni Topolovac
+    zip_code: 23212
+    opstina: 23
+- model: orgsema.NaseljenoMesto
+  pk: 825
+  fields:
+    naziv: Ravnje
+    zip_code: 22205
+    opstina: 58
+- model: orgsema.NaseljenoMesto
+  pk: 826
+  fields:
+    naziv: Ravno Selo
+    zip_code: 21471
+    opstina: 52
+- model: orgsema.NaseljenoMesto
+  pk: 827
+  fields:
+    naziv: Ražana
+    zip_code: 31265
+    opstina: 114
+- model: orgsema.NaseljenoMesto
+  pk: 828
+  fields:
+    naziv: Ražanj
+    zip_code: 37215
+    opstina: 146
+- model: orgsema.NaseljenoMesto
+  pk: 829
+  fields:
+    naziv: Razbojna
+    zip_code: 37223
+    opstina: 132
+- model: orgsema.NaseljenoMesto
+  pk: 830
+  fields:
+    naziv: Razgojna
+    zip_code: 16252
+    opstina: 159
+- model: orgsema.NaseljenoMesto
+  pk: 831
+  fields:
+    naziv: Rekovac
+    zip_code: 35260
+    opstina: 100
+- model: orgsema.NaseljenoMesto
+  pk: 832
+  fields:
+    naziv: Reljan
+    zip_code: 17556
+    opstina: 167
+- model: orgsema.NaseljenoMesto
+  pk: 833
+  fields:
+    naziv: Resavica
+    zip_code: 35237
+    opstina: 98
+- model: orgsema.NaseljenoMesto
+  pk: 834
+  fields:
+    naziv: Resnik
+    zip_code: 34225
+    opstina: 183
+- model: orgsema.NaseljenoMesto
+  pk: 835
+  fields:
+    naziv: Rgotina
+    zip_code: 19214
+    opstina: 109
+- model: orgsema.NaseljenoMesto
+  pk: 836
+  fields:
+    naziv: Ribare (kod Jagodine)
+    zip_code: 35220
+    opstina: 101
+- model: orgsema.NaseljenoMesto
+  pk: 837
+  fields:
+    naziv: Ribari (kod Šapca)
+    zip_code: 15310
+    opstina: 72
+- model: orgsema.NaseljenoMesto
+  pk: 838
+  fields:
+    naziv: Ribarići
+    zip_code: 36309
+    opstina: 130
+- model: orgsema.NaseljenoMesto
+  pk: 839
+  fields:
+    naziv: Ribarska Banja
+    zip_code: 37205
+    opstina: 134
+- model: orgsema.NaseljenoMesto
+  pk: 840
+  fields:
+    naziv: Riđica
+    zip_code: 25280
+    opstina: 41
+- model: orgsema.NaseljenoMesto
+  pk: 841
+  fields:
+    naziv: Ripanj
+    zip_code: 11232
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 842
+  fields:
+    naziv: Ristovac
+    zip_code: 17521
+    opstina: 162
+- model: orgsema.NaseljenoMesto
+  pk: 843
+  fields:
+    naziv: Ritiševo
+    zip_code: 26331
+    opstina: 36
+- model: orgsema.NaseljenoMesto
+  pk: 844
+  fields:
+    naziv: Roćevići
+    zip_code: 36205
+    opstina: 127
+- model: orgsema.NaseljenoMesto
+  pk: 845
+  fields:
+    naziv: Rogača
+    zip_code: 11453
+    opstina: 124
+- model: orgsema.NaseljenoMesto
+  pk: 846
+  fields:
+    naziv: Rogačica
+    zip_code: 31255
+    opstina: 113
+- model: orgsema.NaseljenoMesto
+  pk: 847
+  fields:
+    naziv: Roge
+    zip_code: 31237
+    opstina: 116
+- model: orgsema.NaseljenoMesto
+  pk: 848
+  fields:
+    naziv: Rogljevo
+    zip_code: 19318
+    opstina: 107
+- model: orgsema.NaseljenoMesto
+  pk: 849
+  fields:
+    naziv: Rožanstvo
+    zip_code: 31208
+    opstina: 121
+- model: orgsema.NaseljenoMesto
+  pk: 850
+  fields:
+    naziv: Rudna Glava
+    zip_code: 19257
+    opstina: 106
+- model: orgsema.NaseljenoMesto
+  pk: 851
+  fields:
+    naziv: Rudnica
+    zip_code: 36353
+    opstina: 129
+- model: orgsema.NaseljenoMesto
+  pk: 852
+  fields:
+    naziv: Rudnik
+    zip_code: 32313
+    opstina: 122
+- model: orgsema.NaseljenoMesto
+  pk: 853
+  fields:
+    naziv: Rudno
+    zip_code: 36222
+    opstina: 127
+- model: orgsema.NaseljenoMesto
+  pk: 854
+  fields:
+    naziv: Rudovci
+    zip_code: 11566
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 855
+  fields:
+    naziv: Ruma
+    zip_code: 22400
+    opstina: 62
+- model: orgsema.NaseljenoMesto
+  pk: 856
+  fields:
+    naziv: Rumenka
+    zip_code: 21201
+    opstina: 45
+- model: orgsema.NaseljenoMesto
+  pk: 857
+  fields:
+    naziv: Ruplje
+    zip_code: 16223
+    opstina: 161
+- model: orgsema.NaseljenoMesto
+  pk: 858
+  fields:
+    naziv: Rušanj
+    zip_code: 11194
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 859
+  fields:
+    naziv: Ruski Krstur
+    zip_code: 25233
+    opstina: 43
+- model: orgsema.NaseljenoMesto
+  pk: 860
+  fields:
+    naziv: Rusko Selo
+    zip_code: 23314
+    opstina: 29
+- model: orgsema.NaseljenoMesto
+  pk: 861
+  fields:
+    naziv: Rutevac
+    zip_code: 18224
+    opstina: 142
+- model: orgsema.NaseljenoMesto
+  pk: 862
+  fields:
+    naziv: Sajan
+    zip_code: 23324
+    opstina: 29
+- model: orgsema.NaseljenoMesto
+  pk: 863
+  fields:
+    naziv: Sakule
+    zip_code: 26206
+    opstina: 39
+- model: orgsema.NaseljenoMesto
+  pk: 864
+  fields:
+    naziv: Salaš
+    zip_code: 19224
+    opstina: 109
+- model: orgsema.NaseljenoMesto
+  pk: 865
+  fields:
+    naziv: Salaš Noćajski
+    zip_code: 22204
+    opstina: 58
+- model: orgsema.NaseljenoMesto
+  pk: 866
+  fields:
+    naziv: Samaila
+    zip_code: 36202
+    opstina: 127
+- model: orgsema.NaseljenoMesto
+  pk: 867
+  fields:
+    naziv: Samoš
+    zip_code: 26350
+    opstina: 37
+- model: orgsema.NaseljenoMesto
+  pk: 868
+  fields:
+    naziv: Sanad
+    zip_code: 23331
+    opstina: 32
+- model: orgsema.NaseljenoMesto
+  pk: 869
+  fields:
+    naziv: Saraorci
+    zip_code: 11315
+    opstina: 80
+- model: orgsema.NaseljenoMesto
+  pk: 870
+  fields:
+    naziv: Sastav Reka
+    zip_code: 16213
+    opstina: 161
+- model: orgsema.NaseljenoMesto
+  pk: 871
+  fields:
+    naziv: Sastavci
+    zip_code: 31335
+    opstina: 117
+- model: orgsema.NaseljenoMesto
+  pk: 872
+  fields:
+    naziv: Savinac
+    zip_code: 19377
+    opstina: 156
+- model: orgsema.NaseljenoMesto
+  pk: 873
+  fields:
+    naziv: Savino Selo
+    zip_code: 21467
+    opstina: 52
+- model: orgsema.NaseljenoMesto
+  pk: 874
+  fields:
+    naziv: Seča Reka
+    zip_code: 31262
+    opstina: 114
+- model: orgsema.NaseljenoMesto
+  pk: 875
+  fields:
+    naziv: Sečanj
+    zip_code: 23240
+    opstina: 26
+- model: orgsema.NaseljenoMesto
+  pk: 876
+  fields:
+    naziv: Sedlare
+    zip_code: 35211
+    opstina: 173
+- model: orgsema.NaseljenoMesto
+  pk: 877
+  fields:
+    naziv: Sefkerin
+    zip_code: 26203
+    opstina: 39
+- model: orgsema.NaseljenoMesto
+  pk: 878
+  fields:
+    naziv: Selenča
+    zip_code: 21425
+    opstina: 47
+- model: orgsema.NaseljenoMesto
+  pk: 879
+  fields:
+    naziv: Seleuš
+    zip_code: 26351
+    opstina: 34
+- model: orgsema.NaseljenoMesto
+  pk: 880
+  fields:
+    naziv: Selevac
+    zip_code: 11407
+    opstina: 81
+- model: orgsema.NaseljenoMesto
+  pk: 881
+  fields:
+    naziv: Senta
+    zip_code: 24400
+    opstina: 31
+- model: orgsema.NaseljenoMesto
+  pk: 882
+  fields:
+    naziv: Senje
+    zip_code: 35233
+    opstina: 103
+- model: orgsema.NaseljenoMesto
+  pk: 883
+  fields:
+    naziv: Senjski Rudnik
+    zip_code: 35234
+    opstina: 98
+- model: orgsema.NaseljenoMesto
+  pk: 884
+  fields:
+    naziv: Sevojno
+    zip_code: 31205
+    opstina: 120
+- model: orgsema.NaseljenoMesto
+  pk: 885
+  fields:
+    naziv: Sibač
+    zip_code: 22440
+    opstina: 61
+- model: orgsema.NaseljenoMesto
+  pk: 886
+  fields:
+    naziv: Sibnica
+    zip_code: 11454
+    opstina: 15
+- model: orgsema.NaseljenoMesto
+  pk: 887
+  fields:
+    naziv: Sićevo
+    zip_code: 18311
+    opstina: 183
+- model: orgsema.NaseljenoMesto
+  pk: 888
+  fields:
+    naziv: Sijarinska Banja
+    zip_code: 16246
+    opstina: 160
+- model: orgsema.NaseljenoMesto
+  pk: 889
+  fields:
+    naziv: Sikirica
+    zip_code: 35256
+    opstina: 99
+- model: orgsema.NaseljenoMesto
+  pk: 890
+  fields:
+    naziv: Sikole
+    zip_code: 19225
+    opstina: 107
+- model: orgsema.NaseljenoMesto
+  pk: 891
+  fields:
+    naziv: Silbaš
+    zip_code: 21433
+    opstina: 48
+- model: orgsema.NaseljenoMesto
+  pk: 892
+  fields:
+    naziv: Simićevo
+    zip_code: 12373
+    opstina: 86
+- model: orgsema.NaseljenoMesto
+  pk: 893
+  fields:
+    naziv: Siokovac
+    zip_code: 35203
+    opstina: 101
+- model: orgsema.NaseljenoMesto
+  pk: 894
+  fields:
+    naziv: Sip
+    zip_code: 19326
+    opstina: 105
+- model: orgsema.NaseljenoMesto
+  pk: 895
+  fields:
+    naziv: Sirča
+    zip_code: 36208
+    opstina: 127
+- model: orgsema.NaseljenoMesto
+  pk: 896
+  fields:
+    naziv: Sirig
+    zip_code: 21214
+    opstina: 56
+- model: orgsema.NaseljenoMesto
+  pk: 897
+  fields:
+    naziv: Sirogojno
+    zip_code: 31207
+    opstina: 121
+- model: orgsema.NaseljenoMesto
+  pk: 898
+  fields:
+    naziv: Sivac
+    zip_code: 25223
+    opstina: 43
+- model: orgsema.NaseljenoMesto
+  pk: 899
+  fields:
+    naziv: Sjenica
+    zip_code: 36310
+    opstina: 119
+- model: orgsema.NaseljenoMesto
+  pk: 900
+  fields:
+    naziv: Skela
+    zip_code: 11509
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 901
+  fields:
+    naziv: Skobalj
+    zip_code: 11322
+    opstina: 80
+- model: orgsema.NaseljenoMesto
+  pk: 902
+  fields:
+    naziv: Skorenovac
+    zip_code: 26228
+    opstina: 38
+- model: orgsema.NaseljenoMesto
+  pk: 903
+  fields:
+    naziv: Slankamenački Vinogradi
+    zip_code: 22318
+    opstina: 59
+- model: orgsema.NaseljenoMesto
+  pk: 904
+  fields:
+    naziv: Slatina (kod Čačka)
+    zip_code: 32224
+    opstina: 125
+- model: orgsema.NaseljenoMesto
+  pk: 905
+  fields:
+    naziv: Slavkovica
+    zip_code: 14245
+    opstina: 75
+- model: orgsema.NaseljenoMesto
+  pk: 906
+  fields:
+    naziv: Slovac
+    zip_code: 14223
+    opstina: 74
+- model: orgsema.NaseljenoMesto
+  pk: 907
+  fields:
+    naziv: Smederevo
+    zip_code: 11300
+    opstina: 80
+- model: orgsema.NaseljenoMesto
+  pk: 908
+  fields:
+    naziv: Smederevska Palanka
+    zip_code: 11420
+    opstina: 81
+- model: orgsema.NaseljenoMesto
+  pk: 909
+  fields:
+    naziv: Smilovci
+    zip_code: 18323
+    opstina: 154
+- model: orgsema.NaseljenoMesto
+  pk: 910
+  fields:
+    naziv: Smoljinac
+    zip_code: 12312
+    opstina: 89
+- model: orgsema.NaseljenoMesto
+  pk: 911
+  fields:
+    naziv: Soko Banja
+    zip_code: 18230
+    opstina: 111
+- model: orgsema.NaseljenoMesto
+  pk: 912
+  fields:
+    naziv: Sombor
+    zip_code: 25000
+    opstina: 41
+- model: orgsema.NaseljenoMesto
+  pk: 913
+  fields:
+    naziv: Sonta
+    zip_code: 25264
+    opstina: 42
+- model: orgsema.NaseljenoMesto
+  pk: 914
+  fields:
+    naziv: Sopoćani
+    zip_code: 36308
+    opstina: 128
+- model: orgsema.NaseljenoMesto
+  pk: 915
+  fields:
+    naziv: Sopot
+    zip_code: 11450
+    opstina: 181
+- model: orgsema.NaseljenoMesto
+  pk: 916
+  fields:
+    naziv: Sot
+    zip_code: 22243
+    opstina: 64
+- model: orgsema.NaseljenoMesto
+  pk: 917
+  fields:
+    naziv: Srbobran
+    zip_code: 21480
+    opstina: 182
+- model: orgsema.NaseljenoMesto
+  pk: 918
+  fields:
+    naziv: Srednjevo
+    zip_code: 12253
+    opstina: 84
+- model: orgsema.NaseljenoMesto
+  pk: 919
+  fields:
+    naziv: Sremčica
+    zip_code: 11253
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 920
+  fields:
+    naziv: Sremska Kamenica
+    zip_code: 21208
+    opstina: 46
+- model: orgsema.NaseljenoMesto
+  pk: 921
+  fields:
+    naziv: Sremska Mitrovica
+    zip_code: 22000
+    opstina: 58
+- model: orgsema.NaseljenoMesto
+  pk: 922
+  fields:
+    naziv: Sremska Rača
+    zip_code: 22247
+    opstina: 58
+- model: orgsema.NaseljenoMesto
+  pk: 923
+  fields:
+    naziv: Sremski Karlovci
+    zip_code: 21205
+    opstina: 55
+- model: orgsema.NaseljenoMesto
+  pk: 924
+  fields:
+    naziv: Sremski Mihaljevci
+    zip_code: 22413
+    opstina: 61
+- model: orgsema.NaseljenoMesto
+  pk: 925
+  fields:
+    naziv: Srpska Crnja
+    zip_code: 23220
+    opstina: 24
+- model: orgsema.NaseljenoMesto
+  pk: 926
+  fields:
+    naziv: Srpski Itebej
+    zip_code: 23233
+    opstina: 23
+- model: orgsema.NaseljenoMesto
+  pk: 927
+  fields:
+    naziv: Srpski Krstur
+    zip_code: 23334
+    opstina: 30
+- model: orgsema.NaseljenoMesto
+  pk: 928
+  fields:
+    naziv: Srpski Miletić
+    zip_code: 25244
+    opstina: 44
+- model: orgsema.NaseljenoMesto
+  pk: 929
+  fields:
+    naziv: Stajićevo
+    zip_code: 23204
+    opstina: 22
+- model: orgsema.NaseljenoMesto
+  pk: 930
+  fields:
+    naziv: Stalać
+    zip_code: 37212
+    opstina: 136
+- model: orgsema.NaseljenoMesto
+  pk: 931
+  fields:
+    naziv: Stanišić
+    zip_code: 25284
+    opstina: 41
+- model: orgsema.NaseljenoMesto
+  pk: 932
+  fields:
+    naziv: Stapar
+    zip_code: 25240
+    opstina: 41
+- model: orgsema.NaseljenoMesto
+  pk: 933
+  fields:
+    naziv: Stara Moravica
+    zip_code: 24340
+    opstina: 20
+- model: orgsema.NaseljenoMesto
+  pk: 934
+  fields:
+    naziv: Stara Pazova
+    zip_code: 22300
+    opstina: 63
+- model: orgsema.NaseljenoMesto
+  pk: 935
+  fields:
+    naziv: Starčevo
+    zip_code: 26232
+    opstina: 90
+- model: orgsema.NaseljenoMesto
+  pk: 936
+  fields:
+    naziv: Stari Banovci
+    zip_code: 22305
+    opstina: 63
+- model: orgsema.NaseljenoMesto
+  pk: 937
+  fields:
+    naziv: Stari Lec
+    zip_code: 26371
+    opstina: 40
+- model: orgsema.NaseljenoMesto
+  pk: 938
+  fields:
+    naziv: Stari Slankamen
+    zip_code: 22329
+    opstina: 59
+- model: orgsema.NaseljenoMesto
+  pk: 939
+  fields:
+    naziv: Stari Žednik
+    zip_code: 24224
+    opstina: 19
+- model: orgsema.NaseljenoMesto
+  pk: 940
+  fields:
+    naziv: Staro Selo (kod Velike Plane)
+    zip_code: 11324
+    opstina: 79
+- model: orgsema.NaseljenoMesto
+  pk: 941
+  fields:
+    naziv: Stave
+    zip_code: 14255
+    opstina: 68
+- model: orgsema.NaseljenoMesto
+  pk: 942
+  fields:
+    naziv: Stejanovci
+    zip_code: 22405
+    opstina: 62
+- model: orgsema.NaseljenoMesto
+  pk: 943
+  fields:
+    naziv: Stenjevac
+    zip_code: 35215
+    opstina: 98
+- model: orgsema.NaseljenoMesto
+  pk: 944
+  fields:
+    naziv: Stepanovićevo
+    zip_code: 21212
+    opstina: 45
+- model: orgsema.NaseljenoMesto
+  pk: 945
+  fields:
+    naziv: Stepojevac
+    zip_code: 14234
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 946
+  fields:
+    naziv: Stojnik
+    zip_code: 34307
+    opstina: 91
+- model: orgsema.NaseljenoMesto
+  pk: 947
+  fields:
+    naziv: Stopanja
+    zip_code: 37242
+    opstina: 135
+- model: orgsema.NaseljenoMesto
+  pk: 948
+  fields:
+    naziv: Stragari
+    zip_code: 34323
+    opstina: 94
+- model: orgsema.NaseljenoMesto
+  pk: 949
+  fields:
+    naziv: Straža
+    zip_code: 26345
+    opstina: 36
+- model: orgsema.NaseljenoMesto
+  pk: 950
+  fields:
+    naziv: Strelac
+    zip_code: 18332
+    opstina: 152
+- model: orgsema.NaseljenoMesto
+  pk: 951
+  fields:
+    naziv: Strižilo
+    zip_code: 35269
+    opstina: 101
+- model: orgsema.NaseljenoMesto
+  pk: 952
+  fields:
+    naziv: Stubline
+    zip_code: 11507
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 953
+  fields:
+    naziv: Studenica
+    zip_code: 36343
+    opstina: 182
+- model: orgsema.NaseljenoMesto
+  pk: 954
+  fields:
+    naziv: Subotica
+    zip_code: 24000
+    opstina: 131
+- model: orgsema.NaseljenoMesto
+  pk: 955
+  fields:
+    naziv: Subotica (kod Svilajnca)
+    zip_code: 35209
+    opstina: 102
+- model: orgsema.NaseljenoMesto
+  pk: 956
+  fields:
+    naziv: Subotinac
+    zip_code: 18227
+    opstina: 142
+- model: orgsema.NaseljenoMesto
+  pk: 957
+  fields:
+    naziv: Subotište
+    zip_code: 22414
+    opstina: 61
+- model: orgsema.NaseljenoMesto
+  pk: 958
+  fields:
+    naziv: Sukovo
+    zip_code: 18322
+    opstina: 155
+- model: orgsema.NaseljenoMesto
+  pk: 959
+  fields:
+    naziv: Sumrakovac
+    zip_code: 19376
+    opstina: 108
+- model: orgsema.NaseljenoMesto
+  pk: 960
+  fields:
+    naziv: Supska
+    zip_code: 35228
+    opstina: 103
+- model: orgsema.NaseljenoMesto
+  pk: 961
+  fields:
+    naziv: Surčin
+    zip_code: 11271
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 962
+  fields:
+    naziv: Surduk
+    zip_code: 22307
+    opstina: 63
+- model: orgsema.NaseljenoMesto
+  pk: 963
+  fields:
+    naziv: Surdulica
+    zip_code: 17530
+    opstina: 168
+- model: orgsema.NaseljenoMesto
+  pk: 964
+  fields:
+    naziv: Susek
+    zip_code: 21313
+    opstina: 50
+- model: orgsema.NaseljenoMesto
+  pk: 965
+  fields:
+    naziv: Sutjeska
+    zip_code: 23244
+    opstina: 26
+- model: orgsema.NaseljenoMesto
+  pk: 966
+  fields:
+    naziv: Suvi Do
+    zip_code: 12322
+    opstina: 173
+- model: orgsema.NaseljenoMesto
+  pk: 967
+  fields:
+    naziv: Sveti Ilija
+    zip_code: 17508
+    opstina: 162
+- model: orgsema.NaseljenoMesto
+  pk: 968
+  fields:
+    naziv: Svetozar MiIetić
+    zip_code: 25211
+    opstina: 41
+- model: orgsema.NaseljenoMesto
+  pk: 969
+  fields:
+    naziv: Svilajnac
+    zip_code: 35210
+    opstina: 102
+- model: orgsema.NaseljenoMesto
+  pk: 970
+  fields:
+    naziv: Svileuva
+    zip_code: 15221
+    opstina: 67
+- model: orgsema.NaseljenoMesto
+  pk: 971
+  fields:
+    naziv: Svilojevo
+    zip_code: 25265
+    opstina: 42
+- model: orgsema.NaseljenoMesto
+  pk: 972
+  fields:
+    naziv: Svođe
+    zip_code: 16212
+    opstina: 157
+- model: orgsema.NaseljenoMesto
+  pk: 973
+  fields:
+    naziv: Svrljig
+    zip_code: 18360
+    opstina: 147
+- model: orgsema.NaseljenoMesto
+  pk: 974
+  fields:
+    naziv: Svojnovo
+    zip_code: 35259
+    opstina: 99
+- model: orgsema.NaseljenoMesto
+  pk: 975
+  fields:
+    naziv: Šabac
+    zip_code: 15000
+    opstina: 72
+- model: orgsema.NaseljenoMesto
+  pk: 976
+  fields:
+    naziv: Šajkaš
+    zip_code: 21244
+    opstina: 57
+- model: orgsema.NaseljenoMesto
+  pk: 977
+  fields:
+    naziv: Šarbanovac
+    zip_code: 19373
+    opstina: 111
+- model: orgsema.NaseljenoMesto
+  pk: 978
+  fields:
+    naziv: Šašinci
+    zip_code: 22425
+    opstina: 58
+- model: orgsema.NaseljenoMesto
+  pk: 979
+  fields:
+    naziv: Šepšin
+    zip_code: 11433
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 980
+  fields:
+    naziv: Šetonje
+    zip_code: 12309
+    opstina: 90
+- model: orgsema.NaseljenoMesto
+  pk: 981
+  fields:
+    naziv: Šid
+    zip_code: 22240
+    opstina: 64
+- model: orgsema.NaseljenoMesto
+  pk: 982
+  fields:
+    naziv: Šilopaj
+    zip_code: 32311
+    opstina: 122
+- model: orgsema.NaseljenoMesto
+  pk: 983
+  fields:
+    naziv: Šimanovci
+    zip_code: 22310
+    opstina: 61
+- model: orgsema.NaseljenoMesto
+  pk: 984
+  fields:
+    naziv: Šljivovica
+    zip_code: 31244
+    opstina: 189
+- model: orgsema.NaseljenoMesto
+  pk: 985
+  fields:
+    naziv: Šljivovo
+    zip_code: 37239
+    opstina: 131
+- model: orgsema.NaseljenoMesto
+  pk: 986
+  fields:
+    naziv: Štavalj
+    zip_code: 36311
+    opstina: 119
+- model: orgsema.NaseljenoMesto
+  pk: 987
+  fields:
+    naziv: Štitar
+    zip_code: 15354
+    opstina: 72
+- model: orgsema.NaseljenoMesto
+  pk: 988
+  fields:
+    naziv: Štubik
+    zip_code: 19303
+    opstina: 107
+- model: orgsema.NaseljenoMesto
+  pk: 989
+  fields:
+    naziv: Šurjan
+    zip_code: 23254
+    opstina: 26
+- model: orgsema.NaseljenoMesto
+  pk: 990
+  fields:
+    naziv: Takovo
+    zip_code: 32304
+    opstina: 122
+- model: orgsema.NaseljenoMesto
+  pk: 991
+  fields:
+    naziv: Taraš
+    zip_code: 23209
+    opstina: 22
+- model: orgsema.NaseljenoMesto
+  pk: 992
+  fields:
+    naziv: Tavankut
+    zip_code: 24214
+    opstina: 19
+- model: orgsema.NaseljenoMesto
+  pk: 993
+  fields:
+    naziv: Tekeriš
+    zip_code: 15234
+    opstina: 69
+- model: orgsema.NaseljenoMesto
+  pk: 994
+  fields:
+    naziv: Tekija
+    zip_code: 19325
+    opstina: 105
+- model: orgsema.NaseljenoMesto
+  pk: 995
+  fields:
+    naziv: Telečka
+    zip_code: 25222
+    opstina: 41
+- model: orgsema.NaseljenoMesto
+  pk: 996
+  fields:
+    naziv: Temerin
+    zip_code: 21235
+    opstina: 56
+- model: orgsema.NaseljenoMesto
+  pk: 997
+  fields:
+    naziv: Temska
+    zip_code: 18355
+    opstina: 155
+- model: orgsema.NaseljenoMesto
+  pk: 998
+  fields:
+    naziv: Tešica
+    zip_code: 18212
+    opstina: 142
+- model: orgsema.NaseljenoMesto
+  pk: 999
+  fields:
+    naziv: Titel
+    zip_code: 21240
+    opstina: 57
+- model: orgsema.NaseljenoMesto
+  pk: 1000
+  fields:
+    naziv: Toba
+    zip_code: 23222
+    opstina: 24
+- model: orgsema.NaseljenoMesto
+  pk: 1001
+  fields:
+    naziv: Tomaševac
+    zip_code: 23262
+    opstina: 22
+- model: orgsema.NaseljenoMesto
+  pk: 1002
+  fields:
+    naziv: Topola
+    zip_code: 34310
+    opstina: 101
+- model: orgsema.NaseljenoMesto
+  pk: 1003
+  fields:
+    naziv: Topolovnik
+    zip_code: 12226
+    opstina: 84
+- model: orgsema.NaseljenoMesto
+  pk: 1004
+  fields:
+    naziv: Toponica
+    zip_code: 34243
+    opstina: 153
+- model: orgsema.NaseljenoMesto
+  pk: 1005
+  fields:
+    naziv: Torda
+    zip_code: 23214
+    opstina: 23
+- model: orgsema.NaseljenoMesto
+  pk: 1006
+  fields:
+    naziv: Tornjoš
+    zip_code: 24352
+    opstina: 31
+- model: orgsema.NaseljenoMesto
+  pk: 1007
+  fields:
+    naziv: Tovariševo
+    zip_code: 21424
+    opstina: 48
+- model: orgsema.NaseljenoMesto
+  pk: 1008
+  fields:
+    naziv: Trbušani
+    zip_code: 32205
+    opstina: 125
+- model: orgsema.NaseljenoMesto
+  pk: 1009
+  fields:
+    naziv: Trešnjevac
+    zip_code: 24426
+    opstina: 28
+- model: orgsema.NaseljenoMesto
+  pk: 1010
+  fields:
+    naziv: Trešnjevica
+    zip_code: 35248
+    opstina: 112
+- model: orgsema.NaseljenoMesto
+  pk: 1011
+  fields:
+    naziv: Trgovište
+    zip_code: 17525
+    opstina: 169
+- model: orgsema.NaseljenoMesto
+  pk: 1012
+  fields:
+    naziv: Trnava
+    zip_code: 32221
+    opstina: 125
+- model: orgsema.NaseljenoMesto
+  pk: 1013
+  fields:
+    naziv: Trnavci
+    zip_code: 37235
+    opstina: 131
+- model: orgsema.NaseljenoMesto
+  pk: 1014
+  fields:
+    naziv: Trnjane
+    zip_code: 19306
+    opstina: 142
+- model: orgsema.NaseljenoMesto
+  pk: 1015
+  fields:
+    naziv: Trstenik
+    zip_code: 37240
+    opstina: 195
+- model: orgsema.NaseljenoMesto
+  pk: 1016
+  fields:
+    naziv: Tršić
+    zip_code: 15303
+    opstina: 69
+- model: orgsema.NaseljenoMesto
+  pk: 1017
+  fields:
+    naziv: Trupale
+    zip_code: 18211
+    opstina: 137
+- model: orgsema.NaseljenoMesto
+  pk: 1018
+  fields:
+    naziv: Tulare
+    zip_code: 16247
+    opstina: 160
+- model: orgsema.NaseljenoMesto
+  pk: 1019
+  fields:
+    naziv: Turekovac
+    zip_code: 16231
+    opstina: 159
+- model: orgsema.NaseljenoMesto
+  pk: 1020
+  fields:
+    naziv: Turija (kod Kučeva)
+    zip_code: 12257
+    opstina: 88
+- model: orgsema.NaseljenoMesto
+  pk: 1021
+  fields:
+    naziv: Turija
+    zip_code: 21215
+    opstina: 54
+- model: orgsema.NaseljenoMesto
+  pk: 1022
+  fields:
+    naziv: Tutin
+    zip_code: 36320
+    opstina: 130
+- model: orgsema.NaseljenoMesto
+  pk: 1023
+  fields:
+    naziv: Ub
+    zip_code: 14210
+    opstina: 78
+- model: orgsema.NaseljenoMesto
+  pk: 1024
+  fields:
+    naziv: Ugao
+    zip_code: 36313
+    opstina: 119
+- model: orgsema.NaseljenoMesto
+  pk: 1025
+  fields:
+    naziv: Ugrinovci (kod G. Milanovca)
+    zip_code: 32314
+    opstina: 122
+- model: orgsema.NaseljenoMesto
+  pk: 1026
+  fields:
+    naziv: Ugrinovci (kod Beograda)
+    zip_code: 11277
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 1027
+  fields:
+    naziv: Uljma
+    zip_code: 26330
+    opstina: 36
+- model: orgsema.NaseljenoMesto
+  pk: 1028
+  fields:
+    naziv: Umčari
+    zip_code: 11430
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 1029
+  fields:
+    naziv: Umka
+    zip_code: 11260
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 1030
+  fields:
+    naziv: Urovica
+    zip_code: 19305
+    opstina: 107
+- model: orgsema.NaseljenoMesto
+  pk: 1031
+  fields:
+    naziv: Utrine
+    zip_code: 24437
+    opstina: 27
+- model: orgsema.NaseljenoMesto
+  pk: 1032
+  fields:
+    naziv: Ušće
+    zip_code: 36342
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 1033
+  fields:
+    naziv: Uzdin
+    zip_code: 26216
+    opstina: 37
+- model: orgsema.NaseljenoMesto
+  pk: 1034
+  fields:
+    naziv: Uzovnica
+    zip_code: 15319
+    opstina: 70
+- model: orgsema.NaseljenoMesto
+  pk: 1035
+  fields:
+    naziv: Užice
+    zip_code: 31000
+    opstina: 120
+- model: orgsema.NaseljenoMesto
+  pk: 1036
+  fields:
+    naziv: Vajska
+    zip_code: 21426
+    opstina: 47
+- model: orgsema.NaseljenoMesto
+  pk: 1037
+  fields:
+    naziv: Valjevo
+    zip_code: 14000
+    opstina: 73
+- model: orgsema.NaseljenoMesto
+  pk: 1038
+  fields:
+    naziv: Varda
+    zip_code: 31263
+    opstina: 114
+- model: orgsema.NaseljenoMesto
+  pk: 1039
+  fields:
+    naziv: Varna
+    zip_code: 15232
+    opstina: 72
+- model: orgsema.NaseljenoMesto
+  pk: 1040
+  fields:
+    naziv: Varvarin
+    zip_code: 37260
+    opstina: 133
+- model: orgsema.NaseljenoMesto
+  pk: 1041
+  fields:
+    naziv: Vasilj
+    zip_code: 19367
+    opstina: 110
+- model: orgsema.NaseljenoMesto
+  pk: 1042
+  fields:
+    naziv: Vatin
+    zip_code: 26337
+    opstina: 36
+- model: orgsema.NaseljenoMesto
+  pk: 1043
+  fields:
+    naziv: Vašica
+    zip_code: 22241
+    opstina: 64
+- model: orgsema.NaseljenoMesto
+  pk: 1044
+  fields:
+    naziv: Velesnica
+    zip_code: 19328
+    opstina: 105
+- model: orgsema.NaseljenoMesto
+  pk: 1045
+  fields:
+    naziv: Velika Drenova
+    zip_code: 37245
+    opstina: 135
+- model: orgsema.NaseljenoMesto
+  pk: 1046
+  fields:
+    naziv: Velika Grabovica
+    zip_code: 16221
+    opstina: 159
+- model: orgsema.NaseljenoMesto
+  pk: 1047
+  fields:
+    naziv: Velika Greda
+    zip_code: 26366
+    opstina: 40
+- model: orgsema.NaseljenoMesto
+  pk: 1048
+  fields:
+    naziv: Velika Ivanča
+    zip_code: 11414
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 1049
+  fields:
+    naziv: Velika Krsna
+    zip_code: 11408
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 1050
+  fields:
+    naziv: Velika Lomnica
+    zip_code: 37209
+    opstina: 134
+- model: orgsema.NaseljenoMesto
+  pk: 1051
+  fields:
+    naziv: Velika Lukanja
+    zip_code: 18305
+    opstina: 155
+- model: orgsema.NaseljenoMesto
+  pk: 1052
+  fields:
+    naziv: Velika Moštanica
+    zip_code: 11206
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 1053
+  fields:
+    naziv: Velika Plana
+    zip_code: 11320
+    opstina: 79
+- model: orgsema.NaseljenoMesto
+  pk: 1054
+  fields:
+    naziv: Velika Plana (Toplička)
+    zip_code: 18403
+    opstina: 151
+- model: orgsema.NaseljenoMesto
+  pk: 1055
+  fields:
+    naziv: Velika Reka
+    zip_code: 15322
+    opstina: 189
+- model: orgsema.NaseljenoMesto
+  pk: 1056
+  fields:
+    naziv: Velika Vrbnica
+    zip_code: 37233
+    opstina: 131
+- model: orgsema.NaseljenoMesto
+  pk: 1057
+  fields:
+    naziv: Aleksandrovo
+    zip_code: 23217
+    opstina: 24
+- model: orgsema.NaseljenoMesto
+  pk: 1058
+  fields:
+    naziv: Veliki Borak
+    zip_code: 11462
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 1059
+  fields:
+    naziv: Veliki Crljeni
+    zip_code: 14233
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 1060
+  fields:
+    naziv: Veliki Gaj
+    zip_code: 26365
+    opstina: 40
+- model: orgsema.NaseljenoMesto
+  pk: 1061
+  fields:
+    naziv: Veliki Izvor
+    zip_code: 19206
+    opstina: 109
+- model: orgsema.NaseljenoMesto
+  pk: 1062
+  fields:
+    naziv: Veliki Popović
+    zip_code: 35223
+    opstina: 98
+- model: orgsema.NaseljenoMesto
+  pk: 1063
+  fields:
+    naziv: Veliki Radinci
+    zip_code: 22211
+    opstina: 58
+- model: orgsema.NaseljenoMesto
+  pk: 1064
+  fields:
+    naziv: Veliki Šiljegovac
+    zip_code: 37204
+    opstina: 134
+- model: orgsema.NaseljenoMesto
+  pk: 1065
+  fields:
+    naziv: Veliko Bonjince
+    zip_code: 18217
+    opstina: 152
+- model: orgsema.NaseljenoMesto
+  pk: 1066
+  fields:
+    naziv: Veliko Gradište
+    zip_code: 12220
+    opstina: 84
+- model: orgsema.NaseljenoMesto
+  pk: 1067
+  fields:
+    naziv: Veliko Laole
+    zip_code: 12306
+    opstina: 90
+- model: orgsema.NaseljenoMesto
+  pk: 1068
+  fields:
+    naziv: Veliko Orašje
+    zip_code: 11323
+    opstina: 79
+- model: orgsema.NaseljenoMesto
+  pk: 1069
+  fields:
+    naziv: Veliko Selo
+    zip_code: 12314
+    opstina: 155
+- model: orgsema.NaseljenoMesto
+  pk: 1070
+  fields:
+    naziv: Veliko Središte
+    zip_code: 26334
+    opstina: 36
+- model: orgsema.NaseljenoMesto
+  pk: 1071
+  fields:
+    naziv: Venčane
+    zip_code: 34306
+    opstina: 91
+- model: orgsema.NaseljenoMesto
+  pk: 1072
+  fields:
+    naziv: Veternik
+    zip_code: 21203
+    opstina: 45
+- model: orgsema.NaseljenoMesto
+  pk: 1073
+  fields:
+    naziv: Viča
+    zip_code: 32233
+    opstina: 179
+- model: orgsema.NaseljenoMesto
+  pk: 1074
+  fields:
+    naziv: Vilovo
+    zip_code: 21246
+    opstina: 57
+- model: orgsema.NaseljenoMesto
+  pk: 1075
+  fields:
+    naziv: Vina
+    zip_code: 19368
+    opstina: 159
+- model: orgsema.NaseljenoMesto
+  pk: 1076
+  fields:
+    naziv: Vinarce
+    zip_code: 16207
+    opstina: 159
+- model: orgsema.NaseljenoMesto
+  pk: 1077
+  fields:
+    naziv: Vionica
+    zip_code: 32254
+    opstina: 123
+- model: orgsema.NaseljenoMesto
+  pk: 1078
+  fields:
+    naziv: Visočka Ržana
+    zip_code: 18306
+    opstina: 155
+- model: orgsema.NaseljenoMesto
+  pk: 1079
+  fields:
+    naziv: Višnjevac
+    zip_code: 24222
+    opstina: 19
+- model: orgsema.NaseljenoMesto
+  pk: 1080
+  fields:
+    naziv: Višnjićevo
+    zip_code: 22246
+    opstina: 64
+- model: orgsema.NaseljenoMesto
+  pk: 1081
+  fields:
+    naziv: Vitanovac
+    zip_code: 36206
+    opstina: 127
+- model: orgsema.NaseljenoMesto
+  pk: 1082
+  fields:
+    naziv: Vitkavac
+    zip_code: 36207
+    opstina: 127
+- model: orgsema.NaseljenoMesto
+  pk: 1083
+  fields:
+    naziv: Vitojevci
+    zip_code: 22431
+    opstina: 62
+- model: orgsema.NaseljenoMesto
+  pk: 1084
+  fields:
+    naziv: Vitoševac
+    zip_code: 37213
+    opstina: 146
+- model: orgsema.NaseljenoMesto
+  pk: 1085
+  fields:
+    naziv: Vladičin Han
+    zip_code: 17510
+    opstina: 166
+- model: orgsema.NaseljenoMesto
+  pk: 1086
+  fields:
+    naziv: Vladimirci
+    zip_code: 15225
+    opstina: 66
+- model: orgsema.NaseljenoMesto
+  pk: 1087
+  fields:
+    naziv: Vladimirovac
+    zip_code: 26315
+    opstina: 34
+- model: orgsema.NaseljenoMesto
+  pk: 1088
+  fields:
+    naziv: Vlajkovac
+    zip_code: 26332
+    opstina: 36
+- model: orgsema.NaseljenoMesto
+  pk: 1089
+  fields:
+    naziv: Vlase
+    zip_code: 17507
+    opstina: 162
+- model: orgsema.NaseljenoMesto
+  pk: 1090
+  fields:
+    naziv: Vlasina Okruglica
+    zip_code: 17532
+    opstina: 168
+- model: orgsema.NaseljenoMesto
+  pk: 1091
+  fields:
+    naziv: Vlasina Rid
+    zip_code: 17533
+    opstina: 168
+- model: orgsema.NaseljenoMesto
+  pk: 1092
+  fields:
+    naziv: Vlasina Stojkovićeva
+    zip_code: 17534
+    opstina: 168
+- model: orgsema.NaseljenoMesto
+  pk: 1093
+  fields:
+    naziv: Vlasotince
+    zip_code: 16210
+    opstina: 157
+- model: orgsema.NaseljenoMesto
+  pk: 1094
+  fields:
+    naziv: Vlaška
+    zip_code: 11406
+    opstina: 103
+- model: orgsema.NaseljenoMesto
+  pk: 1095
+  fields:
+    naziv: Vlaški Do
+    zip_code: 12371
+    opstina: 86
+- model: orgsema.NaseljenoMesto
+  pk: 1096
+  fields:
+    naziv: Vodanj
+    zip_code: 11328
+    opstina: 80
+- model: orgsema.NaseljenoMesto
+  pk: 1097
+  fields:
+    naziv: Voganj
+    zip_code: 22429
+    opstina: 62
+- model: orgsema.NaseljenoMesto
+  pk: 1098
+  fields:
+    naziv: Vojka
+    zip_code: 22313
+    opstina: 63
+- model: orgsema.NaseljenoMesto
+  pk: 1099
+  fields:
+    naziv: Vojska
+    zip_code: 35208
+    opstina: 102
+- model: orgsema.NaseljenoMesto
+  pk: 1100
+  fields:
+    naziv: Vojvoda Stepa
+    zip_code: 23219
+    opstina: 24
+- model: orgsema.NaseljenoMesto
+  pk: 1101
+  fields:
+    naziv: Voluja
+    zip_code: 12256
+    opstina: 88
+- model: orgsema.NaseljenoMesto
+  pk: 1102
+  fields:
+    naziv: Vraćevšnica
+    zip_code: 32315
+    opstina: 122
+- model: orgsema.NaseljenoMesto
+  pk: 1103
+  fields:
+    naziv: Vračev Gaj
+    zip_code: 26348
+    opstina: 35
+- model: orgsema.NaseljenoMesto
+  pk: 1104
+  fields:
+    naziv: Vranić
+    zip_code: 11427
+    opstina: 187
+- model: orgsema.NaseljenoMesto
+  pk: 1105
+  fields:
+    naziv: Vranovo
+    zip_code: 11329
+    opstina: 80
+- model: orgsema.NaseljenoMesto
+  pk: 1106
+  fields:
+    naziv: Vranje
+    zip_code: 17000
+    opstina: 162
+- model: orgsema.NaseljenoMesto
+  pk: 1107
+  fields:
+    naziv: Vranjska Banja
+    zip_code: 17542
+    opstina: 162
+- model: orgsema.NaseljenoMesto
+  pk: 1108
+  fields:
+    naziv: Vratarnica
+    zip_code: 19344
+    opstina: 109
+- model: orgsema.NaseljenoMesto
+  pk: 1109
+  fields:
+    naziv: Vražogrnac
+    zip_code: 19312
+    opstina: 109
+- model: orgsema.NaseljenoMesto
+  pk: 1110
+  fields:
+    naziv: Vrba
+    zip_code: 36214
+    opstina: 127
+- model: orgsema.NaseljenoMesto
+  pk: 1111
+  fields:
+    naziv: Vrbas
+    zip_code: 21460
+    opstina: 52
+- model: orgsema.NaseljenoMesto
+  pk: 1112
+  fields:
+    naziv: Vrbica
+    zip_code: 23329
+    opstina: 109
+- model: orgsema.NaseljenoMesto
+  pk: 1113
+  fields:
+    naziv: Vrčin
+    zip_code: 11224
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 1114
+  fields:
+    naziv: Vrdnik
+    zip_code: 22408
+    opstina: 60
+- model: orgsema.NaseljenoMesto
+  pk: 1115
+  fields:
+    naziv: Vreoci
+    zip_code: 14230
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 1116
+  fields:
+    naziv: Vrnjačka Banja
+    zip_code: 36210
+    opstina: 126
+- model: orgsema.NaseljenoMesto
+  pk: 1117
+  fields:
+    naziv: Vrnjci
+    zip_code: 36217
+    opstina: 126
+- model: orgsema.NaseljenoMesto
+  pk: 1118
+  fields:
+    naziv: Vršac
+    zip_code: 26300
+    opstina: 36
+- model: orgsema.NaseljenoMesto
+  pk: 1119
+  fields:
+    naziv: Vučje
+    zip_code: 16203
+    opstina: 159
+- model: orgsema.NaseljenoMesto
+  pk: 1120
+  fields:
+    naziv: Zablaće
+    zip_code: 32223
+    opstina: 182
+- model: orgsema.NaseljenoMesto
+  pk: 1121
+  fields:
+    naziv: Zabojnica
+    zip_code: 34244
+    opstina: 93
+- model: orgsema.NaseljenoMesto
+  pk: 1122
+  fields:
+    naziv: Zabrežje
+    zip_code: 11505
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 1123
+  fields:
+    naziv: Zagajica
+    zip_code: 26344
+    opstina: 36
+- model: orgsema.NaseljenoMesto
+  pk: 1124
+  fields:
+    naziv: Zajača
+    zip_code: 15315
+    opstina: 69
+- model: orgsema.NaseljenoMesto
+  pk: 1125
+  fields:
+    naziv: Zaječar
+    zip_code: 19000
+    opstina: 109
+- model: orgsema.NaseljenoMesto
+  pk: 1126
+  fields:
+    naziv: Zasavica
+    zip_code: 22201
+    opstina: 58
+- model: orgsema.NaseljenoMesto
+  pk: 1127
+  fields:
+    naziv: Zavlaka
+    zip_code: 15312
+    opstina: 68
+- model: orgsema.NaseljenoMesto
+  pk: 1128
+  fields:
+    naziv: Zdravinje
+    zip_code: 37203
+    opstina: 134
+- model: orgsema.NaseljenoMesto
+  pk: 1129
+  fields:
+    naziv: Zemun
+    zip_code: 11080
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 1130
+  fields:
+    naziv: Zlatibor
+    zip_code: 31315
+    opstina: 121
+- model: orgsema.NaseljenoMesto
+  pk: 1131
+  fields:
+    naziv: Zlodol
+    zip_code: 31253
+    opstina: 113
+- model: orgsema.NaseljenoMesto
+  pk: 1132
+  fields:
+    naziv: Zlot
+    zip_code: 19215
+    opstina: 104
+- model: orgsema.NaseljenoMesto
+  pk: 1133
+  fields:
+    naziv: Zmajevo
+    zip_code: 21213
+    opstina: 52
+- model: orgsema.NaseljenoMesto
+  pk: 1134
+  fields:
+    naziv: Zrenjanin
+    zip_code: 23000
+    opstina: 22
+- model: orgsema.NaseljenoMesto
+  pk: 1135
+  fields:
+    naziv: Zuce
+    zip_code: 11225
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 1136
+  fields:
+    naziv: Zvezdan
+    zip_code: 19227
+    opstina: 109
+- model: orgsema.NaseljenoMesto
+  pk: 1137
+  fields:
+    naziv: Zvonce
+    zip_code: 18333
+    opstina: 152
+- model: orgsema.NaseljenoMesto
+  pk: 1138
+  fields:
+    naziv: Žabalj
+    zip_code: 21230
+    opstina: 53
+- model: orgsema.NaseljenoMesto
+  pk: 1139
+  fields:
+    naziv: Žabari
+    zip_code: 12374
+    opstina: 86
+- model: orgsema.NaseljenoMesto
+  pk: 1140
+  fields:
+    naziv: Žagubica
+    zip_code: 12320
+    opstina: 87
+- model: orgsema.NaseljenoMesto
+  pk: 1141
+  fields:
+    naziv: Železnik
+    zip_code: 11250
+    opstina: 1
+- model: orgsema.NaseljenoMesto
+  pk: 1142
+  fields:
+    naziv: Žitište
+    zip_code: 23210
+    opstina: 23
+- model: orgsema.NaseljenoMesto
+  pk: 1143
+  fields:
+    naziv: Žitkovac
+    zip_code: 18210
+    opstina: 194
+- model: orgsema.NaseljenoMesto
+  pk: 1144
+  fields:
+    naziv: Žitni Potok
+    zip_code: 18407
+    opstina: 151
+- model: orgsema.NaseljenoMesto
+  pk: 1145
+  fields:
+    naziv: Žitorađa
+    zip_code: 18412
+    opstina: 149
+- model: orgsema.NaseljenoMesto
+  pk: 1146
+  fields:
+    naziv: Žuć
+    zip_code: 18348
+    opstina: 155
+    opstina: 1

@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'debug_toolbar',
     'django_extensions',
+    'widget_tweaks',
+    'orgsema',
     'osnovni',
 ]
 
@@ -171,3 +173,5 @@ EMAIL_HOST_PASSWORD = '9aSvaC8lJG8WLI0Y'
 EMAIL_HOST_USER = 'pmvkarton@gmail.com'
 EMAIL_PORT = 587
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+EMPTY_AVATAR_URL = '/static/avatars/avatar4.png'
