@@ -1,0 +1,313 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+{% load label_class %}
+
+{% block pagetitle %}Novi karton{% endblock %}
+{% block maintitle %}Novi karton{% endblock %}
+{% block titleinfo %}Kreiranje novog kartona{% endblock %}
+
+{% block content %}
+
+<form class="form-horizontal" role="form" method="post" enctype="multipart/form-data">
+
+  {% csrf_token %}
+
+  <div class="form-group">
+    {{ form.inv_broj|label_with_classes:"col-sm-2 control-label no-padding-right"}}
+    <div class="col-sm-5">
+      {% if form.inv_broj.errors %}<span class="block input-icon input-icon-right">{% endif %}
+      {{ form.inv_broj|add_class:"col-xs-10 col-sm-5" }}
+      {% if form.inv_broj.errors %}<i class="ace-icon fa fa-times-circle"></i></span>{% endif %}
+    </div>
+    {% if form.inv_broj.errors %}<div class="help-block col-xs-12 col-sm-reset inline"> {{ form.inv_broj.errors }} </div>{% endif %}
+  </div>
+
+  <div class="form-group">
+    {{ form.br_mat_dok|label_with_classes:"col-sm-2 control-label no-padding-right"}}
+    <div class="col-sm-9">
+      {{ form.br_mat_dok|add_class:"col-xs-10 col-sm-5" }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    {{ form.vrsta_predmeta|label_with_classes:"col-sm-2 control-label no-padding-right"}}
+    <div class="col-sm-4">
+      {{ form.vrsta_predmeta|add_class:"chosen-select" }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    {{ form.vrsta_zbirke|label_with_classes:"col-sm-2 control-label no-padding-right"}}
+    <div class="col-sm-4">
+      {{ form.vrsta_zbirke|add_class:"chosen-select" }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    {{ form.br_primeraka|label_with_classes:"col-sm-2 control-label no-padding-right"}}
+    <div class="col-sm-3">
+      {{ form.br_primeraka|add_class:"col-xs-10 col-sm-5" }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    {{ form.br_negativa|label_with_classes:"col-sm-2 control-label no-padding-right"}}
+    <div class="col-sm-9">
+      {{ form.br_negativa|add_class:"col-xs-10 col-sm-9" }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    {{ form.vreme_nastanka|label_with_classes:"col-sm-2 control-label no-padding-right"}}
+    <div class="col-sm-9">
+      {{ form.vreme_nastanka|add_class:"col-xs-10 col-sm-5" }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    {{ form.datum_nastanka|label_with_classes:"col-sm-2 control-label no-padding-right"}}
+    <div class="col-sm-2">
+      <div class="input-group">
+        {{ form.datum_nastanka|add_class:"form-control date-picker "|attr:"data-date-format:dd.mm.yyyy." }}
+        <span class="input-group-addon">
+          <i class="fa fa-calendar bigger-110"></i>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    {{ form.mesto_nastanka|label_with_classes:"col-sm-2 control-label no-padding-right"}}
+    <div class="col-sm-9">
+      {{ form.mesto_nastanka|add_class:"col-xs-10 col-sm-5" }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    {{ form.mesto_nastanka2|label_with_classes:"col-sm-2 control-label no-padding-right"}}
+    <div class="col-sm-4">
+      {{ form.mesto_nastanka2|add_class:"chosen-select" }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    {{ form.autor|label_with_classes:"col-sm-2 control-label no-padding-right"}}
+    <div class="col-sm-9">
+      {{ form.autor|add_class:"col-xs-10 col-sm-5" }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    {{ form.stil|label_with_classes:"col-sm-2 control-label no-padding-right"}}
+    <div class="col-sm-9">
+      {{ form.stil|add_class:"col-xs-10 col-sm-5" }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    {{ form.materijal|label_with_classes:"col-sm-2 control-label no-padding-right"}}
+    <div class="col-sm-9">
+      {{ form.materijal|add_class:"col-xs-10 col-sm-5" }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    {{ form.sirina|label_with_classes:"col-sm-2 control-label no-padding-right"}}
+    <div class="col-sm-3">
+      {{ form.sirina|add_class:"col-xs-10 col-sm-5" }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    {{ form.duzina|label_with_classes:"col-sm-2 control-label no-padding-right"}}
+    <div class="col-sm-3">
+      {{ form.duzina|add_class:"col-xs-10 col-sm-5" }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    {{ form.visina|label_with_classes:"col-sm-2 control-label no-padding-right"}}
+    <div class="col-sm-3">
+      {{ form.visina|add_class:"col-xs-10 col-sm-5" }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    {{ form.debljina|label_with_classes:"col-sm-2 control-label no-padding-right"}}
+    <div class="col-sm-3">
+      {{ form.debljina|add_class:"col-xs-10 col-sm-5" }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    {{ form.precnik|label_with_classes:"col-sm-2 control-label no-padding-right"}}
+    <div class="col-sm-3">
+      {{ form.precnik|add_class:"col-xs-10 col-sm-5" }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    {{ form.grama|label_with_classes:"col-sm-2 control-label no-padding-right"}}
+    <div class="col-sm-3">
+      {{ form.grama|add_class:"col-xs-10 col-sm-5" }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    {{ form.opis|label_with_classes:"col-sm-2 control-label no-padding-right"}}
+    <div class="col-sm-9">
+      {{ form.opis|add_class:"col-xs-10 col-sm-10" }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    {{ form.nacin_nabavke|label_with_classes:"col-sm-2 control-label no-padding-right"}}
+    <div class="col-sm-4">
+      {{ form.nacin_nabavke|add_class:"chosen-select" }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    {{ form.opis_nabavke|label_with_classes:"col-sm-2 control-label no-padding-right"}}
+    <div class="col-sm-9">
+      {{ form.opis_nabavke|add_class:"col-xs-10 col-sm-10" }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    {{ form.br_knjige_ulaza|label_with_classes:"col-sm-2 control-label no-padding-right"}}
+    <div class="col-sm-3">
+      {{ form.br_knjige_ulaza|add_class:"col-xs-10 col-sm-10" }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    {{ form.cena|label_with_classes:"col-sm-2 control-label no-padding-right"}}
+    <div class="col-sm-9">
+      {{ form.cena|add_class:"col-xs-10 col-sm-5" }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    {{ form.kategorija|label_with_classes:"col-sm-2 control-label no-padding-right"}}
+    <div class="col-sm-9">
+      {{ form.kategorija|add_class:"col-xs-10 col-sm-10" }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    {{ form.istorijat|label_with_classes:"col-sm-2 control-label no-padding-right"}}
+    <div class="col-sm-9">
+      {{ form.istorijat|add_class:"col-xs-10 col-sm-10" }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    {{ form.stanje_ocuvanosti|label_with_classes:"col-sm-2 control-label no-padding-right"}}
+    <div class="col-sm-9">
+      {{ form.stanje_ocuvanosti|add_class:"col-xs-10 col-sm-10" }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    {{ form.restauracija|label_with_classes:"col-sm-2 control-label no-padding-right"}}
+    <div class="col-sm-9">
+      {{ form.restauracija|add_class:"col-xs-10 col-sm-10" }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    {{ form.literatura|label_with_classes:"col-sm-2 control-label no-padding-right"}}
+    <div class="col-sm-9">
+      {{ form.literatura|add_class:"col-xs-10 col-sm-10" }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    {{ form.smesten|label_with_classes:"col-sm-2 control-label no-padding-right"}}
+    <div class="col-sm-9">
+      {{ form.smesten|add_class:"col-xs-10 col-sm-10" }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    {{ form.obradio|label_with_classes:"col-sm-2 control-label no-padding-right"}}
+    <div class="col-sm-9">
+      {{ form.obradio|add_class:"col-xs-10 col-sm-5" }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    {{ form.napomena|label_with_classes:"col-sm-2 control-label no-padding-right"}}
+    <div class="col-sm-9">
+      {{ form.napomena|add_class:"col-xs-10 col-sm-10" }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    {{ form.fotografija|label_with_classes:"col-sm-2 control-label no-padding-right"}}
+    <div class="col-sm-4">
+      {{ form.fotografija }}
+    </div>
+  </div>
+
+  <div class="clearfix form-actions">
+    <div class="col-md-offset-2 col-md-9">
+      <button class="btn btn-info" type="submit">
+        <i class="ace-icon fa fa-check bigger-110"></i>
+        Sačuvaj
+      </button>
+      &nbsp; &nbsp; &nbsp;
+      <button class="btn" type="reset">
+        <i class="ace-icon fa fa-undo bigger-110"></i>
+        Reset
+      </button>
+    </div>
+  </div>
+
+</form>
+
+{% endblock %}
+
+{% block pagescript %}
+<script type="text/javascript">
+// chosen plugin
+$('.chosen-select').chosen({allow_single_deselect:true});
+//resize the chosen on window resize
+$(window)
+.off('resize.chosen')
+.on('resize.chosen', function() {
+  $('.chosen-select').each(function() {
+     var $this = $(this);
+     $this.next().css({'width': $this.parent().width()});
+  })
+}).trigger('resize.chosen');
+
+//datepicker plugin
+//link
+$('.date-picker').datepicker({
+  autoclose: true,
+  todayHighlight: true
+})
+//show datepicker when clicking on the icon
+.next().on(ace.click_event, function(){
+  $(this).prev().focus();
+});
+
+$('#id_fotografija').ace_file_input({
+  no_file:'Nema fajla ...',
+  btn_choose:'Izaberi',
+  btn_change:'Izmeni',
+  droppable:false,
+  onchange:null,
+  thumbnail:false, //| true | large
+  whitelist:'gif|png|jpg|jpeg|tiff',
+  blacklist:'exe|php'
+  //onchange:''
+  //
+});
+//pre-show a file name, for example a previously selected file
+//$('#id_fotografija').ace_file_input('show_file_list', ['myfile.txt'])
+
+</script>
+{% endblock %}

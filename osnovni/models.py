@@ -69,8 +69,8 @@ class MuzejskiPredmet(models.Model):
     """
     inv_broj = models.PositiveIntegerField(u'inventarni broj')
     br_mat_dok = models.CharField(u'broj matične dokumentacije', max_length=100, blank=True, null=True)
-    vrsta_predmeta = models.ForeignKey(VrstaPredmeta, verbose_name=u'vrsta predmeta')
-    vrsta_zbirke = models.ForeignKey(VrstaZbirke, verbose_name=u'vrsta zbirke')
+    vrsta_predmeta = models.ForeignKey(VrstaPredmeta, verbose_name=u'vrsta predmeta', blank=True, null=True)
+    vrsta_zbirke = models.ForeignKey(VrstaZbirke, verbose_name=u'vrsta zbirke', blank=True, null=True)
     br_primeraka = models.PositiveIntegerField(u'broj primeraka')
     br_negativa = models.CharField(u'oznaka i broj negativa', max_length=200, blank=True, null=True)
     vreme_nastanka = models.CharField(u'vreme nastanka', max_length=100, blank=True, null=True)
@@ -99,7 +99,7 @@ class MuzejskiPredmet(models.Model):
     smesten = models.CharField(u'smešten', max_length=1000, blank=True, null=True)
     obradio = models.CharField(u'predmet obradio', max_length=100, blank=True, null=True)
     napomena = models.CharField(u'napomena', max_length=2000, blank=True, null=True)
-    fotografija = models.FileField(verbose_name=u'fotografija', upload_to=get_path_fotografija)
+    fotografija = models.FileField(verbose_name=u'fotografija', upload_to=get_path_fotografija, blank=True, null=True)
 
     def basepath(self):
         return os.path.basename(self.fotografija.name)

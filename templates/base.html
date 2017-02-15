@@ -4,7 +4,7 @@
 	<head>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 		<meta charset="utf-8" />
-		<title>Karton PMV</title>
+		<title>{% block pagetitle %}Karton PMV{% endblock %}</title>
 
 		<meta name="description" content="overview &amp; stats" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
@@ -14,6 +14,13 @@
 		<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" />
 
 		<!-- page specific plugin styles -->
+		<link rel="stylesheet" href="{% static 'css/jquery-ui.custom.min.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/chosen.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/datepicker.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/bootstrap-timepicker.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/daterangepicker.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/bootstrap-datetimepicker.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/colorpicker.css' %}" />
 
 		<!-- text fonts -->
 		<link rel="stylesheet" href="{% static 'css/ace-fonts.css' %}" />
@@ -177,7 +184,7 @@
 
 				<ul class="nav nav-list">
 					<li class="active">
-						<a href="index.html">
+						<a href="{% url 'index' %}">
 							<i class="menu-icon fa fa-home"></i>
 							<span class="menu-text"> Početna </span>
 						</a>
@@ -185,7 +192,7 @@
                     </li>
 
 					<li class="">
-						<a href="index.html">
+						<a href="{% url 'novi' %}">
 							<i class="menu-icon fa fa-star-o"></i>
 							<span class="menu-text"> Novi karton </span>
 						</a>
@@ -366,16 +373,30 @@
 		<script src="{% static 'js/flot/jquery.flot.min.js' %}"></script>
 		<script src="{% static 'js/flot/jquery.flot.pie.min.js' %}"></script>
 		<script src="{% static 'js/flot/jquery.flot.resize.min.js' %}"></script>
+		<script src="{% static 'js/chosen.jquery.min.js' %}"></script>
+		<script src="{% static 'js/fuelux/fuelux.spinner.min.js' %}"></script>
+		<script src="{% static 'js/date-time/bootstrap-datepicker.min.js' %}"></script>
+		<script src="{% static 'js/date-time/bootstrap-timepicker.min.js' %}"></script>
+		<script src="{% static 'js/date-time/moment.min.js' %}"></script>
+		<script src="{% static 'js/date-time/daterangepicker.min.js' %}"></script>
+		<script src="{% static 'js/date-time/bootstrap-datetimepicker.min.js' %}"></script>
+		<script src="{% static 'js/bootstrap-colorpicker.min.js' %}"></script>
+		<script src="{% static 'js/jquery.knob.min.js' %}"></script>
+		<script src="{% static 'js/jquery.autosize.min.js' %}"></script>
+		<script src="{% static 'js/jquery.inputlimiter.1.3.1.min.js' %}"></script>
+		<script src="{% static 'js/jquery.maskedinput.min.js' %}"></script>
+		<script src="{% static 'js/bootstrap-tag.min.js' %}"></script>
+		<script src="{% static 'js/typeahead.jquery.min.js' %}"></script>
 
 		<!-- ace scripts -->
 		<script src="{% static 'js/ace-elements.min.js' %}"></script>
 		<script src="{% static 'js/ace.min.js' %}"></script>
 
 		<!-- inline scripts related to this page -->
-        {% block pagescript %}
+    {% block pagescript %}
 		<script type="text/javascript">
 		</script>
-        {% endblock %}
+    {% endblock %}
 
 		<!-- the following scripts are used in demo only for onpage help and you don't need them -->
 	</body>
