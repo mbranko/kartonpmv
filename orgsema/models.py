@@ -118,8 +118,6 @@ class Uloga(models.Model):
 class Radnik(models.Model):
     user = models.OneToOneField(User, blank=True, null=True)
     uloga = models.ForeignKey(Uloga, verbose_name=u'uloga')
-    administracija = models.BooleanField(u'administracija')
-    izvestaji = models.BooleanField(u'izveštaji')
     orgjed = models.ForeignKey(OrgJed, verbose_name=u'organizaciona jedinica')
     avatar = models.FileField(upload_to=get_upload_path_avatar, blank=True, null=True)
 

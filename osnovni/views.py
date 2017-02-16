@@ -2,9 +2,10 @@
 # -*- coding: utf-8 -*-
 
 import datetime
+from dateutil import relativedelta
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-from django.db.models import Q
+from django.db.models import Q, Count
 from django_tables2 import RequestConfig
 
 from osnovni.forms import PredmetForm, PredmetSearchForm
@@ -103,13 +104,13 @@ def pretraga(request):
             if datum_nastanka1 is not None:
                 q = Q(datum_nastanka__gte=datum_nastanka1)
                 query = query & q if query is not None else q
-                query_desc += ' od:' + datetime.strftime(datum_nastanka1, '%d.%m.%Y.')
+                query_desc += ' od:' + datetime.date.strftime(datum_nastanka1, '%d.%m.%Y.')
 
             datum_nastanka2 = form.cleaned_data['datum_nastanka2']
             if datum_nastanka2 is not None:
                 q = Q(datum_nastanka__lte=datum_nastanka2)
                 query = query & q if query is not None else q
-                query_desc += ' do:' + datetime.strftime(datum_nastanka2, '%d.%m.%Y.')
+                query_desc += ' do:' + datetime.date.strftime(datum_nastanka2, '%d.%m.%Y.')
 
             mesto_nastanka = form.cleaned_data['mesto_nastanka']
             if mesto_nastanka is not None:
@@ -151,15 +152,14 @@ def pretraga(request):
             if datum_unosa1 is not None:
                 q = Q(datum_kreiranja__gte=datum_unosa1)
                 query = query & q if query is not None else q
-                query_desc += ' unos_od:' + datetime.strftime(datum_unosa1, '%d.%m.%Y.')
+                query_desc += ' unos_od:' + datetime.date.strftime(datum_unosa1, '%d.%m.%Y.')
 
             datum_unosa2 = form.cleaned_data['datum_unosa2']
             if datum_unosa2 is not None:
                 q = Q(datum_kreiranja__lte=datum_unosa2)
                 query = query & q if query is not None else q
-                query_desc += ' unos_do:' + datetime.strftime(datum_unosa2, '%d.%m.%Y.')
+                query_desc += ' unos_do:' + datetime.date.strftime(datum_unosa2, '%d.%m.%Y.')
 
-            print(query)
             if query is None:
                 predmeti = MuzejskiPredmet.objects.all()
             else:
@@ -188,3 +188,22 @@ def _prikazi_predmete(request, predmeti, pagetitle, maintitle, titleinfo):
                'maintitle': maintitle,
                'titleinfo': titleinfo}
     return render(request, 'osnovni/predmet_list.html', context)
+
+
+@login_required
+def statistika_unosa(request):
+    danas = datetime.date.today()
+    minus6 = danas - relativedelta.relativedelta(months=6)
+    radnici = Radnik.objects.annotate(br_kartona=Count('muzejskipredmet')).\
+        filter(muzejskipredmet__datum_kreiranja__gte=minus6).\
+        filter(muzejskipredmet__datum_kreiranja__lte=danas)
+    table = RadniciList(radnici)
+    RequestConfig(request, paginate={'per_page': 20}).configure(table)
+    context = {
+        'table': table,
+        'pagetitle': u'Statistika unosa',
+        'maintitle': u'Statistika unosa',
+        'titleinfo': u'za period od ' + datetime.date.strftime(minus6, '%d.%m.%Y.') + u' do ' +
+                     datetime.date.strftime(danas, '%d.%m.%Y.')
+    }
+    return render(request, 'osnovni/statistika_unosa.html', context)

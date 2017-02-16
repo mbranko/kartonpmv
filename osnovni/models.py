@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import unicode_literals
-from datetime import datetime
 import os.path
 from django.db import models
 from orgsema.models import NaseljenoMesto, Radnik
