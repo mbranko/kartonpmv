@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+{% load render_table from django_tables2 %}
+
+{% block pagetitle %}{{ pagetitle }}{% endblock %}
+{% block maintitle %}{{ maintitle }}{% endblock %}
+{% block titleinfo %}{{ titleinfo }}{% endblock %}
+
+{% block content %}
+  {% render_table table %}
+{% endblock %}
+
+{% block pagescript %}
+{% endblock %}

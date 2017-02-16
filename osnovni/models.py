@@ -102,8 +102,8 @@ class MuzejskiPredmet(models.Model):
     napomena = models.CharField(u'napomena', max_length=2000, blank=True, null=True)
     br_protokola = models.CharField(u'broj delovodnog protokola', max_length=50, blank=True, null=True)
     br_racuna = models.CharField(u'broj računa', max_length=50, blank=True, null=True)
-    datum_kreiranja = models.DateField(u'datum upisa')
-    kreirao = models.ForeignKey(Radnik, verbose_name=u'kreator zapisa')
+    datum_kreiranja = models.DateField(u'datum unosa')
+    kreirao = models.ForeignKey(Radnik, verbose_name=u'zapis uneo')
     fotografija = models.FileField(verbose_name=u'fotografija', upload_to=get_path_fotografija, blank=True, null=True)
 
     def basepath(self):

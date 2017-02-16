@@ -1,0 +1,191 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+{% load label_class %}
+
+{% block pagetitle %}{{ pagetitle }}{% endblock %}
+{% block maintitle %}{{ maintitle }}{% endblock %}
+{% block titleinfo %}{{ titleinfo }}{% endblock %}
+
+{% block content %}
+
+<form class="form-horizontal" role="form" method="post">
+
+  {% csrf_token %}
+
+  <div class="form-group">
+    {{ form.inv_br|label_with_classes:"col-sm-2 control-label no-padding-right"}}
+    <div class="col-sm-5">
+      {{ form.inv_br|add_class:"col-xs-10 col-sm-5" }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    {{ form.vrsta_predmeta|label_with_classes:"col-sm-2 control-label no-padding-right"}}
+    <div class="col-sm-9">
+      {{ form.vrsta_predmeta|add_class:"col-xs-10 col-sm-5" }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    {{ form.vrsta_zbirke|label_with_classes:"col-sm-2 control-label no-padding-right"}}
+    <div class="col-sm-4">
+      {{ form.vrsta_zbirke|add_class:"chosen-select" }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    {{ form.vreme_nastanka|label_with_classes:"col-sm-2 control-label no-padding-right"}}
+    <div class="col-sm-9">
+      {{ form.vreme_nastanka|add_class:"col-xs-10 col-sm-5" }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    {{ form.datum_nastanka1|label_with_classes:"col-sm-2 control-label no-padding-right"}}
+    <div class="col-sm-2">
+      <div class="input-group">
+        {{ form.datum_nastanka1|add_class:"form-control date-picker "|attr:"data-date-format:dd.mm.yyyy." }}
+        <span class="input-group-addon">
+          <i class="fa fa-calendar bigger-110"></i>
+          {% if form.datum_nastanka1.errors %}<i class="ace-icon fa fa-times-circle red"></i>{% endif %}
+        </span>
+      </div>
+    </div>
+    {{ form.datum_nastanka2|label_with_classes:"col-sm-1 control-label no-padding-right"}}
+    <div class="col-sm-2">
+      <div class="input-group">
+        {{ form.datum_nastanka2|add_class:"form-control date-picker "|attr:"data-date-format:dd.mm.yyyy." }}
+        <span class="input-group-addon">
+          <i class="fa fa-calendar bigger-110"></i>
+          {% if form.datum_nastanka2.errors %}<i class="ace-icon fa fa-times-circle red"></i>{% endif %}
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    {{ form.mesto_nastanka|label_with_classes:"col-sm-2 control-label no-padding-right"}}
+    <div class="col-sm-4">
+      {{ form.mesto_nastanka|add_class:"chosen-select" }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    {{ form.autor|label_with_classes:"col-sm-2 control-label no-padding-right"}}
+    <div class="col-sm-9">
+      {{ form.autor|add_class:"col-xs-10 col-sm-5" }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    {{ form.opis|label_with_classes:"col-sm-2 control-label no-padding-right"}}
+    <div class="col-sm-9">
+      {{ form.opis|add_class:"col-xs-10 col-sm-10" }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    {{ form.kategorija|label_with_classes:"col-sm-2 control-label no-padding-right"}}
+    <div class="col-sm-4">
+      {{ form.kategorija|add_class:"chosen-select" }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    {{ form.obradio|label_with_classes:"col-sm-2 control-label no-padding-right"}}
+    <div class="col-sm-4">
+      {{ form.obradio|add_class:"col-xs-10 col-sm-10" }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    {{ form.uneo|label_with_classes:"col-sm-2 control-label no-padding-right"}}
+    <div class="col-sm-4">
+      {{ form.uneo|add_class:"chosen-select" }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    {{ form.datum_unosa1|label_with_classes:"col-sm-2 control-label no-padding-right"}}
+    <div class="col-sm-2">
+      <div class="input-group">
+        {{ form.datum_unosa1|add_class:"form-control date-picker "|attr:"data-date-format:dd.mm.yyyy." }}
+        <span class="input-group-addon">
+          <i class="fa fa-calendar bigger-110"></i>
+          {% if form.datum_unosa1.errors %}<i class="ace-icon fa fa-times-circle red"></i>{% endif %}
+        </span>
+      </div>
+    </div>
+    {{ form.datum_unosa2|label_with_classes:"col-sm-1 control-label no-padding-right"}}
+    <div class="col-sm-2">
+      <div class="input-group">
+        {{ form.datum_unosa2|add_class:"form-control date-picker "|attr:"data-date-format:dd.mm.yyyy." }}
+        <span class="input-group-addon">
+          <i class="fa fa-calendar bigger-110"></i>
+          {% if form.datum_unosa2.errors %}<i class="ace-icon fa fa-times-circle red"></i>{% endif %}
+        </span>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="clearfix form-actions">
+    <div class="col-md-offset-2 col-md-9">
+      <button class="btn btn-info" type="submit">
+        <i class="ace-icon fa fa-search bigger-110"></i>
+        Pretraži
+      </button>
+      &nbsp; &nbsp; &nbsp;
+      <button class="btn" type="reset">
+        <i class="ace-icon fa fa-undo bigger-110"></i>
+        Reset
+      </button>
+    </div>
+  </div>
+
+</form>
+
+{% endblock %}
+
+{% block pagescript %}
+<script type="text/javascript">
+// chosen plugin
+$('.chosen-select').chosen({allow_single_deselect:true});
+//resize the chosen on window resize
+$(window)
+.off('resize.chosen')
+.on('resize.chosen', function() {
+  $('.chosen-select').each(function() {
+     var $this = $(this);
+     $this.next().css({'width': $this.parent().width()});
+  })
+}).trigger('resize.chosen');
+
+//datepicker plugin
+//link
+$('.date-picker').datepicker({
+  autoclose: true,
+  todayHighlight: true
+})
+//show datepicker when clicking on the icon
+.next().on(ace.click_event, function(){
+  $(this).prev().focus();
+});
+
+$('#id_fotografija').ace_file_input({
+  no_file:'Nema fajla ...',
+  btn_choose:'Izaberi',
+  btn_change:'Izmeni',
+  droppable:false,
+  onchange:null,
+  thumbnail:false, //| true | large
+  whitelist:'gif|png|jpg|jpeg|tiff',
+  blacklist:'exe|php'
+  //onchange:''
+  //
+});
+//pre-show a file name, for example a previously selected file
+//$('#id_fotografija').ace_file_input('show_file_list', ['myfile.txt'])
+
+</script>
+{% endblock %}
