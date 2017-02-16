@@ -5,7 +5,7 @@ from django.contrib import admin
 from osnovni.models import *
 
 
-admin.site.register(VrstaPredmeta)
+admin.site.register(KategorijaPredmeta)
 admin.site.register(VrstaZbirke)
 admin.site.register(NacinNabavke)
 admin.site.register(MuzejskiPredmet)

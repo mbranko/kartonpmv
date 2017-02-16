@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import unicode_literals
+from datetime import datetime
 import os.path
 from django.db import models
 from orgsema.models import NaseljenoMesto, Radnik
@@ -18,9 +19,9 @@ def get_path_fotografija(instance, filename):
     return os.path.join('predmeti/predmet-%d/fotografije/%s' % (instance.inv_broj, filename))
 
 
-class VrstaPredmeta(models.Model):
+class KategorijaPredmeta(models.Model):
     """
-    Vrsta predmeta: plakat, kostim, ...
+    Kategorije: I, II, III, IV, ...
     """
     naziv = models.CharField(u'naziv', max_length=100)
     aktivan = models.BooleanField(u'aktivan', default=True)
@@ -29,8 +30,8 @@ class VrstaPredmeta(models.Model):
         return self.naziv
 
     class Meta:
-        verbose_name = u'vrsta predmeta'
-        verbose_name_plural = u'vrste predmeta'
+        verbose_name = u'kategorija predmeta'
+        verbose_name_plural = u'kategorije predmeta'
 
 
 class VrstaZbirke(models.Model):
@@ -69,9 +70,9 @@ class MuzejskiPredmet(models.Model):
     """
     inv_broj = models.PositiveIntegerField(u'inventarni broj')
     br_mat_dok = models.CharField(u'broj matične dokumentacije', max_length=100, blank=True, null=True)
-    vrsta_predmeta = models.ForeignKey(VrstaPredmeta, verbose_name=u'vrsta predmeta', blank=True, null=True)
+    vrsta_predmeta = models.CharField(u'predmet', max_length=200, blank=True, null=True)
     vrsta_zbirke = models.ForeignKey(VrstaZbirke, verbose_name=u'vrsta zbirke', blank=True, null=True)
-    br_primeraka = models.PositiveIntegerField(u'broj primeraka')
+    br_primeraka = models.PositiveIntegerField(u'broj primeraka', blank=True, null=True)
     br_negativa = models.CharField(u'oznaka i broj negativa', max_length=200, blank=True, null=True)
     vreme_nastanka = models.CharField(u'vreme nastanka', max_length=100, blank=True, null=True)
     datum_nastanka = models.DateField(u'datum nastanka', blank=True, null=True)
@@ -91,7 +92,7 @@ class MuzejskiPredmet(models.Model):
     opis_nabavke = models.CharField(u'opis nabavke', max_length=1000, blank=True, null=True)
     br_knjige_ulaza = models.PositiveIntegerField(u'broj knjige ulaza', blank=True, null=True)
     cena = models.CharField(u'cena', max_length=100, blank=True, null=True)
-    kategorija = models.CharField(u'kategorija', max_length=100, blank=True, null=True)
+    kategorija = models.ForeignKey(KategorijaPredmeta, verbose_name=u'kategorija', blank=True, null=True)
     istorijat = models.CharField(u'istorijat', max_length=2000, blank=True, null=True)
     stanje_ocuvanosti = models.CharField(u'stanje i stepen očuvanosti', max_length=1000, blank=True, null=True)
     restauracija = models.CharField(u'restauracija i konzervacija', max_length=1000, blank=True, null=True)
@@ -99,13 +100,17 @@ class MuzejskiPredmet(models.Model):
     smesten = models.CharField(u'smešten', max_length=1000, blank=True, null=True)
     obradio = models.CharField(u'predmet obradio', max_length=100, blank=True, null=True)
     napomena = models.CharField(u'napomena', max_length=2000, blank=True, null=True)
+    br_protokola = models.CharField(u'broj delovodnog protokola', max_length=50, blank=True, null=True)
+    br_racuna = models.CharField(u'broj računa', max_length=50, blank=True, null=True)
+    datum_kreiranja = models.DateField(u'datum upisa')
+    kreirao = models.ForeignKey(Radnik, verbose_name=u'kreator zapisa')
     fotografija = models.FileField(verbose_name=u'fotografija', upload_to=get_path_fotografija, blank=True, null=True)
 
     def basepath(self):
         return os.path.basename(self.fotografija.name)
 
     def __unicode__(self):
-        return str(self.inv_broj) + ": " + self.vrsta_predmeta.naziv
+        return str(self.inv_broj) + ": " + self.vrsta_predmeta
 
     class Meta:
         verbose_name = u'muzejski predmet'
