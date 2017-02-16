@@ -7,345 +7,276 @@
 {% block titleinfo %}{{ titleinfo }}{% endblock %}
 
 {% block content %}
-
-<form class="form-horizontal" role="form" method="post" enctype="multipart/form-data">
-
-  {% csrf_token %}
+<form class="form-horizontal" role="form" >
 
   <div class="form-group">
     {{ form.inv_broj|label_with_classes:"col-sm-2 control-label no-padding-right"}}
     <div class="col-sm-5">
-      {% if form.inv_broj.errors %}<span class="block input-icon input-icon-right">{% endif %}
-      {{ form.inv_broj|add_class:"col-xs-10 col-sm-5" }}
-      {% if form.inv_broj.errors %}<i class="ace-icon fa fa-times-circle"></i></span>{% endif %}
+      <input type="text" readonly="" value="{{ predmet.inv_broj }}" class="col-xs-10 col-sm-5"/>
     </div>
-    {% if form.inv_broj.errors %}<div class="help-block col-xs-12 col-sm-reset inline"> {{ form.inv_broj.errors }} </div>{% endif %}
   </div>
 
   <div class="form-group">
     {{ form.br_mat_dok|label_with_classes:"col-sm-2 control-label no-padding-right"}}
     <div class="col-sm-9">
-      {{ form.br_mat_dok|add_class:"col-xs-10 col-sm-5" }}
+      <input type="text" readonly="" value="{{ predmet.br_mat_dok }}" class="col-xs-10 col-sm-5"/>
     </div>
   </div>
 
   <div class="form-group">
     {{ form.vrsta_predmeta|label_with_classes:"col-sm-2 control-label no-padding-right"}}
     <div class="col-sm-9">
-      {{ form.vrsta_predmeta|add_class:"col-xs-10 col-sm-5" }}
+      <input type="text" readonly="" value="{{ predmet.vrsta_predmeta }}" class="col-xs-10 col-sm-5"/>
     </div>
   </div>
 
   <div class="form-group">
     {{ form.vrsta_zbirke|label_with_classes:"col-sm-2 control-label no-padding-right"}}
     <div class="col-sm-4">
-      {{ form.vrsta_zbirke|add_class:"chosen-select" }}
+      <input type="text" readonly="" value="{{ predmet.vrsta_zbirke.naziv }}" class="col-xs-10 col-sm-5"/>
     </div>
   </div>
 
   <div class="form-group">
     {{ form.br_primeraka|label_with_classes:"col-sm-2 control-label no-padding-right"}}
     <div class="col-sm-3">
-      {{ form.br_primeraka|add_class:"col-xs-10 col-sm-5" }}
+      <input type="text" readonly="" value="{{ predmet.br_primeraka }}" class="col-xs-10 col-sm-5"/>
     </div>
   </div>
 
   <div class="form-group">
     {{ form.br_negativa|label_with_classes:"col-sm-2 control-label no-padding-right"}}
     <div class="col-sm-9">
-      {{ form.br_negativa|add_class:"col-xs-10 col-sm-9" }}
+      <input type="text" readonly="" value="{{ predmet.br_negativa }}" class="col-xs-10 col-sm-9"/>
     </div>
   </div>
 
   <div class="form-group">
     {{ form.vreme_nastanka|label_with_classes:"col-sm-2 control-label no-padding-right"}}
     <div class="col-sm-9">
-      {{ form.vreme_nastanka|add_class:"col-xs-10 col-sm-5" }}
+      <input type="text" readonly="" value="{{ predmet.vreme_nastanka }}" class="col-xs-10 col-sm-5"/>
     </div>
   </div>
 
   <div class="form-group">
     {{ form.datum_nastanka|label_with_classes:"col-sm-2 control-label no-padding-right"}}
-    <div class="col-sm-2">
-      <div class="input-group">
-        {{ form.datum_nastanka|add_class:"form-control date-picker "|attr:"data-date-format:dd.mm.yyyy." }}
-        <span class="input-group-addon">
-          <i class="fa fa-calendar bigger-110"></i>
-          {% if form.datum_nastanka.errors %}<i class="ace-icon fa fa-times-circle red"></i>{% endif %}
-        </span>
-      </div>
+    <div class="col-sm-9">
+      <input type="text" readonly="" value="{{ predmet.datum_nastanka|date:'d.m.Y.' }}" class="col-xs-10 col-sm-3"/>
     </div>
   </div>
 
   <div class="form-group">
     {{ form.mesto_nastanka|label_with_classes:"col-sm-2 control-label no-padding-right"}}
     <div class="col-sm-9">
-      {{ form.mesto_nastanka|add_class:"col-xs-10 col-sm-5" }}
+      <input type="text" readonly="" value="{{ predmet.mesto_nastanka }}" class="col-xs-10 col-sm-5"/>
     </div>
   </div>
 
   <div class="form-group">
     {{ form.mesto_nastanka2|label_with_classes:"col-sm-2 control-label no-padding-right"}}
-    <div class="col-sm-4">
-      {{ form.mesto_nastanka2|add_class:"chosen-select" }}
+    <div class="col-sm-9">
+      <input type="text" readonly="" value="{{ predmet.mesto_nastanka2.naziv }}" class="col-xs-10 col-sm-5"/>
     </div>
   </div>
 
   <div class="form-group">
     {{ form.autor|label_with_classes:"col-sm-2 control-label no-padding-right"}}
     <div class="col-sm-9">
-      {{ form.autor|add_class:"col-xs-10 col-sm-5" }}
+      <input type="text" readonly="" value="{{ predmet.autor }}" class="col-xs-10 col-sm-5"/>
     </div>
   </div>
 
   <div class="form-group">
     {{ form.stil|label_with_classes:"col-sm-2 control-label no-padding-right"}}
     <div class="col-sm-9">
-      {{ form.stil|add_class:"col-xs-10 col-sm-5" }}
+      <input type="text" readonly="" value="{{ predmet.stil }}" class="col-xs-10 col-sm-5"/>
     </div>
   </div>
 
   <div class="form-group">
     {{ form.materijal|label_with_classes:"col-sm-2 control-label no-padding-right"}}
     <div class="col-sm-9">
-      {{ form.materijal|add_class:"col-xs-10 col-sm-5" }}
+      <input type="text" readonly="" value="{{ predmet.materijal }}" class="col-xs-10 col-sm-5"/>
     </div>
   </div>
 
   <div class="form-group">
     {{ form.sirina|label_with_classes:"col-sm-2 control-label no-padding-right"}}
     <div class="col-sm-3">
-      {{ form.sirina|add_class:"col-xs-10 col-sm-5" }}
+      <input type="text" readonly="" value="{{ predmet.sirina }}" class="col-xs-10 col-sm-5"/>
     </div>
   </div>
 
   <div class="form-group">
     {{ form.duzina|label_with_classes:"col-sm-2 control-label no-padding-right"}}
     <div class="col-sm-3">
-      {{ form.duzina|add_class:"col-xs-10 col-sm-5" }}
+      <input type="text" readonly="" value="{{ predmet.duzina }}" class="col-xs-10 col-sm-5"/>
     </div>
   </div>
 
   <div class="form-group">
     {{ form.visina|label_with_classes:"col-sm-2 control-label no-padding-right"}}
     <div class="col-sm-3">
-      {{ form.visina|add_class:"col-xs-10 col-sm-5" }}
+      <input type="text" readonly="" value="{{ predmet.visina }}" class="col-xs-10 col-sm-5"/>
     </div>
   </div>
 
   <div class="form-group">
     {{ form.debljina|label_with_classes:"col-sm-2 control-label no-padding-right"}}
     <div class="col-sm-3">
-      {{ form.debljina|add_class:"col-xs-10 col-sm-5" }}
+      <input type="text" readonly="" value="{{ predmet.debljina }}" class="col-xs-10 col-sm-5"/>
     </div>
   </div>
 
   <div class="form-group">
     {{ form.precnik|label_with_classes:"col-sm-2 control-label no-padding-right"}}
     <div class="col-sm-3">
-      {{ form.precnik|add_class:"col-xs-10 col-sm-5" }}
+      <input type="text" readonly="" value="{{ predmet.precnik }}" class="col-xs-10 col-sm-5"/>
     </div>
   </div>
 
   <div class="form-group">
     {{ form.grama|label_with_classes:"col-sm-2 control-label no-padding-right"}}
     <div class="col-sm-3">
-      {{ form.grama|add_class:"col-xs-10 col-sm-5" }}
+      <input type="text" readonly="" value="{{ predmet.grama }}" class="col-xs-10 col-sm-5"/>
     </div>
   </div>
 
   <div class="form-group">
     {{ form.opis|label_with_classes:"col-sm-2 control-label no-padding-right"}}
     <div class="col-sm-9">
-      {{ form.opis|add_class:"col-xs-10 col-sm-10" }}
+      <textarea readonly="" class="form-control" rows="8" cols="40">{{ predmet.opis }}</textarea>
     </div>
   </div>
 
   <div class="form-group">
     {{ form.nacin_nabavke|label_with_classes:"col-sm-2 control-label no-padding-right"}}
-    <div class="col-sm-4">
-      {{ form.nacin_nabavke|add_class:"chosen-select" }}
+    <div class="col-sm-9">
+      <input type="text" readonly="" value="{{ predmet.nacin_nabavke.naziv }}" class="col-xs-10 col-sm-5"/>
     </div>
   </div>
 
   <div class="form-group">
     {{ form.opis_nabavke|label_with_classes:"col-sm-2 control-label no-padding-right"}}
     <div class="col-sm-9">
-      {{ form.opis_nabavke|add_class:"col-xs-10 col-sm-10" }}
+      <input type="text" readonly="" value="{{ predmet.opis_nabavke }}" class="col-xs-10 col-sm-10"/>
     </div>
   </div>
 
   <div class="form-group">
     {{ form.br_knjige_ulaza|label_with_classes:"col-sm-2 control-label no-padding-right"}}
     <div class="col-sm-3">
-      {{ form.br_knjige_ulaza|add_class:"col-xs-10 col-sm-10" }}
+      <input type="text" readonly="" value="{{ predmet.br_knjige_ulaza }}" class="col-xs-10 col-sm-10"/>
     </div>
   </div>
 
   <div class="form-group">
     {{ form.cena|label_with_classes:"col-sm-2 control-label no-padding-right"}}
     <div class="col-sm-9">
-      {{ form.cena|add_class:"col-xs-10 col-sm-5" }}
+      <input type="text" readonly="" value="{{ predmet.cena }}" class="col-xs-10 col-sm-5"/>
     </div>
   </div>
 
   <div class="form-group">
     {{ form.kategorija|label_with_classes:"col-sm-2 control-label no-padding-right"}}
-    <div class="col-sm-4">
-      {{ form.kategorija|add_class:"chosen-select" }}
+    <div class="col-sm-9">
+      <input type="text" readonly="" value="{{ predmet.kategorija.naziv }}" class="col-xs-10 col-sm-5"/>
     </div>
   </div>
 
   <div class="form-group">
     {{ form.istorijat|label_with_classes:"col-sm-2 control-label no-padding-right"}}
     <div class="col-sm-9">
-      {{ form.istorijat|add_class:"col-xs-10 col-sm-10" }}
+      <textarea readonly="" class="form-control" rows="8" cols="40">{{ predmet.istorijat }}</textarea>
     </div>
   </div>
 
   <div class="form-group">
     {{ form.stanje_ocuvanosti|label_with_classes:"col-sm-2 control-label no-padding-right"}}
     <div class="col-sm-9">
-      {{ form.stanje_ocuvanosti|add_class:"col-xs-10 col-sm-10" }}
+      <input type="text" readonly="" value="{{ predmet.stanje_ocuvanosti }}" class="col-xs-10 col-sm-10"/>
     </div>
   </div>
 
   <div class="form-group">
     {{ form.restauracija|label_with_classes:"col-sm-2 control-label no-padding-right"}}
     <div class="col-sm-9">
-      {{ form.restauracija|add_class:"col-xs-10 col-sm-10" }}
+      <input type="text" readonly="" value="{{ predmet.restauracija }}" class="col-xs-10 col-sm-10"/>
     </div>
   </div>
 
   <div class="form-group">
     {{ form.literatura|label_with_classes:"col-sm-2 control-label no-padding-right"}}
     <div class="col-sm-9">
-      {{ form.literatura|add_class:"col-xs-10 col-sm-10" }}
+      <textarea readonly="" class="form-control" rows="8" cols="40">{{ predmet.literatura }}</textarea>
     </div>
   </div>
 
   <div class="form-group">
     {{ form.smesten|label_with_classes:"col-sm-2 control-label no-padding-right"}}
     <div class="col-sm-9">
-      {{ form.smesten|add_class:"col-xs-10 col-sm-10" }}
+      <input type="text" readonly="" value="{{ predmet.smesten }}" class="col-xs-10 col-sm-10"/>
     </div>
   </div>
 
   <div class="form-group">
     {{ form.obradio|label_with_classes:"col-sm-2 control-label no-padding-right"}}
     <div class="col-sm-9">
-      {{ form.obradio|add_class:"col-xs-10 col-sm-5" }}
+      <input type="text" readonly="" value="{{ predmet.obradio }}" class="col-xs-10 col-sm-5"/>
     </div>
   </div>
 
   <div class="form-group">
     {{ form.napomena|label_with_classes:"col-sm-2 control-label no-padding-right"}}
     <div class="col-sm-9">
-      {{ form.napomena|add_class:"col-xs-10 col-sm-10" }}
+      <input type="text" readonly="" value="{{ predmet.napomena }}" class="col-xs-10 col-sm-10"/>
     </div>
   </div>
 
   <div class="form-group">
     {{ form.br_protokola|label_with_classes:"col-sm-2 control-label no-padding-right"}}
     <div class="col-sm-9">
-      {{ form.br_protokola|add_class:"col-xs-10 col-sm-5" }}
+      <input type="text" readonly="" value="{{ predmet.br_protokola }}" class="col-xs-10 col-sm-5"/>
     </div>
   </div>
 
   <div class="form-group">
     {{ form.br_racuna|label_with_classes:"col-sm-2 control-label no-padding-right"}}
     <div class="col-sm-9">
-      {{ form.br_racuna|add_class:"col-xs-10 col-sm-5" }}
+      <input type="text" readonly="" value="{{ predmet.br_racuna }}" class="col-xs-10 col-sm-5"/>
     </div>
   </div>
 
   <div class="form-group">
     {{ form.napomena|label_with_classes:"col-sm-2 control-label no-padding-right"}}
     <div class="col-sm-9">
-      {{ form.napomena|add_class:"col-xs-10 col-sm-10" }}
+      <input type="text" readonly="" value="{{ predmet.napomena }}" class="col-xs-10 col-sm-10"/>
+    </div>
+  </div>
+
+  <div class="form-group">
+    {{ form.kreirao|label_with_classes:"col-sm-2 control-label no-padding-right"}}
+    <div class="col-sm-9">
+      <input type="text" readonly="" value="{{ predmet.kreirao.puno_ime }}" class="col-xs-10 col-sm-5"/>
+    </div>
+  </div>
+
+  <div class="form-group">
+    {{ form.datum_kreiranja|label_with_classes:"col-sm-2 control-label no-padding-right"}}
+    <div class="col-sm-9">
+      <input type="text" readonly="" value="{{ predmet.datum_kreiranja|date:'d.m.Y.' }}" class="col-xs-10 col-sm-5"/>
     </div>
   </div>
 
   <div class="form-group">
     {{ form.fotografija|label_with_classes:"col-sm-2 control-label no-padding-right"}}
     <div class="col-sm-4">
-      {{ form.fotografija }}
+      fotografija
     </div>
   </div>
-
-  <div class="form-group hidden">
-    {{ form.kreirao|label_with_classes:"col-sm-2 control-label no-padding-right"}}
-    <div class="col-sm-9">
-      {{ form.kreirao|add_class:"col-xs-10 col-sm-10" }}
-    </div>
-  </div>
-
-  <div class="form-group hidden">
-    {{ form.datum_kreiranja|label_with_classes:"col-sm-2 control-label no-padding-right"}}
-    <div class="col-sm-4">
-      {{ form.datum_kreiranja|add_class:"col-xs-10 col-sm-10" }}
-    </div>
-  </div>
-
-  {% if request.user.radnik.uloga.pk < 3 %}
-  <div class="clearfix form-actions">
-    <div class="col-md-offset-2 col-md-9">
-      <button class="btn btn-info" type="submit">
-        <i class="ace-icon fa fa-check bigger-110"></i>
-        Sačuvaj
-      </button>
-
-      <button class="btn" type="reset">
-        <i class="ace-icon fa fa-undo bigger-110"></i>
-        Reset
-      </button>
-    </div>
-  </div>
-  {% endif %}
 
 </form>
-
 {% endblock %}
 
 {% block pagescript %}
-<script type="text/javascript">
-// chosen plugin
-$('.chosen-select').chosen({allow_single_deselect:true});
-//resize the chosen on window resize
-$(window)
-.off('resize.chosen')
-.on('resize.chosen', function() {
-  $('.chosen-select').each(function() {
-     var $this = $(this);
-     $this.next().css({'width': $this.parent().width()});
-  })
-}).trigger('resize.chosen');
-
-//datepicker plugin
-//link
-$('.date-picker').datepicker({
-  autoclose: true,
-  todayHighlight: true
-})
-//show datepicker when clicking on the icon
-.next().on(ace.click_event, function(){
-  $(this).prev().focus();
-});
-
-$('#id_fotografija').ace_file_input({
-  no_file:'Nema fajla ...',
-  btn_choose:'Izaberi',
-  btn_change:'Izmeni',
-  droppable:false,
-  onchange:null,
-  thumbnail:false, //| true | large
-  whitelist:'gif|png|jpg|jpeg|tiff',
-  blacklist:'exe|php'
-  //onchange:''
-  //
-});
-//pre-show a file name, for example a previously selected file
-//$('#id_fotografija').ace_file_input('show_file_list', ['myfile.txt'])
-
-</script>
 {% endblock %}

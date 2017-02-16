@@ -2,6 +2,11 @@
 # -*- coding: utf-8 -*-
 
 import random
+import simplejson
+from PIL import Image
+
+from django.core.files.base import ContentFile
+from django.http import HttpResponse
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
@@ -100,8 +105,6 @@ def newemployee(request):
             radnik.user = user
             radnik.orgjed = form.cleaned_data['org_jed']
             radnik.uloga = form.cleaned_data['uloga']
-            radnik.administracija = form.cleaned_data['administracija']
-            radnik.izvestaji = form.cleaned_data['izvestaji']
             radnik.save()
             return redirect('newemployee2', radnik.id)
     else:
@@ -137,6 +140,6 @@ def upload_avatar(request):
     minimum = min(width, height)
     cropwidth = (width-minimum)//2
     cropheight = (height-minimum)//2
-    newimage = oldimage.crop((cropwidth,cropheight,width-cropwidth,height-cropheight))
+    newimage = oldimage.crop((cropwidth, cropheight, width-cropwidth, height-cropheight))
     newimage.save(radnik.avatar.file.name)
     return HttpResponse(simplejson.dumps({'url': radnik.avatar.url}),  mimetype="application/x-javascript")

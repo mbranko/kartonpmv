@@ -27,13 +27,13 @@ def novi_predmet(request):
             ist = IstorijaIzmenaPredmeta()
             ist.predmet = pred
             ist.radnik = request.user.radnik
-            ist.timestamp = datetime.now()
+            ist.timestamp = datetime.datetime.now()
             ist.save()
             return redirect('index')
         else:
             print(form.errors)
     else:
-        form = PredmetForm(initial={'kreirao': request.user.radnik, 'datum_kreiranja': datetime.now()})
+        form = PredmetForm(initial={'kreirao': request.user.radnik, 'datum_kreiranja': datetime.date.today()})
     context = {'form': form,
                'pagetitle': u'Novi karton',
                'maintitle': u'Novi karton',
@@ -54,17 +54,26 @@ def predmet(request, predmet_id):
             ist = IstorijaIzmenaPredmeta()
             ist.predmet = pred
             ist.radnik = request.user.radnik
-            ist.timestamp = datetime.now()
+            ist.timestamp = datetime.datetime.now()
             ist.save()
             return redirect('index')
         else:
             print(form.errors)
+            context = {'form': form,
+                       'pagetitle': u'Pregled kartona',
+                       'maintitle': u'Pregled kartona',
+                       'titleinfo': u'Pregled i izmena podataka u kartonu inv.br. ' + str(pred.inv_broj)}
     else:
         form = PredmetForm(instance=pred)
-    context = {'form': form,
-               'pagetitle': u'Pregled kartona',
-               'maintitle': u'Pregled kartona',
-               'titleinfo': u'Pregled i izmena podataka u kartonu br. ' + str(pred.inv_broj)}
+        context = {'form': form,
+                   'pagetitle': u'Pregled kartona',
+                   'maintitle': u'Pregled kartona',
+                   'titleinfo': u'Pregled i izmena podataka u kartonu inv.br. ' + str(pred.inv_broj)}
+        if request.user.radnik.uloga.id > 2:
+            context['predmet'] = pred
+            context['titleinfo'] = u'Pregled podataka u kartonu inv.br. ' + str(pred.inv_broj)
+            return render(request, 'osnovni/predmet_view.html', context)
+
     return render(request, 'osnovni/predmet.html', context)
 
 
