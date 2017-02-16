@@ -14,8 +14,6 @@ class ListaRadnika(tables.Table):
     email = EmailColumn(verbose_name=mark_safe('Email'))
     orgjed = Column(verbose_name=mark_safe('Org. jedinica'))
     uloga = Column(verbose_name=mark_safe('Uloga'))
-    administracija = BooleanColumn(verbose_name=mark_safe('Administracija'))
-    izvestaji = BooleanColumn(verbose_name=mark_safe('Izveštaji'))
 
     def __init__(self, *args, **kwargs):
         super(ListaRadnika, self).__init__(*args, **kwargs)
@@ -32,4 +30,4 @@ class ListaRadnika(tables.Table):
     class Meta:
         model = Radnik
         attrs = {'class': 'table table-striped table-bordered table-hover'}
-        fields = ('id', 'puno_ime', 'username', 'email', 'orgjed', 'uloga', 'administracija', 'izvestaji')
+        fields = ('id', 'puno_ime', 'username', 'email', 'orgjed', 'uloga')

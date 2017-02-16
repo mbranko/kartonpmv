@@ -29,8 +29,6 @@ class NoviRadnikForm(forms.Form):
     password1 = forms.CharField(label=u'lozinka', max_length=30, widget=forms.PasswordInput)
     password2 = forms.CharField(label=u'ponovljena lozinka', max_length=30, widget=forms.PasswordInput)
     email = forms.EmailField(label=u'email', max_length=100)
-    administracija = forms.BooleanField(label=u'administracija', initial=True)
-    izvestaji = forms.BooleanField(label=u'izveštaji', initial=True)
 
     def clean(self):
         test_username = self.cleaned_data['username']

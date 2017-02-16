@@ -16,6 +16,10 @@
 - model: orgsema.Uloga
   pk: 2
   fields:
+    naziv: kustos
+- model: orgsema.Uloga
+  pk: 3
+  fields:
     naziv: operater
 
 - model: auth.User
@@ -50,16 +54,12 @@
     user: 1
     orgjed: 1
     uloga: 1
-    administracija: True
-    izvestaji: True
 - model: orgsema.Radnik
   pk: 2
   fields:
     user: 2
     orgjed: 1
     uloga: 1
-    administracija: True
-    izvestaji: True
 
 - model: orgsema.Valuta
   pk: 1
