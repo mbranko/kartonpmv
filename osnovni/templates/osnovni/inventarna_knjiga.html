@@ -1,0 +1,111 @@
+{% load static from staticfiles %}
+{% load render_table from django_tables2 %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta charset="utf-8" />
+		<title>Inventarna knjiga</title>
+
+		<meta name="description" content="overview &amp; stats" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+		<!-- bootstrap & fontawesome -->
+		<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" />
+
+		<!-- page specific plugin styles -->
+		<link rel="stylesheet" href="{% static 'css/jquery-ui.custom.min.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/chosen.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/datepicker.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/bootstrap-timepicker.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/daterangepicker.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/bootstrap-datetimepicker.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/colorpicker.css' %}" />
+
+		<!-- text fonts -->
+		<link rel="stylesheet" href="{% static 'css/ace-fonts.css' %}" />
+
+		<!-- ace styles -->
+		<link rel="stylesheet" href="{% static 'css/ace.min.css' %}" id="main-ace-style" />
+
+		<!--[if lte IE 9]>
+			<link rel="stylesheet" href="{% static 'css/ace-part2.min.css' %}" />
+		<![endif]-->
+		<link rel="stylesheet" href="{% static 'css/ace-skins.min.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/ace-rtl.min.css' %}" />
+
+		<!--[if lte IE 9]>
+		  <link rel="stylesheet" href="{% static 'css/ace-ie.min.css' %}" />
+		<![endif]-->
+
+		<!-- inline styles related to this page -->
+
+		<!-- ace settings handler -->
+		<script src="{% static 'js/ace-extra.min.js' %}"></script>
+
+		<!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
+
+		<!--[if lte IE 8]>
+		<script src="{% static 'js/html5shiv.min.js' %}"></script>
+		<script src="{% static 'js/respond.min.js' %}"></script>
+		<![endif]-->
+    <style type="text/css">
+      body {
+        margin: 10px;
+        background-color: white;
+      }
+      .predmet_opis {
+        min-width: 250px;
+      }
+    </style>
+	</head>
+
+	<body class="no-skin">
+
+
+          <h3>Inventarna knjiga</h3>
+          {% if not cela %}<p>od: <b>{{ od }}</b> do: <b>{{ do }}</b></p>{% endif %}
+          {% render_table table %}
+
+		<!-- basic scripts -->
+
+		<!--[if !IE]> -->
+		<script type="text/javascript">
+			window.jQuery || document.write("<script src='{% static 'js/jquery.min.js' %}'>"+"<"+"/script>");
+		</script>
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+<script type="text/javascript">
+ window.jQuery || document.write("<script src='{% static 'js/jquery1x.min.js' %}'>"+"<"+"/script>");
+</script>
+<![endif]-->
+		<script type="text/javascript">
+			if('ontouchstart' in document.documentElement) document.write("<script src='{% static 'js/jquery.mobile.custom.min.js' %}'>"+"<"+"/script>");
+		</script>
+		<script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+		<!-- page specific plugin scripts -->
+
+		<!--[if lte IE 8]>
+		  <script src="{% static 'js/excanvas.min.js' %}"></script>
+		<![endif]-->
+		<script src="{% static 'js/jquery-ui.custom.min.js' %}"></script>
+		<script src="{% static 'js/jquery.ui.touch-punch.min.js' %}"></script>
+
+		<!-- ace scripts -->
+		<script src="{% static 'js/ace-elements.min.js' %}"></script>
+		<script src="{% static 'js/ace.min.js' %}"></script>
+
+		<!-- inline scripts related to this page -->
+    {% block pagescript %}
+		<script type="text/javascript">
+
+		</script>
+    {% endblock %}
+
+		<!-- the following scripts are used in demo only for onpage help and you don't need them -->
+	</body>
+</html>

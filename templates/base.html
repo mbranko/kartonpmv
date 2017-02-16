@@ -226,8 +226,8 @@
 						<b class="arrow"></b>
 
 						<ul class="submenu">
-							<li class="">
-								<a href="#">
+							<li class="" id="fromto">
+								<a>
 									<i class="menu-icon fa fa-caret-right"></i>
 									Inventarna knjiga
 								</a>
@@ -394,6 +394,7 @@
 		<![endif]-->
 		<script src="{% static 'js/jquery-ui.custom.min.js' %}"></script>
 		<script src="{% static 'js/jquery.ui.touch-punch.min.js' %}"></script>
+    <script src="{% static 'js/bootbox.min.js' %}"></script>
 		<script src="{% static 'js/jquery.easypiechart.min.js' %}"></script>
 		<script src="{% static 'js/jquery.sparkline.min.js' %}"></script>
 		<script src="{% static 'js/flot/jquery.flot.min.js' %}"></script>
@@ -417,6 +418,33 @@
 		<!-- ace scripts -->
 		<script src="{% static 'js/ace-elements.min.js' %}"></script>
 		<script src="{% static 'js/ace.min.js' %}"></script>
+
+    <script type="text/javascript">
+      function openInNewTab(url) {
+          var win = window.open(url, '_blank');
+          win.focus();
+      }
+      $("#fromto").css({cursor:'pointer'}).click(function() {
+        var invod = 1;
+        var invdo = 1000000;
+        bootbox.confirm("<h4>Inventarna knjiga</h4><p>od inv.br: <input type='number' id='invod'/> do inv.br: <input type='number' id='invdo'/></p>",
+          function (result) {
+            if (result) {
+              invod = $("#invod").val();
+              invdo = $("#invdo").val();
+              if (invod === '' && invdo === '')
+                openInNewTab("{% url 'inventarna_knjiga' %}");
+              else {
+                if (invod === '')
+                    invod = 1;
+                if (invdo === '')
+                    invdo = 1000000;
+                openInNewTab("{% url 'inventarna_knjiga' %}" + invod + "/" + invdo + "/");
+              }
+            }
+          });
+      });
+    </script>
 
 		<!-- inline scripts related to this page -->
     {% block pagescript %}

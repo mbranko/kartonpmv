@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import unicode_literals
+import datetime
 import os.path
 from django.db import models
 from orgsema.models import NaseljenoMesto, Radnik
@@ -110,6 +111,72 @@ class MuzejskiPredmet(models.Model):
 
     def __unicode__(self):
         return str(self.inv_broj) + ": " + self.vrsta_predmeta
+
+    def predmet_opis(self):
+        if self.vrsta_predmeta is not None and self.vrsta_predmeta != '':
+            if self.opis is not None and self.opis != '':
+                return self.vrsta_predmeta + ": " + self.opis
+            else:
+                return self.vrsta_predmeta
+        else:
+            if self.opis is not None and self.opis != '':
+                return self.opis
+            else:
+                return ''
+
+    def autor_stil(self):
+        if self.autor is not None and self.autor != '':
+            if self.stil is not None and self.stil != '':
+                return self.autor + ": " + self.stil
+            else:
+                return self.autor
+        else:
+            if self.stil is not None and self.stil != '':
+                return self.stil
+            else:
+                return ''
+
+    def mesto_vreme(self):
+        mesto = ''
+        if self.mesto_nastanka is not None and self.mesto_nastanka != '':
+            mesto = self.mesto_nastanka + u' '
+        if self.mesto_nastanka2 is not None:
+            mesto += u'[' + self.mesto_nastanka2 + u']'
+        vreme = ''
+        if self.vreme_nastanka is not None and self.vreme_nastanka != '':
+            vreme = self.vreme_nastanka + u' '
+        if self.datum_nastanka is not None:
+            vreme += datetime.date.strftime(self.datum_nastanka, '%d.%m.%Y.')
+        return mesto + ' ' + vreme
+
+    def dimenzije(self):
+        dim = ''
+        if self.sirina is not None and self.sirina != '':
+            dim += u' š:[' + self.sirina + ']'
+        if self.duzina is not None and self.duzina != '':
+            dim += u' d:[' + self.duzina + ']'
+        if self.visina is not None and self.visina != '':
+            dim += u' v:[' + self.visina + ']'
+        if self.debljina is not None and self.debljina != '':
+            dim += u' b:[' + self.debljina + ']'
+        if self.precnik is not None and self.precnik != '':
+            dim += u' p:[' + self.precnik + ']'
+        if self.grama is not None and self.grama != '':
+            dim += u' g:[' + self.grama + ']'
+        return dim
+
+    def protokol_racun(self):
+        if self.br_protokola is not None and self.br_protokola != '':
+            if self.br_racuna is not None and self.br_racuna != '':
+                return self.br_protokola + ": " + self.br_racuna
+            else:
+                return self.br_protokola
+        else:
+            if self.br_racuna is not None and self.br_racuna != '':
+                return self.br_racuna
+            else:
+                return ''
+
 
     class Meta:
         verbose_name = u'muzejski predmet'

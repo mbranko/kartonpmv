@@ -223,3 +223,12 @@ def statistika_unosa(request):
                      datetime.date.strftime(danas, '%d.%m.%Y.')
     }
     return render(request, 'osnovni/statistika_unosa.html', context)
+
+
+@login_required
+def inventarna_knjiga(request, od=1, do=1000000):
+    predmeti = MuzejskiPredmet.objects.filter(inv_broj__gte=od).filter(inv_broj__lte=do).order_by('inv_broj')
+    table = InvKnjiga(predmeti)
+    RequestConfig(request, paginate={'per_page': 20}).configure(table)
+    context = {'table': table, 'od': od, 'do': do, 'cela': (od == 1 and do == 1000000)}
+    return render(request, 'osnovni/inventarna_knjiga.html', context)
