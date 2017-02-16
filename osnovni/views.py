@@ -37,7 +37,8 @@ def novi_predmet(request):
     context = {'form': form,
                'pagetitle': u'Novi karton',
                'maintitle': u'Novi karton',
-               'titleinfo': u'Kreiranje novog kartona'}
+               'titleinfo': u'Kreiranje novog kartona',
+               'form_mode': 'new'}
     return render(request, 'osnovni/predmet.html', context)
 
 
@@ -47,6 +48,14 @@ def predmet(request, predmet_id):
         pred = MuzejskiPredmet.objects.get(pk=predmet_id)
     except MuzejskiPredmet.DoesNotExist:
         return redirect('index')
+
+    template = 'osnovni/predmet.html'
+    context = {}
+    context['pagetitle'] = u'Pregled kartona'
+    context['maintitle'] = u'Pregled kartona'
+    context['titleinfo'] = u'Pregled podataka u kartonu inv.br. ' + str(pred.inv_broj)
+    context['form_mode'] = 'edit'
+
     if request.method == 'POST':
         form = PredmetForm(request.POST, request.FILES, instance=pred)
         if form.is_valid():
@@ -59,22 +68,20 @@ def predmet(request, predmet_id):
             return redirect('index')
         else:
             print(form.errors)
-            context = {'form': form,
-                       'pagetitle': u'Pregled kartona',
-                       'maintitle': u'Pregled kartona',
-                       'titleinfo': u'Pregled i izmena podataka u kartonu inv.br. ' + str(pred.inv_broj)}
+
     else:
         form = PredmetForm(instance=pred)
-        context = {'form': form,
-                   'pagetitle': u'Pregled kartona',
-                   'maintitle': u'Pregled kartona',
-                   'titleinfo': u'Pregled i izmena podataka u kartonu inv.br. ' + str(pred.inv_broj)}
         if request.user.radnik.uloga.id > 2:
             context['predmet'] = pred
             context['titleinfo'] = u'Pregled podataka u kartonu inv.br. ' + str(pred.inv_broj)
-            return render(request, 'osnovni/predmet_view.html', context)
+            template = 'osnovni/predmet_view.html'
 
-    return render(request, 'osnovni/predmet.html', context)
+    istorija = IstorijaIzmenaPredmeta.objects.filter(predmet=pred).order_by('timestamp')
+    table = PredmetHistoryList(istorija)
+    RequestConfig(request, paginate={'per_page': 20}).configure(table)
+    context['form'] = form
+    context['table'] = table
+    return render(request, template, context)
 
 
 @login_required

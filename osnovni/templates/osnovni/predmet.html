@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load widget_tweaks %}
 {% load label_class %}
+{% load render_table from django_tables2 %}
 
 {% block pagetitle %}{{ pagetitle }}{% endblock %}
 {% block maintitle %}{{ maintitle }}{% endblock %}
@@ -304,6 +305,11 @@
   {% endif %}
 
 </form>
+
+{% if form_mode == 'edit' %}
+<h3>Istorija izmena kartona</h3>
+{% render_table table %}
+{% endif %}
 
 {% endblock %}
 

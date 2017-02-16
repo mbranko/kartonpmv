@@ -3,9 +3,9 @@
 
 from django.utils.safestring import mark_safe
 import django_tables2 as tables
-from django_tables2.columns import LinkColumn, Column
+from django_tables2.columns import LinkColumn, Column, DateTimeColumn
 from django_tables2.utils import A
-from osnovni.models import MuzejskiPredmet
+from osnovni.models import MuzejskiPredmet, IstorijaIzmenaPredmeta
 from orgsema.models import Radnik
 
 
@@ -26,3 +26,12 @@ class RadniciList(tables.Table):
 
     puno_ime = Column(verbose_name='Radnik')
     br_kartona = Column(verbose_name='Br unetih kartona')
+
+
+class PredmetHistoryList(tables.Table):
+    class Meta:
+        model = IstorijaIzmenaPredmeta
+        fields = ['radnik', 'timestamp']
+        attrs = {'class': 'table table-striped table-bordered table-hover'}
+
+    timestamp = DateTimeColumn(format='d.m.Y. H:i')
