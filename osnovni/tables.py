@@ -16,6 +16,7 @@ class PredmetList(tables.Table):
         attrs = {'class': 'table table-striped table-bordered table-hover'}
 
     inv_broj = LinkColumn('edit', args=[A('id')], verbose_name=mark_safe(u'Inv.br.'))
+    datum_nastanka = DateColumn(verbose_name='Datum unosa', format='d.m.Y.')
 
 
 class RadniciList(tables.Table):
