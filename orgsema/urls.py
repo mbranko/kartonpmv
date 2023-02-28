@@ -1,13 +1,13 @@
-from django.conf.urls import url
+from django.urls import path
 from orgsema.views import *
 
 urlpatterns = [
-    url(r'^forgotpass/$', forgotpass, name='forgotpass'),
-    url(r'^changepass/$', changepassword, name='changepass'),
-    url(r'^changepass2/$', changepassword2, name='changepass2'),
-    url(r'^profile/$', myprofile, name='myprofile'),
-    url(r'^newuser/$', newemployee, name='newemployee'),
-    url(r'^newuser/(?P<radnik_id>\d+)/$', newemployee2, name='newemployee2'),
-    url(r'^users/$', employeelist, name='employeelist'),
-    url(r'^user/upload/avatar/$', upload_avatar, name='upload_avatar'),
+    path('forgotpass/', forgotpass, name='forgotpass'),
+    path('changepass/', changepassword, name='changepass'),
+    path('changepass2/', changepassword2, name='changepass2'),
+    path('profile/', myprofile, name='myprofile'),
+    path('newuser/', newemployee, name='newemployee'),
+    path('newuser/<int:radnik_id>/', newemployee2, name='newemployee2'),
+    path('users/', employeelist, name='employeelist'),
+    path('user/upload/avatar/', upload_avatar, name='upload_avatar'),
 ]

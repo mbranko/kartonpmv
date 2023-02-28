@@ -4,7 +4,7 @@
 
 from django import forms
 from django.contrib.auth.models import User
-from models import OrgJed, Uloga
+from .models import OrgJed, Uloga
 
 
 class ForgotPasswordForm(forms.Form):

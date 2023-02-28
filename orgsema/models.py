@@ -14,7 +14,7 @@ class Valuta(models.Model):
     sifra = models.CharField(u'šifra', max_length=3)
     naziv = models.CharField(u'naziv', max_length=100)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.naziv
 
     class Meta:
@@ -25,9 +25,9 @@ class Valuta(models.Model):
 class Drzava(models.Model):
     sifra = models.CharField(u'šifra', max_length=2)
     naziv = models.CharField(u'naziv', max_length=100)
-    valuta = models.ForeignKey(Valuta, verbose_name=u'valuta')
+    valuta = models.ForeignKey(Valuta, verbose_name=u'valuta', on_delete=models.PROTECT)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.naziv
 
     class Meta:
@@ -37,9 +37,9 @@ class Drzava(models.Model):
 
 class Region(models.Model):
     naziv = models.CharField(u'naziv', max_length=100)
-    drzava = models.ForeignKey(Drzava, verbose_name=u'država')
+    drzava = models.ForeignKey(Drzava, verbose_name=u'država', on_delete=models.CASCADE)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.naziv
 
     class Meta:
@@ -50,9 +50,9 @@ class Region(models.Model):
 class Okrug(models.Model):
     sifra = models.CharField(u'šifra', max_length=2)
     naziv = models.CharField(u'naziv', max_length=100)
-    region = models.ForeignKey(Region, verbose_name=u'region')
+    region = models.ForeignKey(Region, verbose_name=u'region', on_delete=models.CASCADE)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.naziv
 
     class Meta:
@@ -62,10 +62,10 @@ class Okrug(models.Model):
 
 class Opstina(models.Model):
     naziv = models.CharField(u'naziv', max_length=100)
-    okrug = models.ForeignKey(Okrug, verbose_name=u'okrug')
+    okrug = models.ForeignKey(Okrug, verbose_name=u'okrug', on_delete=models.CASCADE)
     maticni_broj = models.CharField(u'matični broj', max_length=5)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.naziv
 
     class Meta:
@@ -76,9 +76,9 @@ class Opstina(models.Model):
 class NaseljenoMesto(models.Model):
     naziv = models.CharField(u'naziv', max_length=50)
     zip_code = models.CharField(u'poštanski broj', max_length=15)
-    opstina = models.ForeignKey(Opstina, verbose_name=u'opština')
+    opstina = models.ForeignKey(Opstina, verbose_name=u'opština', on_delete=models.CASCADE)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.naziv
 
     class Meta:
@@ -89,14 +89,14 @@ class NaseljenoMesto(models.Model):
 class OrgJed(models.Model):
     sifra = models.CharField(u'šifra', max_length=6)
     naziv = models.CharField(u'naziv', max_length=100)
-    nadjed = models.ForeignKey('self', verbose_name=u'nadređena jedinica', blank=True, null=True)
+    nadjed = models.ForeignKey('self', verbose_name=u'nadređena jedinica', blank=True, null=True, on_delete=models.CASCADE)
     nivo = models.PositiveSmallIntegerField(u'nivo', blank=True, null=True)
-    mesto = models.ForeignKey(NaseljenoMesto, verbose_name=u'mesto', blank=True, null=True)
+    mesto = models.ForeignKey(NaseljenoMesto, verbose_name=u'mesto', blank=True, null=True, on_delete=models.PROTECT)
     adresa = models.CharField(u'adresa', max_length=200, blank=True, null=True)
     email = models.CharField(u'email', max_length=200, blank=True, null=True)
     aktivna = models.BooleanField(u'aktivna', default=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.naziv
 
     class Meta:
@@ -107,7 +107,7 @@ class OrgJed(models.Model):
 class Uloga(models.Model):
     naziv = models.CharField(u'naziv', max_length=100)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.naziv
 
     class Meta:
@@ -116,12 +116,12 @@ class Uloga(models.Model):
 
 
 class Radnik(models.Model):
-    user = models.OneToOneField(User, blank=True, null=True)
-    uloga = models.ForeignKey(Uloga, verbose_name=u'uloga')
-    orgjed = models.ForeignKey(OrgJed, verbose_name=u'organizaciona jedinica')
+    user = models.OneToOneField(User, blank=True, null=True, on_delete=models.PROTECT)
+    uloga = models.ForeignKey(Uloga, verbose_name=u'uloga', on_delete=models.PROTECT)
+    orgjed = models.ForeignKey(OrgJed, verbose_name=u'organizaciona jedinica', on_delete=models.CASCADE)
     avatar = models.FileField(upload_to=get_upload_path_avatar, blank=True, null=True)
 
-    def __unicode__(self):
+    def __str__(self):
         if self.user is None:
             return 'Nepoznato ime'
         return self.user.first_name + ' ' + self.user.last_name

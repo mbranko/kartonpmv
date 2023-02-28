@@ -13,26 +13,23 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import include, url
+from django.urls import path, include
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.contrib.auth.views import login
+from django.contrib.auth.views import LoginView
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from kartonpmv import settings, views
 
 urlpatterns = [
-    url(r'^accounts/login/$', login),
-    url(r'^accounts/logout/$', views.logout, name='logout'),
-    url(r'^grappelli/', include('grappelli.urls')),
-    url(r'^admin/', admin.site.urls),
-    url(r'^', include('osnovni.urls')),
-    url(r'^orgsema/', include('orgsema.urls')),
+    path('accounts/login/', LoginView.as_view()),
+    path('accounts/logout/', views.logout, name='logout'),
+    path('grappelli/', include('grappelli.urls')),
+    path('admin/', admin.site.urls),
+    path('orgsema/', include('orgsema.urls')),
+    path('__debug__/', include('debug_toolbar.urls')),
+    path('', include('osnovni.urls')),
 ]
 
 if settings.DEBUG:
     urlpatterns += staticfiles_urlpatterns()
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-    import debug_toolbar
-    urlpatterns += [
-        url(r'^__debug__/', include(debug_toolbar.urls)),
-    ]
