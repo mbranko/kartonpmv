@@ -1,0 +1,76 @@
+version: "3.8"
+services:
+  mariadb:
+    container_name: kartonpmv-mariadb
+    image: mariadb:10.10
+    restart: always
+    volumes: 
+      - karton-data:/var/lib/mysql
+      - karton-init:/docker-entrypoint-initdb.d
+    environment:
+      - MARIADB_ROOT_PASSWORD=kartonpmv
+      - MARIADB_USER=kartonpmv
+      - MARIADB_PASSWORD=kartonpmv
+      - MARIADB_DATABASE=kartonpmv
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    networks:
+      kartonpmv:
+  kartonpmv:
+    container_name: kartonpmv
+    image: pmv/karton
+    restart: always
+    depends_on:
+      - mariadb
+    volumes:
+      - karton-private:/private
+      - karton-log:/app/log
+      - karton-media:/app/media
+    labels:
+      - "traefik.http.routers.korpus.rule=Host(`karton.pmv.org.rs`)"
+      - traefik.http.routers.korpus.entrypoints=web
+      - traefik.http.routers.korpus.middlewares=redirect-to-https@docker
+      - "traefik.http.routers.korpus-secured.rule=Host(`karton.pmv.org.rs`)"
+      - traefik.http.routers.korpus-secured.entrypoints=websecure
+      - traefik.http.routers.korpus-secured.tls.certresolver=letsencrypt
+      - traefik.http.routers.korpus-secured.tls=true
+    networks:
+      kartonpmv:
+networks:
+  kartonpmv:
+    external: true
+volumes:
+  karton-media:
+    name: karton-media
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: './media'
+  karton-data:
+    name: karton-data
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: './data'
+  karton-init:
+    name: karton-init
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: './init'
+  karton-log:
+    name: karton-log
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: './log'
+  karton-private:
+    name: karton-private
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: './private'
