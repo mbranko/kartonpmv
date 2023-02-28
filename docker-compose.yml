@@ -26,13 +26,13 @@ services:
       - karton-log:/app/log
       - karton-media:/app/media
     labels:
-      - "traefik.http.routers.korpus.rule=Host(`karton.pmv.org.rs`)"
-      - traefik.http.routers.korpus.entrypoints=web
-      - traefik.http.routers.korpus.middlewares=redirect-to-https@docker
-      - "traefik.http.routers.korpus-secured.rule=Host(`karton.pmv.org.rs`)"
-      - traefik.http.routers.korpus-secured.entrypoints=websecure
-      - traefik.http.routers.korpus-secured.tls.certresolver=letsencrypt
-      - traefik.http.routers.korpus-secured.tls=true
+      - "traefik.http.routers.kartonpmv.rule=Host(`karton.pmv.org.rs`)"
+      - traefik.http.routers.kartonpmv.entrypoints=web
+      - traefik.http.routers.kartonpmv.middlewares=redirect-to-https@docker
+      - "traefik.http.routers.kartonpmv-secured.rule=Host(`karton.pmv.org.rs`)"
+      - traefik.http.routers.kartonpmv-secured.entrypoints=websecure
+      - traefik.http.routers.kartonpmv-secured.tls.certresolver=letsencrypt
+      - traefik.http.routers.kartonpmv-secured.tls=true
     networks:
       kartonpmv:
 networks:
